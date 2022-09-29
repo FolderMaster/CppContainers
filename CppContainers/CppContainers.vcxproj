@@ -130,21 +130,28 @@
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Array.h" />
     <ClInclude Include="Containers.h" />
     <ClInclude Include="IAddable.h" />
+    <ClInclude Include="IForwardIterable.h" />
     <ClInclude Include="ICapacitable.h" />
     <ClInclude Include="IContainer.h" />
+    <ClInclude Include="IIndexSizable.h" />
+    <ClInclude Include="ISingleList.h" />
+    <ClInclude Include="IForwardIterator.h" />
+    <ClInclude Include="IFullContainer.h" />
+    <ClInclude Include="IFullIterable.h" />
+    <ClInclude Include="IFullIterator.h" />
     <ClInclude Include="IIndexAddable.h" />
     <ClInclude Include="IIndexContainer.h" />
     <ClInclude Include="IIndexRemovable.h" />
     <ClInclude Include="IIndexTakable.h" />
+    <ClInclude Include="IIterable.h" />
+    <ClInclude Include="IIterator.h" />
     <ClInclude Include="IRemovable.h" />
     <ClInclude Include="ISizable.h" />
-    <ClInclude Include="ISpecificAddable.h" />
-    <ClInclude Include="ISpecificContainer.h" />
-    <ClInclude Include="ISpecificRemovable.h" />
-    <ClInclude Include="ISpecificTakable.h" />
     <ClInclude Include="ITakable.h" />
+    <ClInclude Include="ITree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

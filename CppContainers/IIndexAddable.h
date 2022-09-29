@@ -1,13 +1,16 @@
 #pragma once
 
-#include "ISpecificAddable.h"
+#include "IAddable.h"
 
 namespace Containers
 {
-    template<class T>
-    class IIndexAddable : public ISpecificAddable<T>
+    template <class T>
+    class IIndexAddable : public IAddable<T>
     {
-        virtual void Add(int index) = 0;
-        virtual void Add(int index, T item) = 0;
+		virtual void Add(int index, T item = T()) = 0;
+
+		virtual void AddBegin(T item = T()) = 0;
+
+		virtual void AddEnd(T item = T()) = 0;
     };
 }

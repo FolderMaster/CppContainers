@@ -2,7 +2,7 @@
 
 namespace Containers
 {
-	template<class T>
+	template <class T>
 	class IRemovable
 	{
 	public:

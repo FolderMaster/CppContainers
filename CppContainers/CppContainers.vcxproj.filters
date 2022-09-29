@@ -32,13 +32,7 @@
     <ClInclude Include="IAddable.h">
       <Filter>Файлы заголовков\Iterfaces</Filter>
     </ClInclude>
-    <ClInclude Include="ISpecificAddable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
-    </ClInclude>
     <ClInclude Include="IRemovable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="ISpecificRemovable.h">
       <Filter>Файлы заголовков\Iterfaces</Filter>
     </ClInclude>
     <ClInclude Include="IIndexRemovable.h">
@@ -53,9 +47,6 @@
     <ClInclude Include="IContainer.h">
       <Filter>Файлы заголовков\Iterfaces</Filter>
     </ClInclude>
-    <ClInclude Include="ISpecificContainer.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
-    </ClInclude>
     <ClInclude Include="IIndexContainer.h">
       <Filter>Файлы заголовков\Iterfaces</Filter>
     </ClInclude>
@@ -68,10 +59,40 @@
     <ClInclude Include="ITakable.h">
       <Filter>Файлы заголовков\Iterfaces</Filter>
     </ClInclude>
-    <ClInclude Include="ISpecificTakable.h">
+    <ClInclude Include="IIndexTakable.h">
       <Filter>Файлы заголовков\Iterfaces</Filter>
     </ClInclude>
-    <ClInclude Include="IIndexTakable.h">
+    <ClInclude Include="IForwardIterable.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IForwardIterator.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IFullIterable.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IFullIterator.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IIterable.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IIterator.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ISingleList.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IFullContainer.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ITree.h">
+      <Filter>Файлы заголовков\Iterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>Файлы заголовков\Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="IIndexSizable.h">
       <Filter>Файлы заголовков\Iterfaces</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,7 +3,7 @@
 namespace Containers
 {
 	template <class T>
-	class ITakable
+	class IIterator
 	{
 	public:
 		virtual T& Take() = 0;

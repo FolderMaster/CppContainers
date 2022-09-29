@@ -1,13 +1,17 @@
 #pragma once
 
-#include "ISpecificTakable.h"
+#include "ITakable.h"
 
 namespace Containers
 {
-	template<class T>
-	class IIndexTakable : public ISpecificTakable<T>
+	template <class T>
+	class IIndexTakable : public ITakable<T>
 	{
 	public:
 		virtual T& Take(int index) = 0;
+
+		virtual T& TakeBegin() = 0;
+
+		virtual T& TakeEnd() = 0;
 	};
 }

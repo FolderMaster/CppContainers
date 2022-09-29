@@ -3,9 +3,9 @@
 namespace Containers
 {
 	template <class T>
-	class ITakable
+	class IIterable
 	{
 	public:
-		virtual T& Take() = 0;
+		virtual T& Take(void* pointer) = 0;
 	};
 }
