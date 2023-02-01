@@ -1,14 +1,12 @@
 #pragma once
 
-#include "IIterator.h"
+#include "IForwardMoveable.h"
+#include "IValueIteratorTakeable.h"
+#include "IItemIteratorTakeable.h"
 
 namespace Containers
 {
-	template <class T>
-	class IForwardIterator : public IIterator<T>
-	{
-	public:
-		virtual void Forward() = 0;
-		virtual bool IsForward() = 0;
-	};
+	template <class TValue, class TItem>
+	class IForwardIterator : IForwardMoveable, IValueIteratorTakeable<TValue>, 
+		IItemIteratorTakeable<TItem> {};
 }

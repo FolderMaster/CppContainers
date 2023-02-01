@@ -127,31 +127,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConstForwardIterator.cpp" />
+    <ClCompile Include="DynamicArray.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h" />
+    <ClInclude Include="ConstForwardIterator.h" />
     <ClInclude Include="Containers.h" />
+    <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="IAddable.h" />
+    <ClInclude Include="IConstForwardIterable.h" />
+    <ClInclude Include="IConstForwardIterator.h" />
+    <ClInclude Include="IConstFullIterator.h" />
     <ClInclude Include="IForwardIterable.h" />
-    <ClInclude Include="ICapacitable.h" />
-    <ClInclude Include="IContainer.h" />
-    <ClInclude Include="IIndexSizable.h" />
-    <ClInclude Include="ISingleList.h" />
     <ClInclude Include="IForwardIterator.h" />
-    <ClInclude Include="IFullContainer.h" />
-    <ClInclude Include="IFullIterable.h" />
+    <ClInclude Include="IForwardMoveable.h" />
+    <ClInclude Include="IBackIterable.h" />
+    <ClInclude Include="IBackMoveable.h" />
     <ClInclude Include="IFullIterator.h" />
-    <ClInclude Include="IIndexAddable.h" />
-    <ClInclude Include="IIndexContainer.h" />
-    <ClInclude Include="IIndexRemovable.h" />
-    <ClInclude Include="IIndexTakable.h" />
-    <ClInclude Include="IIterable.h" />
-    <ClInclude Include="IIterator.h" />
-    <ClInclude Include="IRemovable.h" />
-    <ClInclude Include="ISizable.h" />
-    <ClInclude Include="ITakable.h" />
-    <ClInclude Include="ITree.h" />
+    <ClInclude Include="IItemContainerTakeable.h" />
+    <ClInclude Include="IItemIterableTakeable.h" />
+    <ClInclude Include="IItemIteratorTakeable.h" />
+    <ClInclude Include="IRemoveable.h" />
+    <ClInclude Include="ISizeGetable.h" />
+    <ClInclude Include="IValueIterableTakeable.h" />
+    <ClInclude Include="IValueIteratorTakeable.h" />
+    <ClInclude Include="IValueContainerTakeable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

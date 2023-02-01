@@ -22,78 +22,105 @@
     <Filter Include="Файлы заголовков\Structures">
       <UniqueIdentifier>{ebdb11ed-d591-44d5-89a9-67f1d6b2dbf3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Functions">
+      <UniqueIdentifier>{3f2f3cec-528e-45b4-ac1d-5d73531ab63a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container">
+      <UniqueIdentifier>{3d2ef39f-070f-4f86-bee3-8ef96fec65ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Iterators">
+      <UniqueIdentifier>{cfbb7d00-8c21-4e8a-9f8c-cb356c01b272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Containers">
+      <UniqueIdentifier>{126bebe1-4de0-4b90-bd17-c8b1e56fb35b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Iterators\Currents">
+      <UniqueIdentifier>{cd8407cb-3f9a-4669-aee0-9d7121f2b81a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Iterators">
+      <UniqueIdentifier>{07a93418-8354-4c72-8ba6-d36c68d342d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Iterable">
+      <UniqueIdentifier>{fbfeeafa-95ac-4ca1-b77d-b1cec05820ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Iterable\Current">
+      <UniqueIdentifier>{99afb97c-5857-4007-b78b-44a87afa944b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicArray.cpp">
+      <Filter>Файлы заголовков\Classes\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstForwardIterator.cpp">
+      <Filter>Файлы заголовков\Classes\Iterators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IAddable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="IRemovable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="IIndexRemovable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="IIndexAddable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
-    </ClInclude>
     <ClInclude Include="Containers.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="IContainer.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IValueIteratorTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="IIndexContainer.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IItemIteratorTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="ISizable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IForwardMoveable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="ICapacitable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IBackMoveable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="ITakable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IAddable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="IIndexTakable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IRemoveable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="IForwardIterable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="ISizeGetable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="IConstForwardIterator.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="IConstFullIterator.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IForwardIterator.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
-    </ClInclude>
-    <ClInclude Include="IFullIterable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IFullIterator.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
-    <ClInclude Include="IIterable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="DynamicArray.h">
+      <Filter>Файлы заголовков\Classes\Container</Filter>
     </ClInclude>
-    <ClInclude Include="IIterator.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="ConstForwardIterator.h">
+      <Filter>Файлы заголовков\Classes\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="ISingleList.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IValueIterableTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
     </ClInclude>
-    <ClInclude Include="IFullContainer.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IItemIterableTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
     </ClInclude>
-    <ClInclude Include="ITree.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IConstForwardIterable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterable\Current</Filter>
     </ClInclude>
-    <ClInclude Include="Array.h">
-      <Filter>Файлы заголовков\Classes</Filter>
+    <ClInclude Include="IValueContainerTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="IIndexSizable.h">
-      <Filter>Файлы заголовков\Iterfaces</Filter>
+    <ClInclude Include="IItemContainerTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="IForwardIterable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
+    </ClInclude>
+    <ClInclude Include="IBackIterable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

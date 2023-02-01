@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Array.h"
+#include "DynamicArray.cpp"
 
 namespace Containers
 {
