@@ -7,32 +7,29 @@
 #include "ISizeGetable.h"
 #include "IConstForwardIterable.h"
 #include "IConstBackIterable.h"
+#include "DoubleLinkedListSegment.cpp"
 
 namespace Containers
 {
 	template <class T>
-	class DynamicArray : IAddable<T, size_t>, IRemoveable<size_t>, ISizeGetable,
+	class DoubleLinkedList : IAddable<T, size_t>, IRemoveable<size_t>, ISizeGetable,
 		IItemContainerTakeable<T, size_t>, IValueContainerTakeable<T, size_t>,
 		IConstForwardIterable<T>, IConstBackIterable<T>
 	{
 	private:
-		const double _growthFactor = 2;
+		DoubleSegment<T>* _head = nullptr;
 
-		size_t _capacity = 0;
+		DoubleSegment<T>* _tail = nullptr;
 
-		size_t _size = 0;
-
-		T* _array = nullptr;
-
-		T* Resize(int newSize);
+		DoubleSegment<T>* GetPointerOfIndex(int index);
 	public:
 		size_t GetSize();
 
 		T& operator[](size_t index);
 
-		DynamicArray();
+		DoubleLinkedList();
 
-		~DynamicArray();
+		~DoubleLinkedList();
 
 		void Add(T value, size_t index) override;
 
@@ -62,5 +59,5 @@ namespace Containers
 	};
 
 	template<class T>
-	using Array = DynamicArray<T>;
+	using DoubleList = DoubleLinkedList<T>;
 }

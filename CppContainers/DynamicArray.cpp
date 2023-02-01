@@ -2,6 +2,7 @@
 
 #include "DynamicArray.h"
 #include "ConstForwardIterator.cpp"
+#include "ConstBackIterator.cpp"
 
 namespace Containers
 {
@@ -135,6 +136,19 @@ namespace Containers
 	}
 
 	template<class T>
+	void* DynamicArray<T>::Back(void* pointer)
+	{
+		return (T*)pointer - 1;
+	}
+
+	template<class T>
+	bool DynamicArray<T>::IsBack(void* pointer)
+	{
+		T* newPointer = (T*)pointer - 1;
+		return _array <= newPointer && newPointer < _array + _size;
+	}
+
+	template<class T>
 	T DynamicArray<T>::TakeValue(void* pointer)
 	{
 		return *((T*)pointer);
@@ -150,5 +164,15 @@ namespace Containers
 	ConstForwardIterator<T> DynamicArray<T>::CreateConstForwardEnd()
 	{
 		return ConstForwardIterator<T>(_array + _size, *this);
+	}
+	template<class T>
+	ConstBackIterator<T> DynamicArray<T>::CreateConstBackBegin()
+	{
+		return ConstBackIterator<T>(_array + _size - 1, *this);
+	}
+	template<class T>
+	ConstBackIterator<T> DynamicArray<T>::CreateConstBackEnd()
+	{
+		return ConstBackIterator<T>(_array - 1, *this);
 	}
 }

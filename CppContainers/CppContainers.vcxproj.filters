@@ -57,6 +57,15 @@
     <ClCompile Include="ConstForwardIterator.cpp">
       <Filter>Файлы заголовков\Classes\Iterators</Filter>
     </ClCompile>
+    <ClCompile Include="DoubleLinkedList.cpp">
+      <Filter>Файлы заголовков\Classes\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleLinkedListSegment.cpp">
+      <Filter>Файлы заголовков\Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstBackIterator.cpp">
+      <Filter>Файлы заголовков\Classes\Iterators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Containers.h">
@@ -121,6 +130,21 @@
     </ClInclude>
     <ClInclude Include="IBackIterable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleLinkedList.h">
+      <Filter>Файлы заголовков\Classes\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleLinkedListSegment.h">
+      <Filter>Файлы заголовков\Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="IConstBackIterable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterable\Current</Filter>
+    </ClInclude>
+    <ClInclude Include="IConstBackIterator.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstBackIterator.h">
+      <Filter>Файлы заголовков\Classes\Iterators</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -127,13 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConstBackIterator.cpp" />
     <ClCompile Include="ConstForwardIterator.cpp" />
+    <ClCompile Include="DoubleLinkedList.cpp" />
+    <ClCompile Include="DoubleLinkedListSegment.cpp" />
     <ClCompile Include="DynamicArray.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConstBackIterator.h" />
     <ClInclude Include="ConstForwardIterator.h" />
     <ClInclude Include="Containers.h" />
+    <ClInclude Include="DoubleLinkedList.h" />
+    <ClInclude Include="DoubleLinkedListSegment.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="IAddable.h" />
     <ClInclude Include="IConstForwardIterable.h" />
@@ -149,6 +155,8 @@
     <ClInclude Include="IItemIterableTakeable.h" />
     <ClInclude Include="IItemIteratorTakeable.h" />
     <ClInclude Include="IRemoveable.h" />
+    <ClInclude Include="IConstBackIterable.h" />
+    <ClInclude Include="IConstBackIterator.h" />
     <ClInclude Include="ISizeGetable.h" />
     <ClInclude Include="IValueIterableTakeable.h" />
     <ClInclude Include="IValueIteratorTakeable.h" />
