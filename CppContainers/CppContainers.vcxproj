@@ -132,6 +132,10 @@
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="DoubleLinkedListSegment.cpp" />
     <ClCompile Include="DynamicArray.cpp" />
+    <ClCompile Include="MaxStack.cpp" />
+    <ClCompile Include="MinMaxStack.cpp" />
+    <ClCompile Include="MinStack.cpp" />
+    <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +146,7 @@
     <ClInclude Include="DoubleLinkedListSegment.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="IAddable.h" />
+    <ClInclude Include="IBackIterator.h" />
     <ClInclude Include="IConstForwardIterable.h" />
     <ClInclude Include="IConstForwardIterator.h" />
     <ClInclude Include="IConstFullIterator.h" />
@@ -157,10 +162,21 @@
     <ClInclude Include="IRemoveable.h" />
     <ClInclude Include="IConstBackIterable.h" />
     <ClInclude Include="IConstBackIterator.h" />
+    <ClInclude Include="ISimpleAddable.h" />
+    <ClInclude Include="ISimpleRemoveable.h" />
+    <ClInclude Include="ISimpleValueTakeable.h" />
     <ClInclude Include="ISizeGetable.h" />
+    <ClInclude Include="ISpecificAddable.h" />
+    <ClInclude Include="ISpecificRemoveable.h" />
+    <ClInclude Include="ISpecificValueTakeable.h" />
+    <ClInclude Include="IStackContainer.h" />
     <ClInclude Include="IValueIterableTakeable.h" />
     <ClInclude Include="IValueIteratorTakeable.h" />
     <ClInclude Include="IValueContainerTakeable.h" />
+    <ClInclude Include="MaxStack.h" />
+    <ClInclude Include="MinMaxStack.h" />
+    <ClInclude Include="MinStack.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

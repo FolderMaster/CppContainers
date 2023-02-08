@@ -7,7 +7,7 @@
 namespace Containers
 {
 	template<class T>
-	T* DynamicArray<T>::Resize(int newSize)
+	T* DynamicArray<T>::Resize(size_t newSize)
 	{
 		if (newSize > _capacity)
 		{
@@ -49,9 +49,7 @@ namespace Containers
 	}
 
 	template<class T>
-	DynamicArray<T>::DynamicArray()
-	{
-	}
+	DynamicArray<T>::DynamicArray() {}
 
 	template<class T>
 	DynamicArray<T>::~DynamicArray()
@@ -66,12 +64,12 @@ namespace Containers
 
 		if (newPointer != _array)
 		{
-			for (int n = 0; n < index; ++n)
+			for (size_t n = 0; n < index; ++n)
 			{
 				newPointer[n] = _array[n];
 			}
 		}
-		for (int n = _size; n > index; --n)
+		for (size_t n = _size; n > index; --n)
 		{
 			newPointer[n] = _array[n - 1];
 		}
@@ -87,17 +85,29 @@ namespace Containers
 	}
 
 	template<class T>
+	void DynamicArray<T>::AddBegin(T value)
+	{
+		Add(value, 0);
+	}
+
+	template<class T>
+	void DynamicArray<T>::AddEnd(T value)
+	{
+		Add(value, GetSize());
+	}
+
+	template<class T>
 	void DynamicArray<T>::Remove(size_t index)
 	{
 		T* newPointer = Resize(_size - 1);
 		if (newPointer != _array)
 		{
-			for (int n = 0; n < index; ++n)
+			for (size_t n = 0; n < index; ++n)
 			{
 				newPointer[n] = _array[n];
 			}
 		}
-		for (int n = index + 1; n < _size; ++n)
+		for (size_t n = index + 1; n < _size; ++n)
 		{
 			newPointer[n - 1] = _array[n];
 		}
@@ -111,9 +121,33 @@ namespace Containers
 	}
 
 	template<class T>
+	void DynamicArray<T>::RemoveBegin()
+	{
+		Remove(0);
+	}
+
+	template<class T>
+	void DynamicArray<T>::RemoveEnd()
+	{
+		Remove(GetSize() - 1);
+	}
+
+	template<class T>
 	T DynamicArray<T>::TakeValue(size_t index)
 	{
 		return _array[index];
+	}
+
+	template<class T>
+	T DynamicArray<T>::TakeValueBegin()
+	{
+		return TakeValue((size_t)0);
+	}
+
+	template<class T>
+	T DynamicArray<T>::TakeValueEnd()
+	{
+		return TakeValue(GetSize() - 1);
 	}
 
 	template<class T>
@@ -165,11 +199,13 @@ namespace Containers
 	{
 		return ConstForwardIterator<T>(_array + _size, *this);
 	}
+
 	template<class T>
 	ConstBackIterator<T> DynamicArray<T>::CreateConstBackBegin()
 	{
 		return ConstBackIterator<T>(_array + _size - 1, *this);
 	}
+
 	template<class T>
 	ConstBackIterator<T> DynamicArray<T>::CreateConstBackEnd()
 	{

@@ -7,14 +7,15 @@
 #include "ISizeGetable.h"
 #include "IConstForwardIterable.h"
 #include "IConstBackIterable.h"
+#include "IStackContainer.h"
 #include "DoubleLinkedListSegment.cpp"
 
 namespace Containers
 {
 	template <class T>
-	class DoubleLinkedList : IAddable<T, size_t>, IRemoveable<size_t>, ISizeGetable,
-		IItemContainerTakeable<T, size_t>, IValueContainerTakeable<T, size_t>,
-		IConstForwardIterable<T>, IConstBackIterable<T>
+	class DoubleLinkedList : IAddable<T, int>, IRemoveable<int>, ISizeGetable,
+		IItemContainerTakeable<T, int>, IValueContainerTakeable<T, int>,
+		IConstForwardIterable<T>, IConstBackIterable<T>, public IStackContainer<T>
 	{
 	private:
 		DoubleSegment<T>* _head = nullptr;
@@ -25,19 +26,31 @@ namespace Containers
 	public:
 		size_t GetSize();
 
-		T& operator[](size_t index);
+		T& operator[](int index);
 
 		DoubleLinkedList();
 
 		~DoubleLinkedList();
 
-		void Add(T value, size_t index) override;
+		void Add(T value, int index) override;
 
-		void Remove(size_t index) override;
+		void AddBegin(T value) override;
 
-		T TakeValue(size_t index) override;
+		void AddEnd(T value) override;
 
-		T& TakeItem(size_t index) override;
+		void Remove(int index) override;
+
+		void RemoveBegin() override;
+
+		void RemoveEnd() override;
+
+		T TakeValue(int index) override;
+
+		T TakeValueBegin() override;
+
+		T TakeValueEnd() override;
+
+		T& TakeItem(int index) override;
 
 		void* Forward(void* pointer) override;
 

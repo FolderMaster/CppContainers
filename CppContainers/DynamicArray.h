@@ -6,6 +6,7 @@
 #include "IItemContainerTakeable.h"
 #include "ISizeGetable.h"
 #include "IConstForwardIterable.h"
+#include "IStackContainer.h"
 #include "IConstBackIterable.h"
 
 namespace Containers
@@ -13,7 +14,7 @@ namespace Containers
 	template <class T>
 	class DynamicArray : IAddable<T, size_t>, IRemoveable<size_t>, ISizeGetable,
 		IItemContainerTakeable<T, size_t>, IValueContainerTakeable<T, size_t>,
-		IConstForwardIterable<T>, IConstBackIterable<T>
+		IConstForwardIterable<T>, IConstBackIterable<T>, public IStackContainer<T>
 	{
 	private:
 		const double _growthFactor = 2;
@@ -24,7 +25,7 @@ namespace Containers
 
 		T* _array = nullptr;
 
-		T* Resize(int newSize);
+		T* Resize(size_t newSize);
 	public:
 		size_t GetSize();
 
@@ -36,9 +37,21 @@ namespace Containers
 
 		void Add(T value, size_t index) override;
 
+		void AddBegin(T value) override;
+
+		void AddEnd(T value) override;
+
 		void Remove(size_t index) override;
 
+		void RemoveBegin() override;
+
+		void RemoveEnd() override;
+
 		T TakeValue(size_t index) override;
+
+		T TakeValueBegin() override;
+
+		T TakeValueEnd() override;
 
 		T& TakeItem(size_t index) override;
 

@@ -14,6 +14,8 @@ namespace Containers
 
 		DoubleLinkedListSegment(T item);
 
+		DoubleLinkedListSegment(T item, DoubleLinkedListSegment<T>* back);
+
 		DoubleLinkedListSegment(T item, DoubleLinkedListSegment<T>* back, DoubleLinkedListSegment<T>*
 			next);
 	};

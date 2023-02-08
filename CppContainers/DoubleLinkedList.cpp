@@ -13,7 +13,7 @@ namespace Containers
 		if (index >= 0)
 		{
 			result = _head;
-			for (int n = 0; n < index; ++n, result = result->Next)
+			for (size_t n = 0; n < index; ++n, result = result->Next)
 			{
 
 			}
@@ -21,7 +21,7 @@ namespace Containers
 		else
 		{
 			result = _tail;
-			for (int n = -1; n > index; --n, result = result->Back)
+			for (size_t n = -1; n > index; --n, result = result->Back)
 			{
 
 			}
@@ -43,7 +43,7 @@ namespace Containers
 	}
 
 	template<class T>
-	T& DoubleLinkedList<T>::operator[](size_t index)
+	T& DoubleLinkedList<T>::operator[](int index)
 	{
 		return TakeItem(index);
 	}
@@ -59,13 +59,21 @@ namespace Containers
 	}
 
 	template<class T>
-	void DoubleLinkedList<T>::Add(T value, size_t index)
+	void DoubleLinkedList<T>::Add(T value, int index)
 	{
 		DoubleSegment<T>* pointer = GetPointerOfIndex(index);
 		if (pointer == nullptr)
 		{
-			_head = new DoubleSegment<T>(value);
-			_tail = _head;
+			if (_head == nullptr)
+			{
+				_head = new DoubleSegment<T>(value);
+				_tail = _head;
+			}
+			else
+			{
+				_tail->Next = new DoubleSegment<T>(value, _tail);
+				_tail = _tail->Next;
+			}
 		}
 		else
 		{
@@ -82,7 +90,19 @@ namespace Containers
 	}
 
 	template<class T>
-	void DoubleLinkedList<T>::Remove(size_t index)
+	void DoubleLinkedList<T>::AddBegin(T value)
+	{
+		Add(value, 0);
+	}
+
+	template<class T>
+	void DoubleLinkedList<T>::AddEnd(T value)
+	{
+		Add(value, GetSize());
+	}
+
+	template<class T>
+	void DoubleLinkedList<T>::Remove(int index)
 	{
 		DoubleSegment<T>* pointer = GetPointerOfIndex(index);
 		if (pointer == _head)
@@ -105,13 +125,37 @@ namespace Containers
 	}
 
 	template<class T>
-	T DoubleLinkedList<T>::TakeValue(size_t index)
+	void DoubleLinkedList<T>::RemoveBegin()
+	{
+		Remove(0);
+	}
+
+	template<class T>
+	void DoubleLinkedList<T>::RemoveEnd()
+	{
+		Remove(-1);
+	}
+
+	template<class T>
+	T DoubleLinkedList<T>::TakeValue(int index)
 	{
 		return GetPointerOfIndex(index)->Item;
 	}
 
 	template<class T>
-	T& DoubleLinkedList<T>::TakeItem(size_t index)
+	T DoubleLinkedList<T>::TakeValueBegin()
+	{
+		return TakeValue(0);
+	}
+
+	template<class T>
+	T DoubleLinkedList<T>::TakeValueEnd()
+	{
+		return TakeValue(-1);
+	}
+
+	template<class T>
+	T& DoubleLinkedList<T>::TakeItem(int index)
 	{
 		return GetPointerOfIndex(index)->Item;
 	}
@@ -157,11 +201,13 @@ namespace Containers
 	{
 		return ConstForwardIterator<T>(nullptr, *this);
 	}
+
 	template<class T>
 	ConstBackIterator<T> DoubleLinkedList<T>::CreateConstBackBegin()
 	{
 		return ConstBackIterator<T>(_tail, *this);
 	}
+
 	template<class T>
 	ConstBackIterator<T> DoubleLinkedList<T>::CreateConstBackEnd()
 	{

@@ -46,6 +46,24 @@
     <Filter Include="Файлы заголовков\Iterfaces\Iterable\Current">
       <UniqueIdentifier>{99afb97c-5857-4007-b78b-44a87afa944b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Containers\Removeable">
+      <UniqueIdentifier>{07cd5f5f-d456-467e-af09-4f6bc10043f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Containers\Addable">
+      <UniqueIdentifier>{046e79e6-c348-4a48-95ff-ed5990e579ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Containers\Takeable">
+      <UniqueIdentifier>{495f3dab-0b18-4a34-ac6e-53c1b8f3fed4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable">
+      <UniqueIdentifier>{8cfb8ae9-196b-4003-84b8-cbeec798bda0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Containers\Currents">
+      <UniqueIdentifier>{2614f07b-2cd5-4808-8c55-1fc18a766dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Stack">
+      <UniqueIdentifier>{8a288021-4786-47d0-a64c-06753f03ee42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
@@ -66,6 +84,18 @@
     <ClCompile Include="ConstBackIterator.cpp">
       <Filter>Файлы заголовков\Classes\Iterators</Filter>
     </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="MaxStack.cpp">
+      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="MinStack.cpp">
+      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="MinMaxStack.cpp">
+      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Containers.h">
@@ -82,12 +112,6 @@
     </ClInclude>
     <ClInclude Include="IBackMoveable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
-    </ClInclude>
-    <ClInclude Include="IAddable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="IRemoveable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
     </ClInclude>
     <ClInclude Include="ISizeGetable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
@@ -119,12 +143,6 @@
     <ClInclude Include="IConstForwardIterable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterable\Current</Filter>
     </ClInclude>
-    <ClInclude Include="IValueContainerTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="IItemContainerTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
-    </ClInclude>
     <ClInclude Include="IForwardIterable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
     </ClInclude>
@@ -145,6 +163,54 @@
     </ClInclude>
     <ClInclude Include="ConstBackIterator.h">
       <Filter>Файлы заголовков\Classes\Iterators</Filter>
+    </ClInclude>
+    <ClInclude Include="IBackIterator.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="IAddable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
+    </ClInclude>
+    <ClInclude Include="ISimpleAddable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
+    </ClInclude>
+    <ClInclude Include="ISpecificAddable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
+    </ClInclude>
+    <ClInclude Include="ISpecificRemoveable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
+    </ClInclude>
+    <ClInclude Include="IRemoveable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
+    </ClInclude>
+    <ClInclude Include="ISimpleRemoveable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
+    </ClInclude>
+    <ClInclude Include="ISimpleValueTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
+    </ClInclude>
+    <ClInclude Include="IValueContainerTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
+    </ClInclude>
+    <ClInclude Include="IItemContainerTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Takeable</Filter>
+    </ClInclude>
+    <ClInclude Include="IStackContainer.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="ISpecificValueTakeable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="MaxStack.h">
+      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="MinStack.h">
+      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="MinMaxStack.h">
+      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
