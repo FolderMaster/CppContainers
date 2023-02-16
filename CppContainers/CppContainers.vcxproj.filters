@@ -61,40 +61,70 @@
     <Filter Include="Файлы заголовков\Iterfaces\Containers\Currents">
       <UniqueIdentifier>{2614f07b-2cd5-4808-8c55-1fc18a766dbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Stack">
+    <Filter Include="Файлы заголовков\Structures\DoubleLinkedListSegment">
+      <UniqueIdentifier>{2b300a55-2ea6-411a-9fd4-a536f4cfb0da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Structures\SingleLinkedListSegment">
+      <UniqueIdentifier>{d3132a63-b00d-45b7-801b-4770603d1863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\DoubleLinkedList">
+      <UniqueIdentifier>{0b8727b7-d47f-430f-94e9-9e7662ef50df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\DynamicArray">
+      <UniqueIdentifier>{b9e1cf30-1bf8-4839-9bf6-7de0b33c1f97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\SingleLinkedList">
+      <UniqueIdentifier>{d9f68e3c-ef9c-4ec1-91d6-cf5ab42337a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Stacks">
       <UniqueIdentifier>{8a288021-4786-47d0-a64c-06753f03ee42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Stacks\MinMaxStack">
+      <UniqueIdentifier>{e9b5a047-e4b1-4e86-881a-83d9d071a1c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Stacks\Stack">
+      <UniqueIdentifier>{cab7f247-0217-4cdc-92d8-291789e20996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Queues">
+      <UniqueIdentifier>{70add88d-33a0-4c5c-944e-99aef61b4ccf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Queues\Queue">
+      <UniqueIdentifier>{c263da5f-b698-4d2d-a944-cb32d1929ae7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicArray.cpp">
-      <Filter>Файлы заголовков\Classes\Container</Filter>
-    </ClCompile>
     <ClCompile Include="ConstForwardIterator.cpp">
       <Filter>Файлы заголовков\Classes\Iterators</Filter>
-    </ClCompile>
-    <ClCompile Include="DoubleLinkedList.cpp">
-      <Filter>Файлы заголовков\Classes\Container</Filter>
-    </ClCompile>
-    <ClCompile Include="DoubleLinkedListSegment.cpp">
-      <Filter>Файлы заголовков\Structures</Filter>
     </ClCompile>
     <ClCompile Include="ConstBackIterator.cpp">
       <Filter>Файлы заголовков\Classes\Iterators</Filter>
     </ClCompile>
-    <ClCompile Include="Stack.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    <ClCompile Include="DoubleLinkedListSegment.cpp">
+      <Filter>Файлы заголовков\Structures\DoubleLinkedListSegment</Filter>
     </ClCompile>
-    <ClCompile Include="MaxStack.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    <ClCompile Include="SingleLinkedListSegment.cpp">
+      <Filter>Файлы заголовков\Structures\SingleLinkedListSegment</Filter>
     </ClCompile>
-    <ClCompile Include="MinStack.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    <ClCompile Include="DoubleLinkedList.cpp">
+      <Filter>Файлы заголовков\Classes\Container\DoubleLinkedList</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicArray.cpp">
+      <Filter>Файлы заголовков\Classes\Container\DynamicArray</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleLinkedList.cpp">
+      <Filter>Файлы заголовков\Classes\Container\SingleLinkedList</Filter>
     </ClCompile>
     <ClCompile Include="MinMaxStack.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+      <Filter>Файлы заголовков\Classes\Container\Stacks\MinMaxStack</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Файлы заголовков\Classes\Container\Stacks\Stack</Filter>
+    </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>Файлы заголовков\Classes\Container\Queues\Queue</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +158,6 @@
     <ClInclude Include="IFullIterator.h">
       <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicArray.h">
-      <Filter>Файлы заголовков\Classes\Container</Filter>
-    </ClInclude>
     <ClInclude Include="ConstForwardIterator.h">
       <Filter>Файлы заголовков\Classes\Iterators</Filter>
     </ClInclude>
@@ -148,12 +175,6 @@
     </ClInclude>
     <ClInclude Include="IBackIterable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
-    </ClInclude>
-    <ClInclude Include="DoubleLinkedList.h">
-      <Filter>Файлы заголовков\Classes\Container</Filter>
-    </ClInclude>
-    <ClInclude Include="DoubleLinkedListSegment.h">
-      <Filter>Файлы заголовков\Structures</Filter>
     </ClInclude>
     <ClInclude Include="IConstBackIterable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterable\Current</Filter>
@@ -200,17 +221,41 @@
     <ClInclude Include="ISpecificValueTakeable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
     </ClInclude>
-    <ClInclude Include="Stack.h">
-      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    <ClInclude Include="IClearable.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="MaxStack.h">
-      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    <ClInclude Include="DoubleLinkedListSegment.h">
+      <Filter>Файлы заголовков\Structures\DoubleLinkedListSegment</Filter>
     </ClInclude>
-    <ClInclude Include="MinStack.h">
-      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+    <ClInclude Include="SingleLinkedListSegment.h">
+      <Filter>Файлы заголовков\Structures\SingleLinkedListSegment</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleLinkedList.h">
+      <Filter>Файлы заголовков\Classes\Container\DoubleLinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicArray.h">
+      <Filter>Файлы заголовков\Classes\Container\DynamicArray</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleLinkedList.h">
+      <Filter>Файлы заголовков\Classes\Container\SingleLinkedList</Filter>
     </ClInclude>
     <ClInclude Include="MinMaxStack.h">
-      <Filter>Файлы заголовков\Classes\Container\Stack</Filter>
+      <Filter>Файлы заголовков\Classes\Container\Stacks\MinMaxStack</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Файлы заголовков\Classes\Container\Stacks\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>Файлы заголовков\Classes\Container\Queues\Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="IQueueContainer.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="IStack.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="IQueue.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

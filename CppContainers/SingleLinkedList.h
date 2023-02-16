@@ -6,33 +6,31 @@
 #include "IItemContainerTakeable.h"
 #include "ISizeGetable.h"
 #include "IConstForwardIterable.h"
-#include "IConstBackIterable.h"
 #include "IStackContainer.h"
 #include "IQueueContainer.h"
-#include "DoubleLinkedListSegment.cpp"
+#include "SingleLinkedListSegment.cpp"
 
 namespace Containers
 {
 	template <class T>
-	class DoubleLinkedList : IAddable<T, int>, IRemoveable<int>, ISizeGetable,
+	class SingleLinkedList : IAddable<T, int>, IRemoveable<int>, ISizeGetable,
 		IItemContainerTakeable<T, int>, IValueContainerTakeable<T, int>,
-		IConstForwardIterable<T>, IConstBackIterable<T>, public IStackContainer<T>,
-		public IQueueContainer<T>
+		IConstForwardIterable<T>, public IStackContainer<T>, public IQueueContainer<T>
 	{
 	private:
-		DoubleSegment<T>* _head = nullptr;
+		SingleSegment<T>* _head = nullptr;
 
-		DoubleSegment<T>* _tail = nullptr;
+		SingleSegment<T>* _tail = nullptr;
 
-		DoubleSegment<T>* GetPointerOfIndex(int index);
+		SingleSegment<T>* GetPointerOfIndex(int index);
 	public:
 		size_t GetSize();
 
+		SingleLinkedList();
+
+		~SingleLinkedList();
+
 		T& operator[](int index);
-
-		DoubleLinkedList();
-
-		~DoubleLinkedList();
 
 		void Add(T value, int index) override;
 
@@ -58,21 +56,13 @@ namespace Containers
 
 		bool IsForward(void* pointer) override;
 
-		void* Back(void* pointer) override;
-
-		bool IsBack(void* pointer) override;
-
 		T TakeValue(void* pointer) override;
 
 		ConstForwardIterator<T> CreateConstForwardBegin() override;
 
 		ConstForwardIterator<T> CreateConstForwardEnd() override;
-
-		ConstBackIterator<T> CreateConstBackBegin() override;
-
-		ConstBackIterator<T> CreateConstBackEnd() override;
 	};
 
 	template<class T>
-	using DoubleList = DoubleLinkedList<T>;
+	using SingleList = SingleLinkedList<T>;
 }

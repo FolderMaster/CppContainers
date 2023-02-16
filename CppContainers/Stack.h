@@ -1,23 +1,22 @@
 #pragma once
 
 #include "IStackContainer.h"
-#include "ISimpleAddable.h"
-#include "ISimpleValueTakeable.h"
+#include "IStack.h"
 
 namespace Containers
 {
 	template<class T>
-	class Stack : public ISimpleValueTakeable<T>, public ISimpleAddable<T>
+	class Stack : public IStack<T>
 	{
-	public:
+	protected:
 		IStackContainer<T>& _container;
 	public:
 		Stack(IStackContainer<T>& container);
 
 		~Stack();
 
-		virtual void Add(T value) override;
+		virtual void Push(T value) override;
 
-		virtual T TakeValue() override;
+		virtual T Pop() override;
 	};
 }

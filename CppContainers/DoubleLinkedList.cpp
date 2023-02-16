@@ -18,10 +18,14 @@ namespace Containers
 
 			}
 		}
+		else if (index == -1)
+		{
+			result = nullptr;
+		}
 		else
 		{
 			result = _tail;
-			for (size_t n = -1; n > index; --n, result = result->Back)
+			for (size_t n = -2; n > index; --n, result = result->Back)
 			{
 
 			}
@@ -98,7 +102,7 @@ namespace Containers
 	template<class T>
 	void DoubleLinkedList<T>::AddEnd(T value)
 	{
-		Add(value, GetSize());
+		Add(value, -1);
 	}
 
 	template<class T>
@@ -133,7 +137,7 @@ namespace Containers
 	template<class T>
 	void DoubleLinkedList<T>::RemoveEnd()
 	{
-		Remove(-1);
+		Remove(-2);
 	}
 
 	template<class T>
@@ -151,7 +155,7 @@ namespace Containers
 	template<class T>
 	T DoubleLinkedList<T>::TakeValueEnd()
 	{
-		return TakeValue(-1);
+		return TakeValue(-2);
 	}
 
 	template<class T>
@@ -169,7 +173,7 @@ namespace Containers
 	template<class T>
 	bool DoubleLinkedList<T>::IsForward(void* pointer)
 	{
-		return ((DoubleSegment<T>*)pointer)->Next != nullptr;
+		return ((DoubleSegment<T>*)pointer) != nullptr;
 	}
 
 	template<class T>
@@ -181,7 +185,7 @@ namespace Containers
 	template<class T>
 	bool DoubleLinkedList<T>::IsBack(void* pointer)
 	{
-		return ((DoubleSegment<T>*)pointer)->Back != nullptr;
+		return ((DoubleSegment<T>*)pointer) != nullptr;
 	}
 
 	template<class T>

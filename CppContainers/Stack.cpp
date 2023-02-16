@@ -5,19 +5,19 @@
 namespace Containers
 {
 	template<class T>
-	Stack<T>::Stack(IStackContainer<T>& container) : _container(container) {};
+	Stack<T>::Stack(IStackContainer<T>& container) : _container(container) {}
 
 	template<class T>
 	Stack<T>::~Stack() {}
 
 	template<class T>
-	void Stack<T>::Add(T value)
+	void Stack<T>::Push(T value)
 	{
 		_container.AddEnd(value);
 	}
 
 	template<class T>
-	T Stack<T>::TakeValue()
+	T Stack<T>::Pop()
 	{
 		T result = _container.TakeValueEnd();
 		_container.RemoveEnd();

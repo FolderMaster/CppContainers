@@ -7,6 +7,7 @@
 #include "ISizeGetable.h"
 #include "IConstForwardIterable.h"
 #include "IStackContainer.h"
+#include "IQueueContainer.h"
 #include "IConstBackIterable.h"
 
 namespace Containers
@@ -14,7 +15,8 @@ namespace Containers
 	template <class T>
 	class DynamicArray : IAddable<T, size_t>, IRemoveable<size_t>, ISizeGetable,
 		IItemContainerTakeable<T, size_t>, IValueContainerTakeable<T, size_t>,
-		IConstForwardIterable<T>, IConstBackIterable<T>, public IStackContainer<T>
+		IConstForwardIterable<T>, IConstBackIterable<T>, public IStackContainer<T>, 
+		public IQueueContainer<T>
 	{
 	private:
 		const double _growthFactor = 2;

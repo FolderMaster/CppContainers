@@ -4,46 +4,59 @@ namespace Containers
 {
 	template<class T>
 	MinMaxStack<T>::MinMaxStack(IStackContainer<T>& container, IStackContainer<T>& minContainer,
-		IStackContainer<T>& maxContainer) : MinStack<T>(container, minContainer), MaxStack<T>(container, maxContainer) {}
+		IStackContainer<T>& maxContainer) : Stack<T>(container), _minContainer(minContainer),
+		_maxContainer(maxContainer) {}
 
 	template<class T>
 	MinMaxStack<T>::~MinMaxStack() {}
 
 	template<class T>
-	void MinMaxStack<T>::Add(T value)
+	void MinMaxStack<T>::Push(T value)
 	{
-		((MinStack<T>*)this)->_container.AddEnd(value);
+		this->_container.AddEnd(value);
 
-		if (this->_minContainer.GetSize() > 0)
+		if (_minContainer.GetSize() > 0)
 		{
-			T min = this->_minContainer.TakeValueEnd();
-			this->_minContainer.AddEnd(value < min ? value : min);
+			T min = _minContainer.TakeValueEnd();
+			_minContainer.AddEnd(value < min ? value : min);
 		}
 		else
 		{
-			this->_minContainer.AddEnd(value);
+			_minContainer.AddEnd(value);
 		}
 
-		if (this->_maxContainer.GetSize() > 0)
+		if (_maxContainer.GetSize() > 0)
 		{
-			T max = this->_maxContainer.TakeValueEnd();
-			this->_maxContainer.AddEnd(value > max ? value : max);
+			T max = _maxContainer.TakeValueEnd();
+			_maxContainer.AddEnd(value > max ? value : max);
 		}
 		else
 		{
-			this->_maxContainer.AddEnd(value);
+			_maxContainer.AddEnd(value);
 		}
 	}
 
 	template<class T>
-	T MinMaxStack<T>::TakeValue()
+	T MinMaxStack<T>::Pop()
 	{
-		T result = ((MinStack<T>*)this)->_container.TakeValueEnd();
+		T result = this->_container.TakeValueEnd();
 
-		((MinStack<T>*)this)->_container.RemoveEnd();
-		this->_minContainer.RemoveEnd();
-		this->_maxContainer.RemoveEnd();
+		this->_container.RemoveEnd();
+		_minContainer.RemoveEnd();
+		_maxContainer.RemoveEnd();
 
 		return result;
+	}
+
+	template<class T>
+	T MinMaxStack<T>::GetMin()
+	{
+		return _minContainer.TakeValueEnd();
+	}
+
+	template<class T>
+	T MinMaxStack<T>::GetMax()
+	{
+		return _maxContainer.TakeValueEnd();
 	}
 }

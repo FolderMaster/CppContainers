@@ -166,7 +166,7 @@ namespace Containers
 	bool DynamicArray<T>::IsForward(void* pointer)
 	{
 		T* newPointer = (T*)pointer + 1;
-		return _array <= newPointer && newPointer < _array + _size;
+		return _array <= newPointer && newPointer <= _array + _size;
 	}
 
 	template<class T>
@@ -179,7 +179,7 @@ namespace Containers
 	bool DynamicArray<T>::IsBack(void* pointer)
 	{
 		T* newPointer = (T*)pointer - 1;
-		return _array <= newPointer && newPointer < _array + _size;
+		return _array <= newPointer && newPointer <= _array + _size;
 	}
 
 	template<class T>
