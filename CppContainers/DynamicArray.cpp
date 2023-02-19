@@ -43,6 +43,12 @@ namespace Containers
 	}
 
 	template<class T>
+	bool DynamicArray<T>::IsEmpty()
+	{
+		return _size == 0;
+	}
+
+	template<class T>
 	T& DynamicArray<T>::operator[](size_t index)
 	{
 		return TakeItem(index);

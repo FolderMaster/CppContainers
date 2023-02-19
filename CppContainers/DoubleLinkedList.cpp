@@ -47,6 +47,12 @@ namespace Containers
 	}
 
 	template<class T>
+	bool DoubleLinkedList<T>::IsEmpty()
+	{
+		return _head == nullptr;
+	}
+
+	template<class T>
 	T& DoubleLinkedList<T>::operator[](int index)
 	{
 		return TakeItem(index);

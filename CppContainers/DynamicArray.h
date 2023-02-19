@@ -1,22 +1,11 @@
 #pragma once
 
-#include "IAddable.h"
-#include "IRemoveable.h"
-#include "IValueContainerTakeable.h"
-#include "IItemContainerTakeable.h"
-#include "ISizeGetable.h"
-#include "IConstForwardIterable.h"
-#include "IStackContainer.h"
-#include "IQueueContainer.h"
-#include "IConstBackIterable.h"
+#include "IFullContainer.h"
 
 namespace Containers
 {
 	template <class T>
-	class DynamicArray : IAddable<T, size_t>, IRemoveable<size_t>, ISizeGetable,
-		IItemContainerTakeable<T, size_t>, IValueContainerTakeable<T, size_t>,
-		IConstForwardIterable<T>, IConstBackIterable<T>, public IStackContainer<T>, 
-		public IQueueContainer<T>
+	class DynamicArray : public IFullContainer<T, size_t>
 	{
 	private:
 		const double _growthFactor = 2;
@@ -29,7 +18,9 @@ namespace Containers
 
 		T* Resize(size_t newSize);
 	public:
-		size_t GetSize();
+		size_t GetSize() override;
+
+		bool IsEmpty() override;
 
 		T& operator[](size_t index);
 

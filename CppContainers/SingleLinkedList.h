@@ -1,21 +1,12 @@
 #pragma once
 
-#include "IAddable.h"
-#include "IRemoveable.h"
-#include "IValueContainerTakeable.h"
-#include "IItemContainerTakeable.h"
-#include "ISizeGetable.h"
-#include "IConstForwardIterable.h"
-#include "IStackContainer.h"
-#include "IQueueContainer.h"
+#include "ISingleLinkedList.h"
 #include "SingleLinkedListSegment.cpp"
 
 namespace Containers
 {
 	template <class T>
-	class SingleLinkedList : IAddable<T, int>, IRemoveable<int>, ISizeGetable,
-		IItemContainerTakeable<T, int>, IValueContainerTakeable<T, int>,
-		IConstForwardIterable<T>, public IStackContainer<T>, public IQueueContainer<T>
+	class SingleLinkedList : ISingleLinkedList<T, int>
 	{
 	private:
 		SingleSegment<T>* _head = nullptr;
@@ -24,7 +15,9 @@ namespace Containers
 
 		SingleSegment<T>* GetPointerOfIndex(int index);
 	public:
-		size_t GetSize();
+		size_t GetSize() override;
+
+		bool IsEmpty() override;
 
 		SingleLinkedList();
 

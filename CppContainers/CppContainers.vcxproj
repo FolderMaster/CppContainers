@@ -128,22 +128,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SearchFunctions.cpp" />
     <ClCompile Include="ConstBackIterator.cpp" />
     <ClCompile Include="ConstForwardIterator.cpp" />
+    <ClCompile Include="Dictionary.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="DoubleLinkedListSegment.cpp" />
     <ClCompile Include="DynamicArray.cpp" />
+    <ClCompile Include="KeyValuePair.cpp" />
     <ClCompile Include="MinMaxStack.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="SingleLinkedList.cpp" />
     <ClCompile Include="SingleLinkedListSegment.cpp" />
+    <ClCompile Include="SortFunctions.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="StacksQueue.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConstBackIterator.h" />
     <ClInclude Include="ConstForwardIterator.h" />
     <ClInclude Include="Containers.h" />
+    <ClInclude Include="Dictionary.h" />
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="DoubleLinkedListSegment.h" />
     <ClInclude Include="DynamicArray.h" />
@@ -153,6 +159,8 @@
     <ClInclude Include="IConstForwardIterable.h" />
     <ClInclude Include="IConstForwardIterator.h" />
     <ClInclude Include="IConstFullIterator.h" />
+    <ClInclude Include="IDictonary.h" />
+    <ClInclude Include="IFullContainer.h" />
     <ClInclude Include="IForwardIterable.h" />
     <ClInclude Include="IForwardIterator.h" />
     <ClInclude Include="IForwardMoveable.h" />
@@ -170,6 +178,7 @@
     <ClInclude Include="ISimpleAddable.h" />
     <ClInclude Include="ISimpleRemoveable.h" />
     <ClInclude Include="ISimpleValueTakeable.h" />
+    <ClInclude Include="ISingleLinkedList.h" />
     <ClInclude Include="ISizeGetable.h" />
     <ClInclude Include="ISpecificAddable.h" />
     <ClInclude Include="ISpecificRemoveable.h" />
@@ -179,11 +188,15 @@
     <ClInclude Include="IValueIterableTakeable.h" />
     <ClInclude Include="IValueIteratorTakeable.h" />
     <ClInclude Include="IValueContainerTakeable.h" />
+    <ClInclude Include="KeyValuePair.h" />
     <ClInclude Include="MinMaxStack.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="SearchFunctions.h" />
     <ClInclude Include="SingleLinkedList.h" />
     <ClInclude Include="SingleLinkedListSegment.h" />
+    <ClInclude Include="SortFunctions.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="StacksQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,6 +5,18 @@
 namespace Containers
 {
 	template<class T>
+	size_t Stack<T>::GetSize()
+	{
+		return _container.GetSize();
+	}
+
+	template<class T>
+	bool Stack<T>::IsEmpty()
+	{
+		return _container.IsEmpty();
+	}
+
+	template<class T>
 	Stack<T>::Stack(IStackContainer<T>& container) : _container(container) {}
 
 	template<class T>

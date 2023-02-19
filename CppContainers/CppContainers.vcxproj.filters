@@ -91,6 +91,24 @@
     <Filter Include="Файлы заголовков\Classes\Container\Queues\Queue">
       <UniqueIdentifier>{c263da5f-b698-4d2d-a944-cb32d1929ae7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Queues\StacksQueue">
+      <UniqueIdentifier>{e9f2f354-0b12-43d6-8e7b-4dceeb231572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Structures\KeyValuePair">
+      <UniqueIdentifier>{2346d371-f60e-4318-9128-6131b7216440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Dictonaries">
+      <UniqueIdentifier>{08e98754-7e0a-4484-8c78-ef5dcf17a129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Dictonaries\Dictionary">
+      <UniqueIdentifier>{60abe0a2-10b3-40f9-8aef-0d9e032c5f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Functions\Sort">
+      <UniqueIdentifier>{6264e9fa-8244-472e-88bf-e808310bb17d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Functions\Search">
+      <UniqueIdentifier>{2323a1cf-46f8-4a2d-a386-2c31b6c6263a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
@@ -125,6 +143,21 @@
     </ClCompile>
     <ClCompile Include="Queue.cpp">
       <Filter>Файлы заголовков\Classes\Container\Queues\Queue</Filter>
+    </ClCompile>
+    <ClCompile Include="StacksQueue.cpp">
+      <Filter>Файлы заголовков\Classes\Container\Queues\StacksQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyValuePair.cpp">
+      <Filter>Файлы заголовков\Structures\KeyValuePair</Filter>
+    </ClCompile>
+    <ClCompile Include="Dictionary.cpp">
+      <Filter>Файлы заголовков\Classes\Container\Dictonaries\Dictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="SortFunctions.cpp">
+      <Filter>Файлы заголовков\Functions\Sort</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchFunctions.cpp">
+      <Filter>Файлы заголовков\Functions\Search</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +289,30 @@
     </ClInclude>
     <ClInclude Include="IQueue.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="StacksQueue.h">
+      <Filter>Файлы заголовков\Classes\Container\Queues\StacksQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="IFullContainer.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyValuePair.h">
+      <Filter>Файлы заголовков\Structures\KeyValuePair</Filter>
+    </ClInclude>
+    <ClInclude Include="ISingleLinkedList.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="Dictionary.h">
+      <Filter>Файлы заголовков\Classes\Container\Dictonaries\Dictionary</Filter>
+    </ClInclude>
+    <ClInclude Include="IDictonary.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="SortFunctions.h">
+      <Filter>Файлы заголовков\Functions\Sort</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchFunctions.h">
+      <Filter>Файлы заголовков\Functions\Search</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

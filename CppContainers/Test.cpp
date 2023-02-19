@@ -97,8 +97,9 @@ int main()
 		cout << endl;
 	}
 
-	DoubleList<double> queueArray = DoubleList<double>();
-	Queue<double> queue = Queue<double>(queueArray);
+	DoubleList<double> enqueueArray = DoubleList<double>();
+	DoubleList<double> dequeueArray = DoubleList<double>();
+	StacksQueue<double> queue = StacksQueue<double>(enqueueArray, dequeueArray);
 	for (int n = 0; n < 10; ++n)
 	{
 		cout << "Enqueue:" << n << endl;

@@ -8,6 +8,8 @@
 #include "Stack.cpp"
 #include "MinMaxStack.cpp"
 #include "Queue.cpp"
+#include "StacksQueue.cpp"
+#include "Dictionary.cpp"
 
 namespace Containers
 {

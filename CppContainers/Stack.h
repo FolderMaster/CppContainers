@@ -11,6 +11,10 @@ namespace Containers
 	protected:
 		IStackContainer<T>& _container;
 	public:
+		size_t GetSize() override;
+
+		bool IsEmpty() override;
+
 		Stack(IStackContainer<T>& container);
 
 		~Stack();

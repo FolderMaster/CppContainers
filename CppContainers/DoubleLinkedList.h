@@ -1,23 +1,12 @@
 #pragma once
 
-#include "IAddable.h"
-#include "IRemoveable.h"
-#include "IValueContainerTakeable.h"
-#include "IItemContainerTakeable.h"
-#include "ISizeGetable.h"
-#include "IConstForwardIterable.h"
-#include "IConstBackIterable.h"
-#include "IStackContainer.h"
-#include "IQueueContainer.h"
+#include "IFullContainer.h"
 #include "DoubleLinkedListSegment.cpp"
 
 namespace Containers
 {
 	template <class T>
-	class DoubleLinkedList : IAddable<T, int>, IRemoveable<int>, ISizeGetable,
-		IItemContainerTakeable<T, int>, IValueContainerTakeable<T, int>,
-		IConstForwardIterable<T>, IConstBackIterable<T>, public IStackContainer<T>,
-		public IQueueContainer<T>
+	class DoubleLinkedList : public IFullContainer<T, int>
 	{
 	private:
 		DoubleSegment<T>* _head = nullptr;
@@ -26,7 +15,9 @@ namespace Containers
 
 		DoubleSegment<T>* GetPointerOfIndex(int index);
 	public:
-		size_t GetSize();
+		size_t GetSize() override;
+
+		bool IsEmpty() override;
 
 		T& operator[](int index);
 

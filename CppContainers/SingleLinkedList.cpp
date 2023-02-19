@@ -42,6 +42,12 @@ namespace Containers
 	}
 
 	template<class T>
+	bool SingleLinkedList<T>::IsEmpty()
+	{
+		return _head == nullptr;
+	}
+
+	template<class T>
 	SingleLinkedList<T>::SingleLinkedList()
 	{
 	}
