@@ -10,23 +10,27 @@ namespace Containers
 	private:
 		const double _growthFactor = 2;
 
-		size_t _capacity = 0;
+		size_t _capacity;
 
-		size_t _size = 0;
+		size_t _size;
 
-		T* _array = nullptr;
+		T* _array;
 
 		T* Resize(size_t newSize);
 	public:
-		size_t GetSize() override;
+		size_t GetSize() const override;
 
-		bool IsEmpty() override;
+		bool IsEmpty() const override;
 
 		T& operator[](size_t index);
 
 		DynamicArray();
 
+		DynamicArray(const DynamicArray<T>& other);
+
 		~DynamicArray();
+
+		DynamicArray<T>& operator=(const DynamicArray<T>& other);
 
 		void Add(T value, size_t index) override;
 
@@ -40,31 +44,43 @@ namespace Containers
 
 		void RemoveEnd() override;
 
-		T TakeValue(size_t index) override;
+		void Clear() override;
 
-		T TakeValueBegin() override;
+		T TakeValue(size_t index) const override;
 
-		T TakeValueEnd() override;
+		T TakeValueBegin() const override;
+
+		T TakeValueEnd() const override;
 
 		T& TakeItem(size_t index) override;
 
-		void* Forward(void* pointer) override;
+		void* Forward(void* pointer) const override;
 
-		bool IsForward(void* pointer) override;
+		bool IsForward(void* pointer) const override;
 
-		void* Back(void* pointer) override;
+		void* Back(void* pointer) const override;
 
-		bool IsBack(void* pointer) override;
+		bool IsBack(void* pointer) const override;
 
-		T TakeValue(void* pointer) override;
+		T TakeValue(void* pointer) const override;
 
-		ConstForwardIterator<T> CreateConstForwardBegin() override;
+		T& TakeItem(void* pointer) override;
 
-		ConstForwardIterator<T> CreateConstForwardEnd() override;
+		ConstForwardIterator<T> CreateConstForwardBegin() const override;
 
-		ConstBackIterator<T> CreateConstBackBegin() override;
+		ConstForwardIterator<T> CreateConstForwardEnd() const override;
 
-		ConstBackIterator<T> CreateConstBackEnd() override;
+		ConstBackIterator<T> CreateConstBackBegin() const override;
+
+		ConstBackIterator<T> CreateConstBackEnd() const override;
+
+		ForwardIterator<T> CreateForwardBegin() override;
+
+		ForwardIterator<T> CreateForwardEnd() override;
+
+		BackIterator<T> CreateBackBegin() override;
+
+		BackIterator<T> CreateBackEnd() override;
 	};
 
 	template<class T>

@@ -128,6 +128,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackIterator.cpp" />
+    <ClCompile Include="ForwardIterator.cpp" />
     <ClCompile Include="SearchFunctions.cpp" />
     <ClCompile Include="ConstBackIterator.cpp" />
     <ClCompile Include="ConstForwardIterator.cpp" />
@@ -146,6 +148,7 @@
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BackIterator.h" />
     <ClInclude Include="ConstBackIterator.h" />
     <ClInclude Include="ConstForwardIterator.h" />
     <ClInclude Include="Containers.h" />
@@ -153,36 +156,39 @@
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="DoubleLinkedListSegment.h" />
     <ClInclude Include="DynamicArray.h" />
-    <ClInclude Include="IAddable.h" />
+    <ClInclude Include="ForwardIterator.h" />
+    <ClInclude Include="IContainerAddable.h" />
+    <ClInclude Include="IBackIterable.h" />
     <ClInclude Include="IBackIterator.h" />
-    <ClInclude Include="IClearable.h" />
+    <ClInclude Include="IContainerClearable.h" />
     <ClInclude Include="IConstForwardIterable.h" />
     <ClInclude Include="IConstForwardIterator.h" />
     <ClInclude Include="IConstFullIterator.h" />
     <ClInclude Include="IDictonary.h" />
-    <ClInclude Include="IFullContainer.h" />
     <ClInclude Include="IForwardIterable.h" />
+    <ClInclude Include="IFullContainer.h" />
+    <ClInclude Include="IForwardIterableMoveable.h" />
     <ClInclude Include="IForwardIterator.h" />
-    <ClInclude Include="IForwardMoveable.h" />
-    <ClInclude Include="IBackIterable.h" />
-    <ClInclude Include="IBackMoveable.h" />
+    <ClInclude Include="IForwardIteratorMoveable.h" />
+    <ClInclude Include="IBackIterableMoveable.h" />
+    <ClInclude Include="IBackIteratorMoveable.h" />
     <ClInclude Include="IFullIterator.h" />
     <ClInclude Include="IItemContainerTakeable.h" />
     <ClInclude Include="IItemIterableTakeable.h" />
     <ClInclude Include="IItemIteratorTakeable.h" />
     <ClInclude Include="IQueue.h" />
     <ClInclude Include="IQueueContainer.h" />
-    <ClInclude Include="IRemoveable.h" />
+    <ClInclude Include="IContainerRemoveable.h" />
     <ClInclude Include="IConstBackIterable.h" />
     <ClInclude Include="IConstBackIterator.h" />
-    <ClInclude Include="ISimpleAddable.h" />
-    <ClInclude Include="ISimpleRemoveable.h" />
-    <ClInclude Include="ISimpleValueTakeable.h" />
+    <ClInclude Include="ISimpleContainerAddable.h" />
+    <ClInclude Include="ISimpleContainerRemoveable.h" />
+    <ClInclude Include="ISimpleValueContainerTakeable.h" />
     <ClInclude Include="ISingleLinkedList.h" />
-    <ClInclude Include="ISizeGetable.h" />
-    <ClInclude Include="ISpecificAddable.h" />
-    <ClInclude Include="ISpecificRemoveable.h" />
-    <ClInclude Include="ISpecificValueTakeable.h" />
+    <ClInclude Include="ISizeContainerGetable.h" />
+    <ClInclude Include="ISpecificContainerAddable.h" />
+    <ClInclude Include="ISpecificContainerRemoveable.h" />
+    <ClInclude Include="ISpecificValueContainerTakeable.h" />
     <ClInclude Include="IStack.h" />
     <ClInclude Include="IStackContainer.h" />
     <ClInclude Include="IValueIterableTakeable.h" />

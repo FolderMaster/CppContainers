@@ -2,11 +2,11 @@
 
 namespace Containers
 {
-	class IBackMoveable
+	class IBackIteratorMoveable
 	{
 	public:
 		virtual void Back() = 0;
 
-		virtual bool IsBack() = 0;
+		virtual bool IsBack() const = 0;
 	};
 }

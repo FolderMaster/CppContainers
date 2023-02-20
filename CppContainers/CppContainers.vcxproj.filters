@@ -40,12 +40,6 @@
     <Filter Include="Файлы заголовков\Classes\Iterators">
       <UniqueIdentifier>{07a93418-8354-4c72-8ba6-d36c68d342d8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Iterable">
-      <UniqueIdentifier>{fbfeeafa-95ac-4ca1-b77d-b1cec05820ac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Iterable\Current">
-      <UniqueIdentifier>{99afb97c-5857-4007-b78b-44a87afa944b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\Iterfaces\Containers\Removeable">
       <UniqueIdentifier>{07cd5f5f-d456-467e-af09-4f6bc10043f0}</UniqueIdentifier>
     </Filter>
@@ -67,14 +61,8 @@
     <Filter Include="Файлы заголовков\Structures\SingleLinkedListSegment">
       <UniqueIdentifier>{d3132a63-b00d-45b7-801b-4770603d1863}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\DoubleLinkedList">
-      <UniqueIdentifier>{0b8727b7-d47f-430f-94e9-9e7662ef50df}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\Classes\Container\DynamicArray">
       <UniqueIdentifier>{b9e1cf30-1bf8-4839-9bf6-7de0b33c1f97}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\SingleLinkedList">
-      <UniqueIdentifier>{d9f68e3c-ef9c-4ec1-91d6-cf5ab42337a9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Файлы заголовков\Classes\Container\Stacks">
       <UniqueIdentifier>{8a288021-4786-47d0-a64c-06753f03ee42}</UniqueIdentifier>
@@ -109,16 +97,37 @@
     <Filter Include="Файлы заголовков\Functions\Search">
       <UniqueIdentifier>{2323a1cf-46f8-4a2d-a386-2c31b6c6263a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Lists">
+      <UniqueIdentifier>{41da6c38-2ea4-4482-a9c7-909cb0ccf5b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Lists\DoubleLinkedList">
+      <UniqueIdentifier>{0b8727b7-d47f-430f-94e9-9e7662ef50df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\Lists\SingleLinkedList">
+      <UniqueIdentifier>{d9f68e3c-ef9c-4ec1-91d6-cf5ab42337a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Iterators\ConstBackIterator">
+      <UniqueIdentifier>{74aa6594-2dae-406a-afe7-77f96014f54a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Iterators\ConstForwardIterator">
+      <UniqueIdentifier>{ee5e5379-5719-4647-a2e9-0971d39b5790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Iterators\ForwardIterator">
+      <UniqueIdentifier>{cc7d264d-fda4-4676-b9c2-983ba3b70c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Iterables">
+      <UniqueIdentifier>{fbfeeafa-95ac-4ca1-b77d-b1cec05820ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Iterfaces\Iterables\Current">
+      <UniqueIdentifier>{99afb97c-5857-4007-b78b-44a87afa944b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Iterators\BackIterator">
+      <UniqueIdentifier>{425aa8e4-2f57-4ce1-b58e-2187caceb9ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="ConstForwardIterator.cpp">
-      <Filter>Файлы заголовков\Classes\Iterators</Filter>
-    </ClCompile>
-    <ClCompile Include="ConstBackIterator.cpp">
-      <Filter>Файлы заголовков\Classes\Iterators</Filter>
     </ClCompile>
     <ClCompile Include="DoubleLinkedListSegment.cpp">
       <Filter>Файлы заголовков\Structures\DoubleLinkedListSegment</Filter>
@@ -127,13 +136,13 @@
       <Filter>Файлы заголовков\Structures\SingleLinkedListSegment</Filter>
     </ClCompile>
     <ClCompile Include="DoubleLinkedList.cpp">
-      <Filter>Файлы заголовков\Classes\Container\DoubleLinkedList</Filter>
+      <Filter>Файлы заголовков\Classes\Container\Lists\DoubleLinkedList</Filter>
     </ClCompile>
     <ClCompile Include="DynamicArray.cpp">
       <Filter>Файлы заголовков\Classes\Container\DynamicArray</Filter>
     </ClCompile>
     <ClCompile Include="SingleLinkedList.cpp">
-      <Filter>Файлы заголовков\Classes\Container\SingleLinkedList</Filter>
+      <Filter>Файлы заголовков\Classes\Container\Lists\SingleLinkedList</Filter>
     </ClCompile>
     <ClCompile Include="MinMaxStack.cpp">
       <Filter>Файлы заголовков\Classes\Container\Stacks\MinMaxStack</Filter>
@@ -159,6 +168,18 @@
     <ClCompile Include="SearchFunctions.cpp">
       <Filter>Файлы заголовков\Functions\Search</Filter>
     </ClCompile>
+    <ClCompile Include="ConstBackIterator.cpp">
+      <Filter>Файлы заголовков\Classes\Iterators\ConstBackIterator</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstForwardIterator.cpp">
+      <Filter>Файлы заголовков\Classes\Iterators\ConstForwardIterator</Filter>
+    </ClCompile>
+    <ClCompile Include="ForwardIterator.cpp">
+      <Filter>Файлы заголовков\Classes\Iterators\ForwardIterator</Filter>
+    </ClCompile>
+    <ClCompile Include="BackIterator.cpp">
+      <Filter>Файлы заголовков\Classes\Iterators\BackIterator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Containers.h">
@@ -170,13 +191,13 @@
     <ClInclude Include="IItemIteratorTakeable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="IForwardMoveable.h">
+    <ClInclude Include="IForwardIteratorMoveable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="IBackMoveable.h">
+    <ClInclude Include="IBackIteratorMoveable.h">
       <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
     </ClInclude>
-    <ClInclude Include="ISizeGetable.h">
+    <ClInclude Include="ISizeContainerGetable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
     </ClInclude>
     <ClInclude Include="IConstForwardIterator.h">
@@ -191,55 +212,49 @@
     <ClInclude Include="IFullIterator.h">
       <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
-    <ClInclude Include="ConstForwardIterator.h">
-      <Filter>Файлы заголовков\Classes\Iterators</Filter>
-    </ClInclude>
     <ClInclude Include="IValueIterableTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
+      <Filter>Файлы заголовков\Iterfaces\Iterables</Filter>
     </ClInclude>
     <ClInclude Include="IItemIterableTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
+      <Filter>Файлы заголовков\Iterfaces\Iterables</Filter>
     </ClInclude>
     <ClInclude Include="IConstForwardIterable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterable\Current</Filter>
+      <Filter>Файлы заголовков\Iterfaces\Iterables\Current</Filter>
     </ClInclude>
-    <ClInclude Include="IForwardIterable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
+    <ClInclude Include="IForwardIterableMoveable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterables</Filter>
     </ClInclude>
-    <ClInclude Include="IBackIterable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterable</Filter>
+    <ClInclude Include="IBackIterableMoveable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterables</Filter>
     </ClInclude>
     <ClInclude Include="IConstBackIterable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterable\Current</Filter>
+      <Filter>Файлы заголовков\Iterfaces\Iterables\Current</Filter>
     </ClInclude>
     <ClInclude Include="IConstBackIterator.h">
       <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
-    <ClInclude Include="ConstBackIterator.h">
-      <Filter>Файлы заголовков\Classes\Iterators</Filter>
-    </ClInclude>
     <ClInclude Include="IBackIterator.h">
       <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
-    <ClInclude Include="IAddable.h">
+    <ClInclude Include="IContainerAddable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
     </ClInclude>
-    <ClInclude Include="ISimpleAddable.h">
+    <ClInclude Include="ISimpleContainerAddable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
     </ClInclude>
-    <ClInclude Include="ISpecificAddable.h">
+    <ClInclude Include="ISpecificContainerAddable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
     </ClInclude>
-    <ClInclude Include="ISpecificRemoveable.h">
+    <ClInclude Include="ISpecificContainerRemoveable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
     </ClInclude>
-    <ClInclude Include="IRemoveable.h">
+    <ClInclude Include="IContainerRemoveable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
     </ClInclude>
-    <ClInclude Include="ISimpleRemoveable.h">
+    <ClInclude Include="ISimpleContainerRemoveable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
     </ClInclude>
-    <ClInclude Include="ISimpleValueTakeable.h">
+    <ClInclude Include="ISimpleValueContainerTakeable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
     </ClInclude>
     <ClInclude Include="IValueContainerTakeable.h">
@@ -251,10 +266,10 @@
     <ClInclude Include="IStackContainer.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
-    <ClInclude Include="ISpecificValueTakeable.h">
+    <ClInclude Include="ISpecificValueContainerTakeable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
     </ClInclude>
-    <ClInclude Include="IClearable.h">
+    <ClInclude Include="IContainerClearable.h">
       <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
     </ClInclude>
     <ClInclude Include="DoubleLinkedListSegment.h">
@@ -264,13 +279,13 @@
       <Filter>Файлы заголовков\Structures\SingleLinkedListSegment</Filter>
     </ClInclude>
     <ClInclude Include="DoubleLinkedList.h">
-      <Filter>Файлы заголовков\Classes\Container\DoubleLinkedList</Filter>
+      <Filter>Файлы заголовков\Classes\Container\Lists\DoubleLinkedList</Filter>
     </ClInclude>
     <ClInclude Include="DynamicArray.h">
       <Filter>Файлы заголовков\Classes\Container\DynamicArray</Filter>
     </ClInclude>
     <ClInclude Include="SingleLinkedList.h">
-      <Filter>Файлы заголовков\Classes\Container\SingleLinkedList</Filter>
+      <Filter>Файлы заголовков\Classes\Container\Lists\SingleLinkedList</Filter>
     </ClInclude>
     <ClInclude Include="MinMaxStack.h">
       <Filter>Файлы заголовков\Classes\Container\Stacks\MinMaxStack</Filter>
@@ -313,6 +328,24 @@
     </ClInclude>
     <ClInclude Include="SearchFunctions.h">
       <Filter>Файлы заголовков\Functions\Search</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstBackIterator.h">
+      <Filter>Файлы заголовков\Classes\Iterators\ConstBackIterator</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstForwardIterator.h">
+      <Filter>Файлы заголовков\Classes\Iterators\ConstForwardIterator</Filter>
+    </ClInclude>
+    <ClInclude Include="IBackIterable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterables\Current</Filter>
+    </ClInclude>
+    <ClInclude Include="IForwardIterable.h">
+      <Filter>Файлы заголовков\Iterfaces\Iterables\Current</Filter>
+    </ClInclude>
+    <ClInclude Include="ForwardIterator.h">
+      <Filter>Файлы заголовков\Classes\Iterators\ForwardIterator</Filter>
+    </ClInclude>
+    <ClInclude Include="BackIterator.h">
+      <Filter>Файлы заголовков\Classes\Iterators\BackIterator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

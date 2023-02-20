@@ -3,7 +3,7 @@
 namespace Containers
 {
 	template <class TValue>
-	class ISpecificAddable
+	class ISpecificContainerAddable
 	{
 	public:
 		virtual void AddBegin(TValue value) = 0;

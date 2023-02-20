@@ -2,7 +2,7 @@
 
 namespace Containers
 {
-	class ISimpleRemoveable
+	class ISimpleContainerRemoveable
 	{
 	public:
 		virtual void Remove() = 0;

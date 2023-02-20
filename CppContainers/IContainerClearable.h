@@ -2,7 +2,7 @@
 
 namespace Containers
 {
-	class IClearable
+	class IContainerClearable
 	{
 	public:
 		virtual void Clear() = 0;

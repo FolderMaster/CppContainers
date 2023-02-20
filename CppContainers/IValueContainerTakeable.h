@@ -6,6 +6,6 @@ namespace Containers
 	class IValueContainerTakeable
 	{
 	public:
-		virtual TValue TakeValue(TEnumerable enumarable) = 0;
+		virtual TValue TakeValue(TEnumerable enumarable) const = 0;
 	};
 }

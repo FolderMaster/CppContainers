@@ -3,11 +3,13 @@
 #include "DoubleLinkedList.h"
 #include "ConstForwardIterator.cpp"
 #include "ConstBackIterator.cpp"
+#include "ForwardIterator.cpp"
+#include "BackIterator.cpp"
 
 namespace Containers
 {
 	template<class T>
-	DoubleSegment<T>* DoubleLinkedList<T>::GetPointerOfIndex(int index)
+	DoubleSegment<T>* DoubleLinkedList<T>::GetPointerOfIndex(int index) const
 	{
 		DoubleSegment<T>* result;
 		if (index >= 0)
@@ -34,7 +36,7 @@ namespace Containers
 	}
 
 	template<class T>
-	size_t DoubleLinkedList<T>::GetSize()
+	size_t DoubleLinkedList<T>::GetSize() const
 	{
 		int size = 0;
 		for (DoubleSegment<T>* pointer = _head;
@@ -47,7 +49,7 @@ namespace Containers
 	}
 
 	template<class T>
-	bool DoubleLinkedList<T>::IsEmpty()
+	bool DoubleLinkedList<T>::IsEmpty() const
 	{
 		return _head == nullptr;
 	}
@@ -59,13 +61,12 @@ namespace Containers
 	}
 
 	template<class T>
-	DoubleLinkedList<T>::DoubleLinkedList()
-	{
-	}
+	DoubleLinkedList<T>::DoubleLinkedList() : _head(nullptr), _tail(nullptr) {}
 
 	template<class T>
 	DoubleLinkedList<T>::~DoubleLinkedList()
 	{
+		Clear();
 	}
 
 	template<class T>
@@ -147,19 +148,36 @@ namespace Containers
 	}
 
 	template<class T>
-	T DoubleLinkedList<T>::TakeValue(int index)
+	void DoubleLinkedList<T>::Clear()
+	{
+		if (_head != nullptr)
+		{
+			DoubleSegment<T>* pointer = _head;
+			while (pointer->Next != nullptr)
+			{
+				pointer = pointer->Next;
+				delete pointer->Back;
+			}
+			delete pointer;
+			_head = nullptr;
+			_tail = nullptr;
+		}
+	}
+
+	template<class T>
+	T DoubleLinkedList<T>::TakeValue(int index) const
 	{
 		return GetPointerOfIndex(index)->Item;
 	}
 
 	template<class T>
-	T DoubleLinkedList<T>::TakeValueBegin()
+	T DoubleLinkedList<T>::TakeValueBegin() const
 	{
 		return TakeValue(0);
 	}
 
 	template<class T>
-	T DoubleLinkedList<T>::TakeValueEnd()
+	T DoubleLinkedList<T>::TakeValueEnd() const
 	{
 		return TakeValue(-2);
 	}
@@ -171,56 +189,86 @@ namespace Containers
 	}
 
 	template<class T>
-	void* DoubleLinkedList<T>::Forward(void* pointer)
+	void* DoubleLinkedList<T>::Forward(void* pointer) const
 	{
 		return ((DoubleSegment<T>*)pointer)->Next;
 	}
 
 	template<class T>
-	bool DoubleLinkedList<T>::IsForward(void* pointer)
+	bool DoubleLinkedList<T>::IsForward(void* pointer) const
 	{
 		return ((DoubleSegment<T>*)pointer) != nullptr;
 	}
 
 	template<class T>
-	void* DoubleLinkedList<T>::Back(void* pointer)
+	void* DoubleLinkedList<T>::Back(void* pointer) const
 	{
 		return ((DoubleSegment<T>*)pointer)->Back;
 	}
 
 	template<class T>
-	bool DoubleLinkedList<T>::IsBack(void* pointer)
+	bool DoubleLinkedList<T>::IsBack(void* pointer) const
 	{
 		return ((DoubleSegment<T>*)pointer) != nullptr;
 	}
 
 	template<class T>
-	T DoubleLinkedList<T>::TakeValue(void* pointer)
+	T DoubleLinkedList<T>::TakeValue(void* pointer) const
 	{
 		return ((DoubleSegment<T>*)pointer)->Item;
 	}
 
 	template<class T>
-	ConstForwardIterator<T> DoubleLinkedList<T>::CreateConstForwardBegin()
+	T& DoubleLinkedList<T>::TakeItem(void* pointer)
+	{
+		return ((DoubleSegment<T>*)pointer)->Item;
+	}
+
+	template<class T>
+	ConstForwardIterator<T> DoubleLinkedList<T>::CreateConstForwardBegin() const
 	{
 		return ConstForwardIterator<T>(_head, *this);
 	}
 
 	template<class T>
-	ConstForwardIterator<T> DoubleLinkedList<T>::CreateConstForwardEnd()
+	ConstForwardIterator<T> DoubleLinkedList<T>::CreateConstForwardEnd() const
 	{
 		return ConstForwardIterator<T>(nullptr, *this);
 	}
 
 	template<class T>
-	ConstBackIterator<T> DoubleLinkedList<T>::CreateConstBackBegin()
+	ConstBackIterator<T> DoubleLinkedList<T>::CreateConstBackBegin() const
 	{
 		return ConstBackIterator<T>(_tail, *this);
 	}
 
 	template<class T>
-	ConstBackIterator<T> DoubleLinkedList<T>::CreateConstBackEnd()
+	ConstBackIterator<T> DoubleLinkedList<T>::CreateConstBackEnd() const
 	{
 		return ConstBackIterator<T>(nullptr, *this);
+	}
+
+	template<class T>
+	ForwardIterator<T> DoubleLinkedList<T>::CreateForwardBegin()
+	{
+		return ForwardIterator<T>(_head, *this);
+	}
+
+	template<class T>
+	ForwardIterator<T> DoubleLinkedList<T>::CreateForwardEnd()
+	{
+		return ForwardIterator<T>(nullptr, *this);
+	}
+
+	template<class T>
+	BackIterator<T> DoubleLinkedList<T>::CreateBackBegin()
+	{
+		return BackIterator<T>(_tail, *this);
+	}
+
+	template<class T>
+	BackIterator<T> DoubleLinkedList<T>::CreateBackEnd()
+	{
+		return BackIterator<T>(nullptr, *this);
 	}
 }

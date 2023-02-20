@@ -11,18 +11,18 @@ namespace Containers
 	class ConstForwardIterator : public IConstForwardIterator<T>
 	{
 	private:
-		void* _pointer = nullptr;
+		void* _pointer;
 
-		IConstForwardIterable<T>& _iterable;
+		const IConstForwardIterable<T>& _iterable;
 	public:
-		ConstForwardIterator(void* pointer, IConstForwardIterable<T>& iterable);
+		ConstForwardIterator(void* pointer, const IConstForwardIterable<T>& iterable);
 
 		bool operator!=(ConstForwardIterator<T> it);
 
 		void Forward() override;
 
-		bool IsForward() override;
+		bool IsForward() const override;
 
-		T TakeValue() override;
+		T TakeValue() const override;
 	};
 }

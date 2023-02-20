@@ -3,7 +3,7 @@
 namespace Containers
 {
 	template <class TEnumerable>
-	class IRemoveable
+	class IContainerRemoveable
 	{
 	public:
 		virtual void Remove(TEnumerable enumarable) = 0;

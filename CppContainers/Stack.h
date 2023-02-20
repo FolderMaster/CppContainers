@@ -11,9 +11,9 @@ namespace Containers
 	protected:
 		IStackContainer<T>& _container;
 	public:
-		size_t GetSize() override;
+		size_t GetSize() const override;
 
-		bool IsEmpty() override;
+		bool IsEmpty() const override;
 
 		Stack(IStackContainer<T>& container);
 

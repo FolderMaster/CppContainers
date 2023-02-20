@@ -1,11 +1,11 @@
 #pragma once
 
-#include "ISizeGetable.h"
+#include "ISizeContainerGetable.h"
 
 namespace Containers
 {
 	template<class T>
-	class IStack : public ISizeGetable
+	class IStack : public ISizeContainerGetable
 	{
 	public:
 		virtual void Push(T value) = 0;

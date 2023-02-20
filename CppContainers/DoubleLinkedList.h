@@ -9,15 +9,15 @@ namespace Containers
 	class DoubleLinkedList : public IFullContainer<T, int>
 	{
 	private:
-		DoubleSegment<T>* _head = nullptr;
+		DoubleSegment<T>* _head;
 
-		DoubleSegment<T>* _tail = nullptr;
+		DoubleSegment<T>* _tail;
 
-		DoubleSegment<T>* GetPointerOfIndex(int index);
+		DoubleSegment<T>* GetPointerOfIndex(int index) const;
 	public:
-		size_t GetSize() override;
+		size_t GetSize() const override;
 
-		bool IsEmpty() override;
+		bool IsEmpty() const override;
 
 		T& operator[](int index);
 
@@ -37,31 +37,43 @@ namespace Containers
 
 		void RemoveEnd() override;
 
-		T TakeValue(int index) override;
+		void Clear() override;
 
-		T TakeValueBegin() override;
+		T TakeValue(int index) const override;
 
-		T TakeValueEnd() override;
+		T TakeValueBegin() const override;
+
+		T TakeValueEnd() const override;
 
 		T& TakeItem(int index) override;
 
-		void* Forward(void* pointer) override;
+		void* Forward(void* pointer) const override;
 
-		bool IsForward(void* pointer) override;
+		bool IsForward(void* pointer) const override;
 
-		void* Back(void* pointer) override;
+		void* Back(void* pointer) const override;
 
-		bool IsBack(void* pointer) override;
+		bool IsBack(void* pointer) const override;
 
-		T TakeValue(void* pointer) override;
+		T TakeValue(void* pointer) const override;
 
-		ConstForwardIterator<T> CreateConstForwardBegin() override;
+		T& TakeItem(void* pointer) override;
 
-		ConstForwardIterator<T> CreateConstForwardEnd() override;
+		ConstForwardIterator<T> CreateConstForwardBegin() const override;
 
-		ConstBackIterator<T> CreateConstBackBegin() override;
+		ConstForwardIterator<T> CreateConstForwardEnd() const override;
 
-		ConstBackIterator<T> CreateConstBackEnd() override;
+		ConstBackIterator<T> CreateConstBackBegin() const override;
+
+		ConstBackIterator<T> CreateConstBackEnd() const override;
+
+		ForwardIterator<T> CreateForwardBegin() override;
+
+		ForwardIterator<T> CreateForwardEnd() override;
+
+		BackIterator<T> CreateBackBegin() override;
+
+		BackIterator<T> CreateBackEnd() override;
 	};
 
 	template<class T>

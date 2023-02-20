@@ -2,7 +2,7 @@
 
 namespace Containers
 {
-	class ISpecificRemoveable
+	class ISpecificContainerRemoveable
 	{
 	public:
 		virtual void RemoveBegin() = 0;

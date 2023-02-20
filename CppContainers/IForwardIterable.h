@@ -1,12 +1,19 @@
 #pragma once
 
+#include "IForwardIterableMoveable.h"
+#include "IValueIterableTakeable.h"
+#include "IItemIterableTakeable.h"
+#include "ForwardIterator.h"
+
 namespace Containers
 {
-	class IForwardIterable
+	template <class T>
+	class IForwardIterable : public IForwardIterableMoveable,
+		public IValueIterableTakeable<T>, public IItemIterableTakeable<T>
 	{
 	public:
-		virtual void* Forward(void* pointer) = 0;
+		virtual ForwardIterator<T> CreateForwardBegin() = 0;
 
-		virtual bool IsForward(void* pointer) = 0;
+		virtual ForwardIterator<T> CreateForwardEnd() = 0;
 	};
 }

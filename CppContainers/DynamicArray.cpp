@@ -3,6 +3,8 @@
 #include "DynamicArray.h"
 #include "ConstForwardIterator.cpp"
 #include "ConstBackIterator.cpp"
+#include "ForwardIterator.cpp"
+#include "BackIterator.cpp"
 
 namespace Containers
 {
@@ -37,13 +39,13 @@ namespace Containers
 	}
 
 	template<class T>
-	size_t DynamicArray<T>::GetSize()
+	size_t DynamicArray<T>::GetSize() const
 	{
 		return _size;
 	}
 
 	template<class T>
-	bool DynamicArray<T>::IsEmpty()
+	bool DynamicArray<T>::IsEmpty() const
 	{
 		return _size == 0;
 	}
@@ -55,12 +57,47 @@ namespace Containers
 	}
 
 	template<class T>
-	DynamicArray<T>::DynamicArray() {}
+	DynamicArray<T>::DynamicArray() : _capacity(0), _size(0), _array(nullptr) {}
+
+	template<class T>
+	DynamicArray<T>::DynamicArray(const DynamicArray<T>& other)
+	{
+		_array = Resize(other._size);
+		_size = other._size;
+		ConstForwardIterator<T> otherBegin = other.CreateConstForwardBegin();
+		ForwardIterator<T> thisBegin = CreateForwardBegin();
+		while (otherBegin.IsForward())
+		{
+			thisBegin.TakeItem() = otherBegin.TakeValue();
+			otherBegin.Forward();
+			thisBegin.Forward();
+		}
+	}
 
 	template<class T>
 	DynamicArray<T>::~DynamicArray()
 	{
 		delete[] _array;
+	}
+
+	template<class T>
+	DynamicArray<T>& DynamicArray<T>::operator=(const DynamicArray<T>& other)
+	{
+		if (this != &other)
+		{
+			delete[] _array;
+			_array = Resize(other._size);
+			_size = other._size;
+			ConstForwardIterator<T> otherBegin = other.CreateConstForwardBegin();
+			ForwardIterator<T> thisBegin = CreateForwardBegin();
+			while (otherBegin.IsForward())
+			{
+				thisBegin.TakeItem() = otherBegin.TakeValue();
+				otherBegin.Forward();
+				thisBegin.Forward();
+			}
+		}
+		return *this;
 	}
 
 	template<class T>
@@ -139,19 +176,26 @@ namespace Containers
 	}
 
 	template<class T>
-	T DynamicArray<T>::TakeValue(size_t index)
+	void DynamicArray<T>::Clear()
+	{
+		Resize(0);
+		_size = 0;
+	}
+
+	template<class T>
+	T DynamicArray<T>::TakeValue(size_t index) const
 	{
 		return _array[index];
 	}
 
 	template<class T>
-	T DynamicArray<T>::TakeValueBegin()
+	T DynamicArray<T>::TakeValueBegin() const
 	{
 		return TakeValue((size_t)0);
 	}
 
 	template<class T>
-	T DynamicArray<T>::TakeValueEnd()
+	T DynamicArray<T>::TakeValueEnd() const
 	{
 		return TakeValue(GetSize() - 1);
 	}
@@ -163,58 +207,88 @@ namespace Containers
 	}
 
 	template<class T>
-	void* DynamicArray<T>::Forward(void* pointer)
+	void* DynamicArray<T>::Forward(void* pointer) const
 	{
 		return (T*)pointer + 1;
 	}
 
 	template<class T>
-	bool DynamicArray<T>::IsForward(void* pointer)
+	bool DynamicArray<T>::IsForward(void* pointer) const
 	{
 		T* newPointer = (T*)pointer + 1;
 		return _array <= newPointer && newPointer <= _array + _size;
 	}
 
 	template<class T>
-	void* DynamicArray<T>::Back(void* pointer)
+	void* DynamicArray<T>::Back(void* pointer) const
 	{
 		return (T*)pointer - 1;
 	}
 
 	template<class T>
-	bool DynamicArray<T>::IsBack(void* pointer)
+	bool DynamicArray<T>::IsBack(void* pointer) const
 	{
 		T* newPointer = (T*)pointer - 1;
 		return _array <= newPointer && newPointer <= _array + _size;
 	}
 
 	template<class T>
-	T DynamicArray<T>::TakeValue(void* pointer)
+	T DynamicArray<T>::TakeValue(void* pointer) const
 	{
 		return *((T*)pointer);
 	}
 
 	template<class T>
-	ConstForwardIterator<T> DynamicArray<T>::CreateConstForwardBegin()
+	T& DynamicArray<T>::TakeItem(void* pointer)
+	{
+		return *((T*)pointer);
+	}
+
+	template<class T>
+	ConstForwardIterator<T> DynamicArray<T>::CreateConstForwardBegin() const
 	{
 		return ConstForwardIterator<T>(_array, *this);
 	}
 
 	template<class T>
-	ConstForwardIterator<T> DynamicArray<T>::CreateConstForwardEnd()
+	ConstForwardIterator<T> DynamicArray<T>::CreateConstForwardEnd() const
 	{
 		return ConstForwardIterator<T>(_array + _size, *this);
 	}
 
 	template<class T>
-	ConstBackIterator<T> DynamicArray<T>::CreateConstBackBegin()
+	ConstBackIterator<T> DynamicArray<T>::CreateConstBackBegin() const
 	{
 		return ConstBackIterator<T>(_array + _size - 1, *this);
 	}
 
 	template<class T>
-	ConstBackIterator<T> DynamicArray<T>::CreateConstBackEnd()
+	ConstBackIterator<T> DynamicArray<T>::CreateConstBackEnd() const
 	{
 		return ConstBackIterator<T>(_array - 1, *this);
+	}
+
+	template<class T>
+	ForwardIterator<T> DynamicArray<T>::CreateForwardBegin()
+	{
+		return ForwardIterator<T>(_array, *this);
+	}
+
+	template<class T>
+	ForwardIterator<T> DynamicArray<T>::CreateForwardEnd()
+	{
+		return ForwardIterator<T>(_array + _size, *this);
+	}
+
+	template<class T>
+	BackIterator<T> DynamicArray<T>::CreateBackBegin()
+	{
+		return BackIterator<T>(_array + _size - 1, *this);
+	}
+
+	template<class T>
+	BackIterator<T> DynamicArray<T>::CreateBackEnd()
+	{
+		return BackIterator<T>(_array - 1, *this);
 	}
 }

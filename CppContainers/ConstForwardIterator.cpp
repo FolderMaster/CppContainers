@@ -6,7 +6,7 @@
 namespace Containers
 {
 	template<class T>
-	ConstForwardIterator<T>::ConstForwardIterator(void* pointer, IConstForwardIterable<T>&
+	ConstForwardIterator<T>::ConstForwardIterator(void* pointer, const IConstForwardIterable<T>&
 		iterable) : _pointer(pointer), _iterable(iterable) {}
 
 	template<class T>
@@ -22,13 +22,13 @@ namespace Containers
 	}
 
 	template<class T>
-	bool ConstForwardIterator<T>::IsForward()
+	bool ConstForwardIterator<T>::IsForward() const
 	{
 		return _iterable.IsForward(_pointer);
 	}
 
 	template<class T>
-	T ConstForwardIterator<T>::TakeValue()
+	T ConstForwardIterator<T>::TakeValue() const
 	{
 		return _iterable.TakeValue(_pointer);
 	}

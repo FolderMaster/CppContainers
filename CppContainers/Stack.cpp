@@ -5,13 +5,13 @@
 namespace Containers
 {
 	template<class T>
-	size_t Stack<T>::GetSize()
+	size_t Stack<T>::GetSize() const
 	{
 		return _container.GetSize();
 	}
 
 	template<class T>
-	bool Stack<T>::IsEmpty()
+	bool Stack<T>::IsEmpty() const
 	{
 		return _container.IsEmpty();
 	}

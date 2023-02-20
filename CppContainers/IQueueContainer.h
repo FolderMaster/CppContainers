@@ -1,13 +1,14 @@
 #pragma once
 
-#include "ISpecificAddable.h"
-#include "ISpecificRemoveable.h"
-#include "ISpecificValueTakeable.h"
-#include "ISizeGetable.h"
+#include "ISpecificContainerAddable.h"
+#include "ISpecificContainerRemoveable.h"
+#include "ISpecificValueContainerTakeable.h"
+#include "ISizeContainerGetable.h"
 
 namespace Containers
 {
 	template<class T>
-	class IQueueContainer : public ISpecificAddable<T>, public ISpecificValueTakeable<T>, public
-		ISpecificRemoveable, public ISizeGetable {};
+	class IQueueContainer : public ISpecificContainerAddable<T>,
+		public ISpecificValueContainerTakeable<T>, public ISpecificContainerRemoveable,
+		public ISizeContainerGetable {};
 }

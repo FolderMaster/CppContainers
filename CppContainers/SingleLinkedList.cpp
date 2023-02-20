@@ -2,11 +2,12 @@
 
 #include "SingleLinkedList.h"
 #include "ConstForwardIterator.cpp"
+#include "ForwardIterator.cpp"
 
 namespace Containers
 {
 	template<class T>
-	SingleSegment<T>* SingleLinkedList<T>::GetPointerOfIndex(int index)
+	SingleSegment<T>* SingleLinkedList<T>::GetPointerOfIndex(int index) const
 	{
 		SingleSegment<T>* result;
 		if (index >= 0)
@@ -29,7 +30,7 @@ namespace Containers
 	}
 
 	template<class T>
-	size_t SingleLinkedList<T>::GetSize()
+	size_t SingleLinkedList<T>::GetSize() const
 	{
 		int size = 0;
 		for (SingleSegment<T>* pointer = _head;
@@ -42,19 +43,18 @@ namespace Containers
 	}
 
 	template<class T>
-	bool SingleLinkedList<T>::IsEmpty()
+	bool SingleLinkedList<T>::IsEmpty() const
 	{
 		return _head == nullptr;
 	}
 
 	template<class T>
-	SingleLinkedList<T>::SingleLinkedList()
-	{
-	}
+	SingleLinkedList<T>::SingleLinkedList() : _head(nullptr), _tail(nullptr) {}
 
 	template<class T>
 	SingleLinkedList<T>::~SingleLinkedList()
 	{
+		Clear();
 	}
 
 	template<class T>
@@ -130,19 +130,38 @@ namespace Containers
 	}
 
 	template<class T>
-	T SingleLinkedList<T>::TakeValue(int index)
+	void SingleLinkedList<T>::Clear()
+	{
+		if (_head != nullptr)
+		{
+			SingleSegment<T>* pointer = _head;
+			SingleSegment<T>* deletePointer;
+			while (pointer->Next != nullptr)
+			{
+				deletePointer = pointer;
+				pointer = pointer->Next;
+				delete deletePointer;
+			}
+			delete pointer;
+			_head = nullptr;
+			_tail = nullptr;
+		}
+	}
+
+	template<class T>
+	T SingleLinkedList<T>::TakeValue(int index) const
 	{
 		return GetPointerOfIndex(index)->Item;
 	}
 
 	template<class T>
-	T SingleLinkedList<T>::TakeValueBegin()
+	T SingleLinkedList<T>::TakeValueBegin() const
 	{
 		return TakeValue(0);
 	}
 
 	template<class T>
-	T SingleLinkedList<T>::TakeValueEnd()
+	T SingleLinkedList<T>::TakeValueEnd() const
 	{
 		return TakeValue(-2);
 	}
@@ -154,32 +173,50 @@ namespace Containers
 	}
 
 	template<class T>
-	void* SingleLinkedList<T>::Forward(void* pointer)
+	void* SingleLinkedList<T>::Forward(void* pointer) const
 	{
 		return ((SingleSegment<T>*)pointer)->Next;
 	}
 
 	template<class T>
-	bool SingleLinkedList<T>::IsForward(void* pointer)
+	bool SingleLinkedList<T>::IsForward(void* pointer) const
 	{
 		return ((SingleSegment<T>*)pointer) != nullptr;
 	}
 
 	template<class T>
-	T SingleLinkedList<T>::TakeValue(void* pointer)
+	T SingleLinkedList<T>::TakeValue(void* pointer) const
 	{
 		return ((SingleSegment<T>*)pointer)->Item;
 	}
 
 	template<class T>
-	ConstForwardIterator<T> SingleLinkedList<T>::CreateConstForwardBegin()
+	T& SingleLinkedList<T>::TakeItem(void* pointer)
+	{
+		return ((SingleSegment<T>*)pointer)->Item;
+	}
+
+	template<class T>
+	ConstForwardIterator<T> SingleLinkedList<T>::CreateConstForwardBegin() const
 	{
 		return ConstForwardIterator<T>(_head, *this);
 	}
 
 	template<class T>
-	ConstForwardIterator<T> SingleLinkedList<T>::CreateConstForwardEnd()
+	ConstForwardIterator<T> SingleLinkedList<T>::CreateConstForwardEnd() const
 	{
 		return ConstForwardIterator<T>(nullptr, *this);
+	}
+
+	template<class T>
+	ForwardIterator<T> SingleLinkedList<T>::CreateForwardBegin()
+	{
+		return ForwardIterator<T>(_head, *this);
+	}
+
+	template<class T>
+	ForwardIterator<T> SingleLinkedList<T>::CreateForwardEnd()
+	{
+		return ForwardIterator<T>(nullptr, *this);
 	}
 }

@@ -6,6 +6,6 @@ namespace Containers
 	class IValueIterableTakeable
 	{
 	public:
-		virtual TValue TakeValue(void* pointer) = 0;
+		virtual TValue TakeValue(void* pointer) const = 0;
 	};
 }

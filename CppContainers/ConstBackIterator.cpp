@@ -6,7 +6,7 @@
 namespace Containers
 {
 	template<class T>
-	ConstBackIterator<T>::ConstBackIterator(void* pointer, IConstBackIterable<T>& iterable) : 
+	ConstBackIterator<T>::ConstBackIterator(void* pointer, const IConstBackIterable<T>& iterable) : 
 		_iterable(iterable), _pointer(pointer) {}
 
 	template<class T>
@@ -22,13 +22,13 @@ namespace Containers
 	}
 
 	template<class T>
-	bool ConstBackIterator<T>::IsBack()
+	bool ConstBackIterator<T>::IsBack() const
 	{
 		return _iterable.IsBack(_pointer);
 	}
 
 	template<class T>
-	T ConstBackIterator<T>::TakeValue()
+	T ConstBackIterator<T>::TakeValue() const
 	{
 		return _iterable.TakeValue(_pointer);
 	}

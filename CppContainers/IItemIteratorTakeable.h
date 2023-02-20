@@ -6,6 +6,6 @@ namespace Containers
 	class IItemIteratorTakeable
 	{
 	public:
-		virtual TItem TakeItem() = 0;
+		virtual TItem& TakeItem() = 0;
 	};
 }

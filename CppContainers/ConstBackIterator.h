@@ -11,18 +11,18 @@ namespace Containers
 	class ConstBackIterator : public IConstBackIterator<T>
 	{
 	private:
-		void* _pointer = nullptr;
+		void* _pointer;
 
-		IConstBackIterable<T>& _iterable;
+		const IConstBackIterable<T>& _iterable;
 	public:
-		ConstBackIterator(void* pointer, IConstBackIterable<T>& iterable);
+		ConstBackIterator(void* pointer, const IConstBackIterable<T>& iterable);
 
 		bool operator!=(ConstBackIterator<T> it);
 
 		void Back() override;
 
-		bool IsBack() override;
+		bool IsBack() const override;
 
-		T TakeValue() override;
+		T TakeValue() const override;
 	};
 }

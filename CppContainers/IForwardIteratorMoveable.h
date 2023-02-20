@@ -2,11 +2,11 @@
 
 namespace Containers
 {
-	class IForwardMoveable
+	class IForwardIteratorMoveable
 	{
 	public:
 		virtual void Forward() = 0;
 
-		virtual bool IsForward() = 0;
+		virtual bool IsForward() const = 0;
 	};
 }

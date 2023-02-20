@@ -3,9 +3,9 @@
 namespace Containers
 {
 	template <class TValue>
-	class ISimpleValueTakeable
+	class ISimpleContainerAddable
 	{
 	public:
-		virtual TValue TakeValue() = 0;
+		virtual void Add(TValue value) = 0;
 	};
 }

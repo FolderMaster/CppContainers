@@ -6,6 +6,6 @@ namespace Containers
 	class IValueIteratorTakeable
 	{
 	public:
-		virtual TValue TakeValue() = 0;
+		virtual TValue TakeValue() const = 0;
 	};
 }

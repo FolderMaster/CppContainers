@@ -11,10 +11,10 @@ int main()
 	for (int n = 0; n < 10; ++n)
 	{
 		array.AddEnd(n);
-		ConstForwardIterator<double> begin = array.CreateConstForwardBegin();
+		ForwardIterator<double> begin = array.CreateForwardBegin();
 		while (begin.IsForward())
 		{
-			cout << begin.TakeValue() << " ";
+			cout << begin.TakeItem()++ << " ";
 			begin.Forward();
 		}
 		cout << endl;
@@ -35,10 +35,10 @@ int main()
 	for (int n = 0; n < 10; ++n)
 	{
 		doubleList.AddEnd(n);
-		ConstBackIterator<double> begin = doubleList.CreateConstBackBegin();
+		BackIterator<double> begin = doubleList.CreateBackBegin();
 		while (begin.IsBack())
 		{
-			cout << begin.TakeValue() << " ";
+			cout << begin.TakeItem()-- << " ";
 			begin.Back();
 		}
 		cout << endl;
@@ -58,7 +58,7 @@ int main()
 	SingleList<double> singleList = SingleList<double>();
 	for (int n = 0; n < 10; ++n)
 	{
-		singleList.Add(n, n);
+		singleList.AddBegin(n);
 		ConstForwardIterator<double> begin = singleList.CreateConstForwardBegin();
 		while (begin.IsForward())
 		{
