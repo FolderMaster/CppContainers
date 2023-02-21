@@ -124,6 +124,15 @@
     <Filter Include="Файлы заголовков\Classes\Iterators\BackIterator">
       <UniqueIdentifier>{425aa8e4-2f57-4ce1-b58e-2187caceb9ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Functions\Hash">
+      <UniqueIdentifier>{dfc5647c-49c1-48eb-9a8d-72051892e91a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Functions\Additional">
+      <UniqueIdentifier>{6ad03038-6348-4eb6-be59-916520e53b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Classes\Container\HashTables">
+      <UniqueIdentifier>{88453584-054e-451b-a396-477ab3f0778c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
@@ -179,6 +188,12 @@
     </ClCompile>
     <ClCompile Include="BackIterator.cpp">
       <Filter>Файлы заголовков\Classes\Iterators\BackIterator</Filter>
+    </ClCompile>
+    <ClCompile Include="HashFunctions.cpp">
+      <Filter>Файлы заголовков\Functions\Hash</Filter>
+    </ClCompile>
+    <ClCompile Include="AdditionalFunctions.cpp">
+      <Filter>Файлы заголовков\Functions\Additional</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -346,6 +361,24 @@
     </ClInclude>
     <ClInclude Include="BackIterator.h">
       <Filter>Файлы заголовков\Classes\Iterators\BackIterator</Filter>
+    </ClInclude>
+    <ClInclude Include="Exceptions.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="IValueSearchContainer.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="IItemSearchContainer.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="ISortContainer.h">
+      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="HashFunctions.h">
+      <Filter>Файлы заголовков\Functions\Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="AdditionalFunctions.h">
+      <Filter>Файлы заголовков\Functions\Additional</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -14,7 +14,7 @@ int main()
 		ForwardIterator<double> begin = array.CreateForwardBegin();
 		while (begin.IsForward())
 		{
-			cout << begin.TakeItem()++ << " ";
+			cout << begin.TakeItem()++ << "\t";
 			begin.Forward();
 		}
 		cout << endl;
@@ -25,11 +25,12 @@ int main()
 		ConstForwardIterator<double> begin = array.CreateConstForwardBegin();
 		while (begin.IsForward())
 		{
-			cout << begin.TakeValue() << " ";
+			cout << begin.TakeValue() << "\t";
 			begin.Forward();
 		}
 		cout << endl;
 	}
+	cout << endl;
 
 	DoubleList<double> doubleList = DoubleList<double>();
 	for (int n = 0; n < 10; ++n)
@@ -38,7 +39,7 @@ int main()
 		BackIterator<double> begin = doubleList.CreateBackBegin();
 		while (begin.IsBack())
 		{
-			cout << begin.TakeItem()-- << " ";
+			cout << begin.TakeItem()-- << "\t";
 			begin.Back();
 		}
 		cout << endl;
@@ -49,20 +50,21 @@ int main()
 		ConstBackIterator<double> begin = doubleList.CreateConstBackBegin();
 		while (begin.IsBack())
 		{
-			cout << begin.TakeValue() << " ";
+			cout << begin.TakeValue() << "\t";
 			begin.Back();
 		}
 		cout << endl;
 	}
+	cout << endl;
 
 	SingleList<double> singleList = SingleList<double>();
 	for (int n = 0; n < 10; ++n)
 	{
-		singleList.AddBegin(n);
-		ConstForwardIterator<double> begin = singleList.CreateConstForwardBegin();
+		singleList.AddEnd(n);
+		ForwardIterator<double> begin = singleList.CreateForwardBegin();
 		while (begin.IsForward())
 		{
-			cout << begin.TakeValue() << " ";
+			cout << begin.TakeItem()++ << "\t";
 			begin.Forward();
 		}
 		cout << endl;
@@ -78,6 +80,7 @@ int main()
 		}
 		cout << endl;
 	}*/
+	cout << endl;
 
 	Array<double> stackArray = Array<double>();
 	Array<double> minStackArray = Array<double>();
@@ -109,5 +112,32 @@ int main()
 	for (int n = 0; n < 10; ++n)
 	{
 		cout << "Dequeue:" << queue.Dequeue() << endl;
+	}
+	cout << endl;
+
+	Array<KeyValuePair<string, string>> pairArray = Array<KeyValuePair<string, string>>();
+	pairArray.AddEnd(KeyValuePair<string, string>("a", "1"));
+	pairArray.AddEnd(KeyValuePair<string, string>("b", "3"));
+	pairArray.AddEnd(KeyValuePair<string, string>("c", "2"));
+	pairArray.AddEnd(KeyValuePair<string, string>("u", "4"));
+	pairArray.AddEnd(KeyValuePair<string, string>("e", "5"));
+	pairArray.AddEnd(KeyValuePair<string, string>("q", "6"));
+	pairArray.AddEnd(KeyValuePair<string, string>("w", "7"));
+	pairArray.AddEnd(KeyValuePair<string, string>("i", "8"));
+	pairArray.AddEnd(KeyValuePair<string, string>("o", "9"));
+	pairArray.AddEnd(KeyValuePair<string, string>("p", "10"));
+	Dictionary<string, string> dictionary = Dictionary<string, string>();
+	for (int n = 0; n < pairArray.GetSize(); ++n)  
+	{
+		KeyValuePair<string, string> pair = pairArray.TakeItem(n);
+		dictionary.Add(pair.Value, pair.Key);
+		ConstForwardIterator<KeyValuePair<string, string>> begin =
+			dictionary.CreateConstForwardBegin();
+		while (begin.IsForward())
+		{
+			cout << begin.TakeValue().Key << "\t" << begin.TakeValue().Value << endl;
+			begin.Forward();
+		}
+		cout << endl;
 	}
 }

@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Dictionary.h"
+#include "SearchFunctions.cpp"
+#include "SortFunctions.cpp"
 
 namespace Containers
 {
@@ -14,11 +16,15 @@ namespace Containers
 	void Dictionary<TKey, TValue>::Add(TValue value, TKey key)
 	{
 		KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key, value);
-		int index = _dictionary.BinaryFindIndex(pair, _sortFunction);
+		int index = BinaryFindIndex(_dictionary, pair, _sortFunction);
 		if (index == -1)
 		{
 			_dictionary.AddEnd(pair);
-			_dictionary.Sort(_sortFunction);
+			BubbleSort(_dictionary, _sortFunction);
+		}
+		else
+		{
+			throw OccupiedKeyException;
 		}
 	}
 
@@ -26,23 +32,86 @@ namespace Containers
 	void Dictionary<TKey, TValue>::Remove(TKey key)
 	{
 		KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
-		int index = _dictionary.BinaryFindIndex(pair, _sortFunction);
+		int index = BinaryFindIndex(_dictionary, pair, _sortFunction);
 		if (index != -1)
 		{
 			_dictionary.Remove(index);
-			_dictionary.Sort(_sortFunction);
+		}
+		else
+		{
+			throw KeyNotFoundException;
 		}
 	}
 
 	template<class TKey, class TValue>
-	TValue Dictionary<TKey, TValue>::ValueTake(TKey key)
+	TValue Dictionary<TKey, TValue>::TakeValue(TKey key) const
 	{
-		return TValue();
+		KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
+		return BinaryFindValue(_dictionary, pair, _sortFunction).Value;
 	}
 
 	template<class TKey, class TValue>
-	TValue& Dictionary<TKey, TValue>::ItemTake(TKey key)
+	TValue& Dictionary<TKey, TValue>::TakeItem(TKey key)
 	{
-		// TODO: вставьте здесь оператор return
+		KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
+		return BinaryFindItem(_dictionary, pair, _sortFunction).Value;
+	}
+
+	template<class TKey, class TValue>
+	void* Dictionary<TKey, TValue>::Forward(void* pointer) const
+	{
+		return _dictionary.Forward(pointer);
+	}
+
+	template<class TKey, class TValue>
+	bool Dictionary<TKey, TValue>::IsForward(void* pointer) const
+	{
+		return _dictionary.IsForward(pointer);
+	}
+
+	template<class TKey, class TValue>
+	void* Dictionary<TKey, TValue>::Back(void* pointer) const
+	{
+		return _dictionary.Back(pointer);
+	}
+
+	template<class TKey, class TValue>
+	bool Dictionary<TKey, TValue>::IsBack(void* pointer) const
+	{
+		return _dictionary.IsBack(pointer);
+	}
+
+	template<class TKey, class TValue>
+	KeyValuePair<TKey, TValue> Dictionary<TKey, TValue>::TakeValue(void* pointer) const
+	{
+		return _dictionary.TakeValue(pointer);
+	}
+
+	template<class TKey, class TValue>
+	ConstForwardIterator<KeyValuePair<TKey, TValue>>
+		Dictionary<TKey, TValue>::CreateConstForwardBegin() const
+	{
+		return _dictionary.CreateConstForwardBegin();
+	}
+
+	template<class TKey, class TValue>
+	ConstForwardIterator<KeyValuePair<TKey, TValue>>
+		Dictionary<TKey, TValue>::CreateConstForwardEnd() const
+	{
+		return _dictionary.CreateConstForwardEnd();
+	}
+
+	template<class TKey, class TValue>
+	ConstBackIterator<KeyValuePair<TKey, TValue>>
+		Dictionary<TKey, TValue>::CreateConstBackBegin() const
+	{
+		return _dictionary.CreateConstBackBegin();
+	}
+
+	template<class TKey, class TValue>
+	ConstBackIterator<KeyValuePair<TKey, TValue>>
+		Dictionary<TKey, TValue>::CreateConstBackEnd() const
+	{
+		return _dictionary.CreateConstBackEnd();
 	}
 }

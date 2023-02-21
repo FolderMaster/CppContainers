@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ISortContainer.h"
+
 namespace Containers
 {
 	template<class T>
@@ -8,6 +10,7 @@ namespace Containers
 	template<class T>
 	bool IsLess(T a, T b);
 
-	template<class T>
-	void BubbleSort();
+	template<class TItem, class TEnumerable>
+	void BubbleSort(ISortContainer<TItem, TEnumerable>& sortContainer,
+		bool (*sortFunction)(TItem, TItem));
 }
