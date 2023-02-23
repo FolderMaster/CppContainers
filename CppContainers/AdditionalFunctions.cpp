@@ -4,7 +4,15 @@
 
 namespace Containers
 {
-	int Find—oprime(int number)
+	template<class T>
+	void Swap(T& item1, T& item2)
+	{
+		T swapItem = item1;
+		item1 = item2;
+		item2 = swapItem;
+	}
+
+	int FindCoprime(int number)
 	{
 		for (int result = 2; true; ++result)
 		{

@@ -1,12 +1,12 @@
 #pragma once
 
 #include "ISingleLinkedList.h"
-#include "SingleLinkedListSegment.cpp"
+#include "SingleLinkedListSegment.h"
 
 namespace Containers
 {
 	template <class T>
-	class SingleLinkedList : ISingleLinkedList<T, int>
+	class SingleLinkedList : public ISingleLinkedList<T, int>
 	{
 	private:
 		SingleSegment<T>* _head = nullptr;
@@ -14,16 +14,22 @@ namespace Containers
 		SingleSegment<T>* _tail = nullptr;
 
 		SingleSegment<T>* GetPointerOfIndex(int index) const;
+
+		void CreateBySingleLinkedList(const SingleLinkedList<T>& other);
 	public:
 		size_t GetSize() const override;
 
 		bool IsEmpty() const override;
 
+		T& operator[](int index);
+
 		SingleLinkedList();
+
+		SingleLinkedList(const SingleLinkedList<T>& other);
 
 		~SingleLinkedList();
 
-		T& operator[](int index);
+		SingleLinkedList<T>& operator=(const SingleLinkedList<T>& other);
 
 		void Add(T value, int index) override;
 

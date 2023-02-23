@@ -11,10 +11,22 @@ namespace Containers
 	int LinearFindIndex(IConstForwardIterable<TValue>& iterable, TValue value);
 
 	template<class TValue>
+	IForwardIterable<int>& LinearFindIndices(const IConstForwardIterable<TValue>& iterable,
+		TValue value);
+
+	template<class TValue>
 	TValue LinearFindValue(const IConstForwardIterable<TValue>& iterable, TValue value);
+
+	template<class TValue>
+	IForwardIterable<TValue>& LinearFindValues(const IConstForwardIterable<TValue>& iterable,
+		TValue value);
 
 	template<class TItem>
 	TItem& LinearFindItem(IForwardIterable<TItem>& iterable, TItem& item);
+
+	template<class TItem>
+	IForwardIterable<TItem&>& LinearFindItems(IForwardIterable<TItem>& iterable,
+		TItem& item);
 
 	template<class TValue, class TEnumerable>
 	TEnumerable BinaryFindIndex(IValueSearchContainer<TValue, TEnumerable>& searchContainer,

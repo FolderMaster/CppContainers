@@ -1,384 +1,408 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Файлы заголовков">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Файлы ресурсов">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces">
+    <Filter Include="Containers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Containers\Iterfaces">
       <UniqueIdentifier>{43ab277f-5d4c-4428-8a4b-d1fab3af1fd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Classes">
-      <UniqueIdentifier>{63d27e48-3598-4315-832a-64c2fc6179c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Structures">
-      <UniqueIdentifier>{ebdb11ed-d591-44d5-89a9-67f1d6b2dbf3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Functions">
-      <UniqueIdentifier>{3f2f3cec-528e-45b4-ac1d-5d73531ab63a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container">
-      <UniqueIdentifier>{3d2ef39f-070f-4f86-bee3-8ef96fec65ad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Iterators">
+    <Filter Include="Containers\Iterfaces\Iterators">
       <UniqueIdentifier>{cfbb7d00-8c21-4e8a-9f8c-cb356c01b272}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Containers">
-      <UniqueIdentifier>{126bebe1-4de0-4b90-bd17-c8b1e56fb35b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Iterators\Currents">
+    <Filter Include="Containers\Iterfaces\Iterators\Currents">
       <UniqueIdentifier>{cd8407cb-3f9a-4669-aee0-9d7121f2b81a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Classes\Iterators">
-      <UniqueIdentifier>{07a93418-8354-4c72-8ba6-d36c68d342d8}</UniqueIdentifier>
+    <Filter Include="Containers\Iterfaces\Containers">
+      <UniqueIdentifier>{126bebe1-4de0-4b90-bd17-c8b1e56fb35b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Containers\Removeable">
+    <Filter Include="Containers\Iterfaces\Containers\Removeable">
       <UniqueIdentifier>{07cd5f5f-d456-467e-af09-4f6bc10043f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Containers\Addable">
+    <Filter Include="Containers\Iterfaces\Containers\Addable">
       <UniqueIdentifier>{046e79e6-c348-4a48-95ff-ed5990e579ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Containers\Takeable">
+    <Filter Include="Containers\Iterfaces\Containers\Takeable">
       <UniqueIdentifier>{495f3dab-0b18-4a34-ac6e-53c1b8f3fed4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable">
+    <Filter Include="Containers\Iterfaces\Containers\Takeable\Value">
       <UniqueIdentifier>{8cfb8ae9-196b-4003-84b8-cbeec798bda0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Containers\Currents">
+    <Filter Include="Containers\Iterfaces\Containers\Currents">
       <UniqueIdentifier>{2614f07b-2cd5-4808-8c55-1fc18a766dbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Structures\DoubleLinkedListSegment">
-      <UniqueIdentifier>{2b300a55-2ea6-411a-9fd4-a536f4cfb0da}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Structures\SingleLinkedListSegment">
-      <UniqueIdentifier>{d3132a63-b00d-45b7-801b-4770603d1863}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\DynamicArray">
-      <UniqueIdentifier>{b9e1cf30-1bf8-4839-9bf6-7de0b33c1f97}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Stacks">
-      <UniqueIdentifier>{8a288021-4786-47d0-a64c-06753f03ee42}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Stacks\MinMaxStack">
-      <UniqueIdentifier>{e9b5a047-e4b1-4e86-881a-83d9d071a1c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Stacks\Stack">
-      <UniqueIdentifier>{cab7f247-0217-4cdc-92d8-291789e20996}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Queues">
-      <UniqueIdentifier>{70add88d-33a0-4c5c-944e-99aef61b4ccf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Queues\Queue">
-      <UniqueIdentifier>{c263da5f-b698-4d2d-a944-cb32d1929ae7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Queues\StacksQueue">
-      <UniqueIdentifier>{e9f2f354-0b12-43d6-8e7b-4dceeb231572}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Structures\KeyValuePair">
-      <UniqueIdentifier>{2346d371-f60e-4318-9128-6131b7216440}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Dictonaries">
-      <UniqueIdentifier>{08e98754-7e0a-4484-8c78-ef5dcf17a129}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Dictonaries\Dictionary">
-      <UniqueIdentifier>{60abe0a2-10b3-40f9-8aef-0d9e032c5f18}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Functions\Sort">
-      <UniqueIdentifier>{6264e9fa-8244-472e-88bf-e808310bb17d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Functions\Search">
-      <UniqueIdentifier>{2323a1cf-46f8-4a2d-a386-2c31b6c6263a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Lists">
-      <UniqueIdentifier>{41da6c38-2ea4-4482-a9c7-909cb0ccf5b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Lists\DoubleLinkedList">
-      <UniqueIdentifier>{0b8727b7-d47f-430f-94e9-9e7662ef50df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\Lists\SingleLinkedList">
-      <UniqueIdentifier>{d9f68e3c-ef9c-4ec1-91d6-cf5ab42337a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Iterators\ConstBackIterator">
-      <UniqueIdentifier>{74aa6594-2dae-406a-afe7-77f96014f54a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Iterators\ConstForwardIterator">
-      <UniqueIdentifier>{ee5e5379-5719-4647-a2e9-0971d39b5790}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Classes\Iterators\ForwardIterator">
-      <UniqueIdentifier>{cc7d264d-fda4-4676-b9c2-983ba3b70c38}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Iterables">
+    <Filter Include="Containers\Iterfaces\Iterables">
       <UniqueIdentifier>{fbfeeafa-95ac-4ca1-b77d-b1cec05820ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Iterfaces\Iterables\Current">
+    <Filter Include="Containers\Iterfaces\Iterables\Current">
       <UniqueIdentifier>{99afb97c-5857-4007-b78b-44a87afa944b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Classes\Iterators\BackIterator">
+    <Filter Include="Containers\Classes">
+      <UniqueIdentifier>{63d27e48-3598-4315-832a-64c2fc6179c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container">
+      <UniqueIdentifier>{3d2ef39f-070f-4f86-bee3-8ef96fec65ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\DynamicArray">
+      <UniqueIdentifier>{b9e1cf30-1bf8-4839-9bf6-7de0b33c1f97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Stacks">
+      <UniqueIdentifier>{8a288021-4786-47d0-a64c-06753f03ee42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Stacks\MinMaxStack">
+      <UniqueIdentifier>{e9b5a047-e4b1-4e86-881a-83d9d071a1c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Stacks\Stack">
+      <UniqueIdentifier>{cab7f247-0217-4cdc-92d8-291789e20996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Queues">
+      <UniqueIdentifier>{70add88d-33a0-4c5c-944e-99aef61b4ccf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Queues\Queue">
+      <UniqueIdentifier>{c263da5f-b698-4d2d-a944-cb32d1929ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Queues\StacksQueue">
+      <UniqueIdentifier>{e9f2f354-0b12-43d6-8e7b-4dceeb231572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Dictonaries">
+      <UniqueIdentifier>{08e98754-7e0a-4484-8c78-ef5dcf17a129}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Dictonaries\Dictionary">
+      <UniqueIdentifier>{60abe0a2-10b3-40f9-8aef-0d9e032c5f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Lists">
+      <UniqueIdentifier>{41da6c38-2ea4-4482-a9c7-909cb0ccf5b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Lists\DoubleLinkedList">
+      <UniqueIdentifier>{0b8727b7-d47f-430f-94e9-9e7662ef50df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Lists\SingleLinkedList">
+      <UniqueIdentifier>{d9f68e3c-ef9c-4ec1-91d6-cf5ab42337a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\HashTables">
+      <UniqueIdentifier>{88453584-054e-451b-a396-477ab3f0778c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\HashTables\HashTable">
+      <UniqueIdentifier>{964ef259-7439-4af3-8bab-e245b0606486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Trees">
+      <UniqueIdentifier>{2ba56134-2f7d-41ff-ae32-a45f3763b103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Trees\BinaryTrees">
+      <UniqueIdentifier>{cf885a18-1e9f-42d5-9d6b-1bfd1bb026d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Trees\BinaryHeaps">
+      <UniqueIdentifier>{a9b74a03-1d73-4a71-a927-a86273267f6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Iterators">
+      <UniqueIdentifier>{07a93418-8354-4c72-8ba6-d36c68d342d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Iterators\ConstBackIterator">
+      <UniqueIdentifier>{74aa6594-2dae-406a-afe7-77f96014f54a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Iterators\ConstForwardIterator">
+      <UniqueIdentifier>{ee5e5379-5719-4647-a2e9-0971d39b5790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Iterators\ForwardIterator">
+      <UniqueIdentifier>{cc7d264d-fda4-4676-b9c2-983ba3b70c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Iterators\BackIterator">
       <UniqueIdentifier>{425aa8e4-2f57-4ce1-b58e-2187caceb9ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Functions\Hash">
+    <Filter Include="Containers\Structures">
+      <UniqueIdentifier>{ebdb11ed-d591-44d5-89a9-67f1d6b2dbf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Structures\DoubleLinkedListSegment">
+      <UniqueIdentifier>{2b300a55-2ea6-411a-9fd4-a536f4cfb0da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Structures\SingleLinkedListSegment">
+      <UniqueIdentifier>{d3132a63-b00d-45b7-801b-4770603d1863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Structures\KeyValuePair">
+      <UniqueIdentifier>{2346d371-f60e-4318-9128-6131b7216440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Functions">
+      <UniqueIdentifier>{3f2f3cec-528e-45b4-ac1d-5d73531ab63a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Functions\Sort">
+      <UniqueIdentifier>{6264e9fa-8244-472e-88bf-e808310bb17d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Functions\Search">
+      <UniqueIdentifier>{2323a1cf-46f8-4a2d-a386-2c31b6c6263a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Functions\Hash">
       <UniqueIdentifier>{dfc5647c-49c1-48eb-9a8d-72051892e91a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Functions\Additional">
+    <Filter Include="Containers\Functions\Additional">
       <UniqueIdentifier>{6ad03038-6348-4eb6-be59-916520e53b55}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Classes\Container\HashTables">
-      <UniqueIdentifier>{88453584-054e-451b-a396-477ab3f0778c}</UniqueIdentifier>
+    <Filter Include="Test">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Test</Filter>
     </ClCompile>
     <ClCompile Include="DoubleLinkedListSegment.cpp">
-      <Filter>Файлы заголовков\Structures\DoubleLinkedListSegment</Filter>
+      <Filter>Containers\Structures\DoubleLinkedListSegment</Filter>
     </ClCompile>
     <ClCompile Include="SingleLinkedListSegment.cpp">
-      <Filter>Файлы заголовков\Structures\SingleLinkedListSegment</Filter>
+      <Filter>Containers\Structures\SingleLinkedListSegment</Filter>
     </ClCompile>
     <ClCompile Include="DoubleLinkedList.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Lists\DoubleLinkedList</Filter>
+      <Filter>Containers\Classes\Container\Lists\DoubleLinkedList</Filter>
     </ClCompile>
     <ClCompile Include="DynamicArray.cpp">
-      <Filter>Файлы заголовков\Classes\Container\DynamicArray</Filter>
+      <Filter>Containers\Classes\Container\DynamicArray</Filter>
     </ClCompile>
     <ClCompile Include="SingleLinkedList.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Lists\SingleLinkedList</Filter>
+      <Filter>Containers\Classes\Container\Lists\SingleLinkedList</Filter>
     </ClCompile>
     <ClCompile Include="MinMaxStack.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Stacks\MinMaxStack</Filter>
+      <Filter>Containers\Classes\Container\Stacks\MinMaxStack</Filter>
     </ClCompile>
     <ClCompile Include="Stack.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Stacks\Stack</Filter>
+      <Filter>Containers\Classes\Container\Stacks\Stack</Filter>
     </ClCompile>
     <ClCompile Include="Queue.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Queues\Queue</Filter>
+      <Filter>Containers\Classes\Container\Queues\Queue</Filter>
     </ClCompile>
     <ClCompile Include="StacksQueue.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Queues\StacksQueue</Filter>
+      <Filter>Containers\Classes\Container\Queues\StacksQueue</Filter>
     </ClCompile>
     <ClCompile Include="KeyValuePair.cpp">
-      <Filter>Файлы заголовков\Structures\KeyValuePair</Filter>
+      <Filter>Containers\Structures\KeyValuePair</Filter>
     </ClCompile>
     <ClCompile Include="Dictionary.cpp">
-      <Filter>Файлы заголовков\Classes\Container\Dictonaries\Dictionary</Filter>
+      <Filter>Containers\Classes\Container\Dictonaries\Dictionary</Filter>
     </ClCompile>
     <ClCompile Include="SortFunctions.cpp">
-      <Filter>Файлы заголовков\Functions\Sort</Filter>
+      <Filter>Containers\Functions\Sort</Filter>
     </ClCompile>
     <ClCompile Include="SearchFunctions.cpp">
-      <Filter>Файлы заголовков\Functions\Search</Filter>
+      <Filter>Containers\Functions\Search</Filter>
     </ClCompile>
     <ClCompile Include="ConstBackIterator.cpp">
-      <Filter>Файлы заголовков\Classes\Iterators\ConstBackIterator</Filter>
+      <Filter>Containers\Classes\Iterators\ConstBackIterator</Filter>
     </ClCompile>
     <ClCompile Include="ConstForwardIterator.cpp">
-      <Filter>Файлы заголовков\Classes\Iterators\ConstForwardIterator</Filter>
+      <Filter>Containers\Classes\Iterators\ConstForwardIterator</Filter>
     </ClCompile>
     <ClCompile Include="ForwardIterator.cpp">
-      <Filter>Файлы заголовков\Classes\Iterators\ForwardIterator</Filter>
+      <Filter>Containers\Classes\Iterators\ForwardIterator</Filter>
     </ClCompile>
     <ClCompile Include="BackIterator.cpp">
-      <Filter>Файлы заголовков\Classes\Iterators\BackIterator</Filter>
+      <Filter>Containers\Classes\Iterators\BackIterator</Filter>
     </ClCompile>
     <ClCompile Include="HashFunctions.cpp">
-      <Filter>Файлы заголовков\Functions\Hash</Filter>
+      <Filter>Containers\Functions\Hash</Filter>
     </ClCompile>
     <ClCompile Include="AdditionalFunctions.cpp">
-      <Filter>Файлы заголовков\Functions\Additional</Filter>
+      <Filter>Containers\Functions\Additional</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTable.cpp">
+      <Filter>Containers\Classes\Container\HashTables\HashTable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Containers.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Containers</Filter>
     </ClInclude>
     <ClInclude Include="IValueIteratorTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
+      <Filter>Containers\Iterfaces\Iterators</Filter>
     </ClInclude>
     <ClInclude Include="IItemIteratorTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
+      <Filter>Containers\Iterfaces\Iterators</Filter>
     </ClInclude>
     <ClInclude Include="IForwardIteratorMoveable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
+      <Filter>Containers\Iterfaces\Iterators</Filter>
     </ClInclude>
     <ClInclude Include="IBackIteratorMoveable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators</Filter>
+      <Filter>Containers\Iterfaces\Iterators</Filter>
     </ClInclude>
     <ClInclude Include="ISizeContainerGetable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
+      <Filter>Containers\Iterfaces\Containers</Filter>
     </ClInclude>
     <ClInclude Include="IConstForwardIterator.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+      <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IConstFullIterator.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+      <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IForwardIterator.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+      <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IFullIterator.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+      <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IValueIterableTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterables</Filter>
+      <Filter>Containers\Iterfaces\Iterables</Filter>
     </ClInclude>
     <ClInclude Include="IItemIterableTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterables</Filter>
+      <Filter>Containers\Iterfaces\Iterables</Filter>
     </ClInclude>
     <ClInclude Include="IConstForwardIterable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterables\Current</Filter>
+      <Filter>Containers\Iterfaces\Iterables\Current</Filter>
     </ClInclude>
     <ClInclude Include="IForwardIterableMoveable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterables</Filter>
+      <Filter>Containers\Iterfaces\Iterables</Filter>
     </ClInclude>
     <ClInclude Include="IBackIterableMoveable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterables</Filter>
+      <Filter>Containers\Iterfaces\Iterables</Filter>
     </ClInclude>
     <ClInclude Include="IConstBackIterable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterables\Current</Filter>
+      <Filter>Containers\Iterfaces\Iterables\Current</Filter>
     </ClInclude>
     <ClInclude Include="IConstBackIterator.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+      <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IBackIterator.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterators\Currents</Filter>
+      <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IContainerAddable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Addable</Filter>
     </ClInclude>
     <ClInclude Include="ISimpleContainerAddable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Addable</Filter>
     </ClInclude>
     <ClInclude Include="ISpecificContainerAddable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Addable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Addable</Filter>
     </ClInclude>
     <ClInclude Include="ISpecificContainerRemoveable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Removeable</Filter>
     </ClInclude>
     <ClInclude Include="IContainerRemoveable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Removeable</Filter>
     </ClInclude>
     <ClInclude Include="ISimpleContainerRemoveable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Removeable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Removeable</Filter>
     </ClInclude>
     <ClInclude Include="ISimpleValueContainerTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Takeable\Value</Filter>
     </ClInclude>
     <ClInclude Include="IValueContainerTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Takeable\Value</Filter>
     </ClInclude>
     <ClInclude Include="IItemContainerTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Takeable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Takeable</Filter>
     </ClInclude>
     <ClInclude Include="IStackContainer.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="ISpecificValueContainerTakeable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Takeable\ValueTakeable</Filter>
+      <Filter>Containers\Iterfaces\Containers\Takeable\Value</Filter>
     </ClInclude>
     <ClInclude Include="IContainerClearable.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers</Filter>
+      <Filter>Containers\Iterfaces\Containers</Filter>
     </ClInclude>
     <ClInclude Include="DoubleLinkedListSegment.h">
-      <Filter>Файлы заголовков\Structures\DoubleLinkedListSegment</Filter>
+      <Filter>Containers\Structures\DoubleLinkedListSegment</Filter>
     </ClInclude>
     <ClInclude Include="SingleLinkedListSegment.h">
-      <Filter>Файлы заголовков\Structures\SingleLinkedListSegment</Filter>
+      <Filter>Containers\Structures\SingleLinkedListSegment</Filter>
     </ClInclude>
     <ClInclude Include="DoubleLinkedList.h">
-      <Filter>Файлы заголовков\Classes\Container\Lists\DoubleLinkedList</Filter>
+      <Filter>Containers\Classes\Container\Lists\DoubleLinkedList</Filter>
     </ClInclude>
     <ClInclude Include="DynamicArray.h">
-      <Filter>Файлы заголовков\Classes\Container\DynamicArray</Filter>
+      <Filter>Containers\Classes\Container\DynamicArray</Filter>
     </ClInclude>
     <ClInclude Include="SingleLinkedList.h">
-      <Filter>Файлы заголовков\Classes\Container\Lists\SingleLinkedList</Filter>
+      <Filter>Containers\Classes\Container\Lists\SingleLinkedList</Filter>
     </ClInclude>
     <ClInclude Include="MinMaxStack.h">
-      <Filter>Файлы заголовков\Classes\Container\Stacks\MinMaxStack</Filter>
+      <Filter>Containers\Classes\Container\Stacks\MinMaxStack</Filter>
     </ClInclude>
     <ClInclude Include="Stack.h">
-      <Filter>Файлы заголовков\Classes\Container\Stacks\Stack</Filter>
+      <Filter>Containers\Classes\Container\Stacks\Stack</Filter>
     </ClInclude>
     <ClInclude Include="Queue.h">
-      <Filter>Файлы заголовков\Classes\Container\Queues\Queue</Filter>
+      <Filter>Containers\Classes\Container\Queues\Queue</Filter>
     </ClInclude>
     <ClInclude Include="IQueueContainer.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IStack.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IQueue.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="StacksQueue.h">
-      <Filter>Файлы заголовков\Classes\Container\Queues\StacksQueue</Filter>
+      <Filter>Containers\Classes\Container\Queues\StacksQueue</Filter>
     </ClInclude>
     <ClInclude Include="IFullContainer.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="KeyValuePair.h">
-      <Filter>Файлы заголовков\Structures\KeyValuePair</Filter>
+      <Filter>Containers\Structures\KeyValuePair</Filter>
     </ClInclude>
     <ClInclude Include="ISingleLinkedList.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="Dictionary.h">
-      <Filter>Файлы заголовков\Classes\Container\Dictonaries\Dictionary</Filter>
+      <Filter>Containers\Classes\Container\Dictonaries\Dictionary</Filter>
     </ClInclude>
     <ClInclude Include="IDictonary.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="SortFunctions.h">
-      <Filter>Файлы заголовков\Functions\Sort</Filter>
+      <Filter>Containers\Functions\Sort</Filter>
     </ClInclude>
     <ClInclude Include="SearchFunctions.h">
-      <Filter>Файлы заголовков\Functions\Search</Filter>
+      <Filter>Containers\Functions\Search</Filter>
     </ClInclude>
     <ClInclude Include="ConstBackIterator.h">
-      <Filter>Файлы заголовков\Classes\Iterators\ConstBackIterator</Filter>
+      <Filter>Containers\Classes\Iterators\ConstBackIterator</Filter>
     </ClInclude>
     <ClInclude Include="ConstForwardIterator.h">
-      <Filter>Файлы заголовков\Classes\Iterators\ConstForwardIterator</Filter>
+      <Filter>Containers\Classes\Iterators\ConstForwardIterator</Filter>
     </ClInclude>
     <ClInclude Include="IBackIterable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterables\Current</Filter>
+      <Filter>Containers\Iterfaces\Iterables\Current</Filter>
     </ClInclude>
     <ClInclude Include="IForwardIterable.h">
-      <Filter>Файлы заголовков\Iterfaces\Iterables\Current</Filter>
+      <Filter>Containers\Iterfaces\Iterables\Current</Filter>
     </ClInclude>
     <ClInclude Include="ForwardIterator.h">
-      <Filter>Файлы заголовков\Classes\Iterators\ForwardIterator</Filter>
+      <Filter>Containers\Classes\Iterators\ForwardIterator</Filter>
     </ClInclude>
     <ClInclude Include="BackIterator.h">
-      <Filter>Файлы заголовков\Classes\Iterators\BackIterator</Filter>
+      <Filter>Containers\Classes\Iterators\BackIterator</Filter>
     </ClInclude>
     <ClInclude Include="Exceptions.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Containers</Filter>
     </ClInclude>
     <ClInclude Include="IValueSearchContainer.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IItemSearchContainer.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="ISortContainer.h">
-      <Filter>Файлы заголовков\Iterfaces\Containers\Currents</Filter>
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="HashFunctions.h">
-      <Filter>Файлы заголовков\Functions\Hash</Filter>
+      <Filter>Containers\Functions\Hash</Filter>
     </ClInclude>
     <ClInclude Include="AdditionalFunctions.h">
-      <Filter>Файлы заголовков\Functions\Additional</Filter>
+      <Filter>Containers\Functions\Additional</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
+      <Filter>Containers\Classes\Container\HashTables\HashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="CapacityContainerGetable.h">
+      <Filter>Containers\Iterfaces\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="IHashTable.h">
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

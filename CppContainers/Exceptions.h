@@ -1,16 +1,14 @@
 #pragma once
 
-#include <iostream>
-
-using namespace std;
+#include <exception>
 
 namespace Containers
 {
-	const exception ValueNotFoundException = exception("Value is not found.");
+	const std::exception ValueNotFoundException = std::exception("Value is not found.");
 
-	const exception ItemNotFoundException = exception("Item is not found.");
+	const std::exception ItemNotFoundException = std::exception("Item is not found.");
 
-	const exception OccupiedKeyException = exception("Key is occupied.");
+	const std::exception OccupiedKeyException = std::exception("Key is occupied.");
 
-	const exception KeyNotFoundException = exception("Key is not found.");
+	const std::exception KeyNotFoundException = std::exception("Key is not found.");
 }

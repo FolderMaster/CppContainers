@@ -1,10 +1,11 @@
 #pragma once
 
 #include "DoubleLinkedList.h"
-#include "ConstForwardIterator.cpp"
-#include "ConstBackIterator.cpp"
-#include "ForwardIterator.cpp"
-#include "BackIterator.cpp"
+
+#include "ConstForwardIterator.h"
+#include "ConstBackIterator.h"
+#include "ForwardIterator.h"
+#include "BackIterator.h"
 
 namespace Containers
 {
@@ -15,7 +16,7 @@ namespace Containers
 		if (index >= 0)
 		{
 			result = _head;
-			for (size_t n = 0; n < index; ++n, result = result->Next)
+			for (int n = 0; n < index; ++n, result = result->Next)
 			{
 
 			}
@@ -27,12 +28,31 @@ namespace Containers
 		else
 		{
 			result = _tail;
-			for (size_t n = -2; n > index; --n, result = result->Back)
+			for (int n = -2; n > index; --n, result = result->Back)
 			{
 
 			}
 		}
 		return result;
+	}
+
+	template<class T>
+	void DoubleLinkedList<T>::CreateByDoubleLinkedList(const DoubleLinkedList<T>& other)
+	{
+		if (other._head != nullptr)
+		{
+			DoubleSegment<T>* otherPointer = other._head;
+			_head = new DoubleSegment<T>(otherPointer->Item);
+			DoubleSegment<T>* pointer = _head;
+			while (otherPointer->Next != nullptr)
+			{
+				otherPointer = otherPointer->Next;
+				pointer->Next = new DoubleSegment<T>(pointer, otherPointer->Item);
+				pointer->Next->Back = pointer;
+				pointer = pointer->Next;
+			}
+			_tail = pointer;
+		}
 	}
 
 	template<class T>
@@ -67,6 +87,23 @@ namespace Containers
 	DoubleLinkedList<T>::~DoubleLinkedList()
 	{
 		Clear();
+	}
+
+	template<class T>
+	DoubleLinkedList<T>::DoubleLinkedList(const DoubleLinkedList<T>& other)
+	{
+		CreateByDoubleLinkedList(other);
+	}
+
+	template<class T>
+	DoubleLinkedList<T>& DoubleLinkedList<T>::operator=(const DoubleLinkedList<T>& other)
+	{
+		if (this != &other)
+		{
+			Clear();
+			CreateByDoubleLinkedList(other);
+		}
+		return *this;
 	}
 
 	template<class T>

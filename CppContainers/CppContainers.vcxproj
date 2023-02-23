@@ -132,6 +132,7 @@
     <ClCompile Include="BackIterator.cpp" />
     <ClCompile Include="ForwardIterator.cpp" />
     <ClCompile Include="HashFunctions.cpp" />
+    <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="SearchFunctions.cpp" />
     <ClCompile Include="ConstBackIterator.cpp" />
     <ClCompile Include="ConstForwardIterator.cpp" />
@@ -152,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="AdditionalFunctions.h" />
     <ClInclude Include="BackIterator.h" />
+    <ClInclude Include="CapacityContainerGetable.h" />
     <ClInclude Include="ConstBackIterator.h" />
     <ClInclude Include="ConstForwardIterator.h" />
     <ClInclude Include="Containers.h" />
@@ -162,6 +164,7 @@
     <ClInclude Include="Exceptions.h" />
     <ClInclude Include="ForwardIterator.h" />
     <ClInclude Include="HashFunctions.h" />
+    <ClInclude Include="HashTable.h" />
     <ClInclude Include="IContainerAddable.h" />
     <ClInclude Include="IBackIterable.h" />
     <ClInclude Include="IBackIterator.h" />
@@ -178,6 +181,7 @@
     <ClInclude Include="IBackIterableMoveable.h" />
     <ClInclude Include="IBackIteratorMoveable.h" />
     <ClInclude Include="IFullIterator.h" />
+    <ClInclude Include="IHashTable.h" />
     <ClInclude Include="IItemContainerTakeable.h" />
     <ClInclude Include="IItemIterableTakeable.h" />
     <ClInclude Include="IItemIteratorTakeable.h" />

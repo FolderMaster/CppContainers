@@ -1,6 +1,8 @@
 #pragma once
 
 #include "SearchFunctions.h"
+
+#include "DoubleLinkedList.h"
 #include "Exceptions.h"
 
 namespace Containers
@@ -23,6 +25,25 @@ namespace Containers
 	}
 
 	template<class TValue>
+	IForwardIterable<int>& LinearFindIndices(const IConstForwardIterable<TValue>& iterable,
+		TValue value)
+	{
+		int index = 0;
+		DoubleList<int>* list = new DoubleList<int>();
+		ConstForwardIterator<TValue> begin = iterable.CreateConstForwardBegin();
+		while (begin.IsForward())
+		{
+			if (begin.TakeValue() == value)
+			{
+				list->AddEnd(index);
+			}
+			++index;
+			begin.Forward();
+		}
+		return *list;
+	}
+
+	template<class TValue>
 	TValue LinearFindValue(const IConstForwardIterable<TValue>& iterable, TValue value)
 	{
 		ConstForwardIterator<TValue> begin = iterable.CreateConstForwardBegin();
@@ -35,6 +56,23 @@ namespace Containers
 			begin.Forward();
 		}
 		throw ValueNotFoundException;
+	}
+
+	template<class TValue>
+	IForwardIterable<TValue>& LinearFindValues(const IConstForwardIterable<TValue>& iterable,
+		TValue value)
+	{
+		DoubleList<TValue>* list = new DoubleList<TValue>();
+		ConstForwardIterator<TValue> begin = iterable.CreateConstForwardBegin();
+		while (begin.IsForward())
+		{
+			if (begin.TakeValue() == value)
+			{
+				list->AddEnd(begin.TakeValue());
+			}
+			begin.Forward();
+		}
+		return *list;
 	}
 
 	template<class TItem>
@@ -50,6 +88,22 @@ namespace Containers
 			begin.Forward();
 		}
 		throw ItemNotFoundException;
+	}
+
+	template<class TItem>
+	IForwardIterable<TItem&>& LinearFindItems(IForwardIterable<TItem>& iterable, TItem& item)
+	{
+		DoubleList<TItem&>* list = new DoubleList<TItem&>();
+		ForwardIterator<TItem> begin = iterable.CreateForwardBegin();
+		while (begin.IsForward())
+		{
+			if (begin.TakeValue() == item)
+			{
+				list->AddEnd(begin.TakeItem());
+			}
+			begin.Forward();
+		}
+		return *list;
 	}
 
 	template<class TValue, class TEnumerable>

@@ -2,9 +2,7 @@
 
 #include <string>
 
-using namespace std;
-
 namespace Containers
 {
-	int PearsonHash(string key, size_t size);
+	int PearsonHash(std::string key, size_t size);
 }

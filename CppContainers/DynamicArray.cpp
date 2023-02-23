@@ -1,10 +1,11 @@
 #pragma once
 
 #include "DynamicArray.h"
-#include "ConstForwardIterator.cpp"
-#include "ConstBackIterator.cpp"
-#include "ForwardIterator.cpp"
-#include "BackIterator.cpp"
+
+#include "ConstForwardIterator.h"
+#include "ConstBackIterator.h"
+#include "ForwardIterator.h"
+#include "BackIterator.h"
 
 namespace Containers
 {
@@ -39,6 +40,21 @@ namespace Containers
 	}
 
 	template<class T>
+	void DynamicArray<T>::CreateByDynamicArray(const DynamicArray<T>& other)
+	{
+		_array = Resize(other._size);
+		_size = other._size;
+		ConstForwardIterator<T> otherBegin = other.CreateConstForwardBegin();
+		ForwardIterator<T> thisBegin = CreateForwardBegin();
+		while (otherBegin.IsForward())
+		{
+			thisBegin.TakeItem() = otherBegin.TakeValue();
+			otherBegin.Forward();
+			thisBegin.Forward();
+		}
+	}
+
+	template<class T>
 	size_t DynamicArray<T>::GetSize() const
 	{
 		return _size;
@@ -62,16 +78,7 @@ namespace Containers
 	template<class T>
 	DynamicArray<T>::DynamicArray(const DynamicArray<T>& other)
 	{
-		_array = Resize(other._size);
-		_size = other._size;
-		ConstForwardIterator<T> otherBegin = other.CreateConstForwardBegin();
-		ForwardIterator<T> thisBegin = CreateForwardBegin();
-		while (otherBegin.IsForward())
-		{
-			thisBegin.TakeItem() = otherBegin.TakeValue();
-			otherBegin.Forward();
-			thisBegin.Forward();
-		}
+		CreateByDynamicArray(other);
 	}
 
 	template<class T>
@@ -86,16 +93,7 @@ namespace Containers
 		if (this != &other)
 		{
 			delete[] _array;
-			_array = Resize(other._size);
-			_size = other._size;
-			ConstForwardIterator<T> otherBegin = other.CreateConstForwardBegin();
-			ForwardIterator<T> thisBegin = CreateForwardBegin();
-			while (otherBegin.IsForward())
-			{
-				thisBegin.TakeItem() = otherBegin.TakeValue();
-				otherBegin.Forward();
-				thisBegin.Forward();
-			}
+			CreateByDynamicArray(other);
 		}
 		return *this;
 	}

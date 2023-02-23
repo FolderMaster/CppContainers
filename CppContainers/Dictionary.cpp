@@ -1,11 +1,22 @@
 #pragma once
 
 #include "Dictionary.h"
-#include "SearchFunctions.cpp"
-#include "SortFunctions.cpp"
+#include "SearchFunctions.h"
+#include "SortFunctions.h"
+#include "Exceptions.h"
 
 namespace Containers
 {
+	template<class TKey, class TValue>
+	size_t Dictionary<TKey, TValue>::GetSize() const
+	{
+		return _dictionary.GetSize();
+	}
+	template<class TKey, class TValue>
+	bool Dictionary<TKey, TValue>::IsEmpty() const
+	{
+		return _dictionary.IsEmpty();
+	}
 	template<class TKey, class TValue>
 	Dictionary<TKey, TValue>::Dictionary() : _dictionary(Array<KeyValuePair<TKey, TValue>>()) {}
 

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "SingleLinkedList.h"
-#include "ConstForwardIterator.cpp"
-#include "ForwardIterator.cpp"
+#include "ConstForwardIterator.h"
+#include "ForwardIterator.h"
 
 namespace Containers
 {
@@ -13,7 +13,7 @@ namespace Containers
 		if (index >= 0)
 		{
 			result = _head;
-			for (size_t n = 0; n < index; ++n, result = result->Next)
+			for (int n = 0; n < index; ++n, result = result->Next)
 			{
 
 			}
@@ -22,11 +22,50 @@ namespace Containers
 		{
 			result = nullptr;
 		}
-		else
+		else if(index == -2)
 		{
 			result = _tail;
 		}
+		else
+		{
+			result = _head;
+			SingleSegment<T>* additionalPointer = _head;
+			for (int n = -2; n > index; --n, additionalPointer = additionalPointer->Next)
+			{
+
+			}
+			if (additionalPointer != nullptr)
+			{
+				while (additionalPointer != _tail)
+				{
+					additionalPointer = additionalPointer->Next;
+					result = result->Next;
+				}
+			}
+			else
+			{
+				result = nullptr;
+			}
+		}
 		return result;
+	}
+
+	template<class T>
+	void SingleLinkedList<T>::CreateBySingleLinkedList(const SingleLinkedList<T>& other)
+	{
+		if (other._head != nullptr)
+		{
+			SingleSegment<T>* otherPointer = other._head;
+			_head = new SingleSegment<T>(otherPointer->Item);
+			SingleSegment<T>* pointer = _head;
+			while (otherPointer->Next != nullptr)
+			{
+				otherPointer = otherPointer->Next;
+				pointer->Next = new SingleSegment<T>(otherPointer->Item);
+				pointer = pointer->Next;
+			}
+			_tail = pointer;
+		}
 	}
 
 	template<class T>
@@ -49,7 +88,19 @@ namespace Containers
 	}
 
 	template<class T>
+	T& SingleLinkedList<T>::operator[](int index)
+	{
+		return TakeItem(index);
+	}
+
+	template<class T>
 	SingleLinkedList<T>::SingleLinkedList() : _head(nullptr), _tail(nullptr) {}
+
+	template<class T>
+	SingleLinkedList<T>::SingleLinkedList(const SingleLinkedList<T>& other)
+	{
+		CreateBySingleLinkedList(other);
+	}
 
 	template<class T>
 	SingleLinkedList<T>::~SingleLinkedList()
@@ -58,16 +109,20 @@ namespace Containers
 	}
 
 	template<class T>
-	T& SingleLinkedList<T>::operator[](int index)
+	SingleLinkedList<T>& SingleLinkedList<T>::operator=(const SingleLinkedList<T>& other)
 	{
-		return TakeValue(index);
+		if (this != &other)
+		{
+			Clear();
+			CreateBySingleLinkedList(other);
+		}
+		return *this;
 	}
 
 	template<class T>
 	void SingleLinkedList<T>::Add(T value, int index)
 	{
-		SingleSegment<T>* pointer = GetPointerOfIndex(index);
-		if (pointer == nullptr)
+		if (index == 0)
 		{
 			if (_head == nullptr)
 			{
@@ -76,20 +131,28 @@ namespace Containers
 			}
 			else
 			{
-				_tail->Next = new SingleSegment<T>(value);
-				_tail = _tail->Next;
+				_head = new SingleSegment<T>(value, _head);
 			}
 		}
 		else
 		{
-			SingleSegment<T>* connectingPointer = GetPointerOfIndex(index - 1);
-			if (connectingPointer == nullptr)
+			SingleSegment<T>* pointer = GetPointerOfIndex(index - 1);
+			if (_tail == pointer)
 			{
-				_head = new SingleSegment<T>(value, _head);
+				if (_tail == nullptr)
+				{
+					_head = new SingleSegment<T>(value);
+					_tail = _head;
+				}
+				else
+				{
+					_tail->Next = new SingleSegment<T>(value);
+					_tail = _tail->Next;
+				}
 			}
 			else
 			{
-				connectingPointer->Next = new SingleSegment<T>(value, pointer);
+				pointer->Next = new SingleSegment<T>(value, pointer->Next);
 			}
 		}
 	}
@@ -109,12 +172,42 @@ namespace Containers
 	template<class T>
 	void SingleLinkedList<T>::Remove(int index)
 	{
-		SingleSegment<T>* pointer = GetPointerOfIndex(index);
-		if (pointer == _head)
+		SingleSegment<T>* deletePointer;
+		if (index == 0)
 		{
-			_head = pointer->Next;
+			deletePointer = _head;
+			if (_head == _tail)
+			{
+				_head = _tail = nullptr;
+			}
+			else
+			{
+				_head = _head->Next;
+			}
 		}
-		delete pointer;
+		else
+		{
+			SingleSegment<T>* pointer = GetPointerOfIndex(index - 1);
+			if (pointer == nullptr)
+			{
+				deletePointer = _head;
+				_head = _tail = nullptr;
+			}
+			else
+			{
+				deletePointer = pointer->Next;
+				if (pointer->Next == _tail)
+				{
+					_tail = pointer;
+					pointer->Next = nullptr;
+				}
+				else
+				{
+					pointer->Next = pointer->Next->Next;
+				}
+			}
+		}
+		delete deletePointer;
 	}
 
 	template<class T>

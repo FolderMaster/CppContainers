@@ -17,6 +17,8 @@ namespace Containers
 		T* _array;
 
 		T* Resize(size_t newSize);
+
+		void CreateByDynamicArray(const DynamicArray<T>& other);
 	public:
 		size_t GetSize() const override;
 

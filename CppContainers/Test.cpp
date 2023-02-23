@@ -5,8 +5,20 @@
 using namespace std;
 using namespace Containers;
 
+//int value = 10;
+//
+//const int& GetValue()
+//{
+//	return value;
+//}
+
 int main()
 {
+	//For remembering! Do it for const container method TakeConstItem! Future me need this!
+	/*const int& item = GetValue();
+	cout << ++value << endl;
+	cout << item << endl;*/
+
 	Array<double> array = Array<double>();
 	for (int n = 0; n < 10; ++n)
 	{
@@ -64,14 +76,14 @@ int main()
 		ForwardIterator<double> begin = singleList.CreateForwardBegin();
 		while (begin.IsForward())
 		{
-			cout << begin.TakeItem()++ << "\t";
+			cout << begin.TakeItem()-- << "\t";
 			begin.Forward();
 		}
 		cout << endl;
 	}
-	/*for (int n = 0; n < 10; ++n)
+	for (int n = 0; n < 10; ++n)
 	{
-		singleList.Remove(10 - n - 1);
+		singleList.RemoveEnd();
 		ConstForwardIterator<double> begin = singleList.CreateConstForwardBegin();
 		while (begin.IsForward())
 		{
@@ -79,13 +91,13 @@ int main()
 			begin.Forward();
 		}
 		cout << endl;
-	}*/
+	}
 	cout << endl;
 
-	Array<double> stackArray = Array<double>();
-	Array<double> minStackArray = Array<double>();
-	Array<double> maxStackArray = Array<double>();
-	MinMaxStack<double> stack = MinMaxStack<double>(stackArray, minStackArray, maxStackArray);
+	SingleList<double> stackList = SingleList<double>();
+	SingleList<double> minStackList = SingleList<double>();
+	SingleList<double> maxStackList = SingleList<double>();
+	MinMaxStack<double> stack = MinMaxStack<double>(stackList, minStackList, maxStackList);
 	for (int n = 0; n < 10; ++n)
 	{
 		cout << "Push:" << n << endl;
@@ -100,9 +112,9 @@ int main()
 		cout << endl;
 	}
 
-	DoubleList<double> enqueueArray = DoubleList<double>();
-	DoubleList<double> dequeueArray = DoubleList<double>();
-	StacksQueue<double> queue = StacksQueue<double>(enqueueArray, dequeueArray);
+	SingleList<double> enqueueList = SingleList<double>();
+	SingleList<double> dequeueList = SingleList<double>();
+	StacksQueue<double> queue = StacksQueue<double>(enqueueList, dequeueList);
 	for (int n = 0; n < 10; ++n)
 	{
 		cout << "Enqueue:" << n << endl;
@@ -117,8 +129,8 @@ int main()
 
 	Array<KeyValuePair<string, string>> pairArray = Array<KeyValuePair<string, string>>();
 	pairArray.AddEnd(KeyValuePair<string, string>("a", "1"));
-	pairArray.AddEnd(KeyValuePair<string, string>("b", "3"));
-	pairArray.AddEnd(KeyValuePair<string, string>("c", "2"));
+	pairArray.AddEnd(KeyValuePair<string, string>("b", "2"));
+	pairArray.AddEnd(KeyValuePair<string, string>("c", "3"));
 	pairArray.AddEnd(KeyValuePair<string, string>("u", "4"));
 	pairArray.AddEnd(KeyValuePair<string, string>("e", "5"));
 	pairArray.AddEnd(KeyValuePair<string, string>("q", "6"));
@@ -126,8 +138,10 @@ int main()
 	pairArray.AddEnd(KeyValuePair<string, string>("i", "8"));
 	pairArray.AddEnd(KeyValuePair<string, string>("o", "9"));
 	pairArray.AddEnd(KeyValuePair<string, string>("p", "10"));
+	pairArray.AddEnd(KeyValuePair<string, string>("c", "11"));
+	pairArray.AddEnd(KeyValuePair<string, string>("c", "12"));
 	Dictionary<string, string> dictionary = Dictionary<string, string>();
-	for (int n = 0; n < pairArray.GetSize(); ++n)  
+	for (int n = 0; n < 10; ++n)  
 	{
 		KeyValuePair<string, string> pair = pairArray.TakeItem(n);
 		dictionary.Add(pair.Value, pair.Key);
@@ -137,6 +151,37 @@ int main()
 		{
 			cout << begin.TakeValue().Key << "\t" << begin.TakeValue().Value << endl;
 			begin.Forward();
+		}
+		cout << endl;
+	}
+	KeyValuePair<string, string> pair = KeyValuePair<string, string>("c");
+	IForwardIterable<KeyValuePair<string, string>&> &result = LinearFindItems(pairArray,
+		pair);
+	ForwardIterator<KeyValuePair<string, string>&> begin = result.CreateForwardBegin();
+	while (begin.IsForward())
+	{
+		cout << (begin.TakeItem().Key += "fdasjlk") << "\t" << begin.TakeItem().Value << endl;
+		begin.Forward();
+	}
+	cout << endl;
+
+	ForwardIterator<KeyValuePair<string, string>> defaultBegin = pairArray.CreateForwardBegin();
+	while (defaultBegin.IsForward())
+	{
+		cout << defaultBegin.TakeValue().Key << "\t" << defaultBegin.TakeValue().Value << endl;
+		defaultBegin.Forward();
+	}
+	cout << endl;
+
+	HashTable<string, string> hashTable = HashTable<string, string>(PearsonHash);
+	for (int n = 0; n < 10; ++n)
+	{
+		KeyValuePair<string, string> pair = pairArray.TakeValue(n);
+		hashTable.Add(pair.Value, pair.Key);
+		for (int k = 0; k < n + 1; ++k)
+		{
+			string value = hashTable.TakeItem(pairArray.TakeValue(k).Key);
+			cout << value << "\t";
 		}
 		cout << endl;
 	}

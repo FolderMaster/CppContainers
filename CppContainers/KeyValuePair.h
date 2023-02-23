@@ -12,9 +12,13 @@ namespace Containers
 
 		KeyValuePair();
 
+		KeyValuePair(const KeyValuePair<TKey, TValue>& other);
+
 		KeyValuePair(TKey key);
 
 		KeyValuePair(TKey key, TValue value);
+
+		KeyValuePair<TKey, TValue>& operator=(const KeyValuePair<TKey, TValue>& other);
 
 		bool operator>(const KeyValuePair<TKey, TValue>& other) const;
 

@@ -1,9 +1,9 @@
 #pragma once
 
 #include "IDictonary.h"
-#include "SortFunctions.cpp"
-#include "DynamicArray.cpp"
-#include "KeyValuePair.cpp"
+#include "SortFunctions.h"
+#include "DynamicArray.h"
+#include "KeyValuePair.h"
 
 namespace Containers
 {
@@ -16,6 +16,10 @@ namespace Containers
 
 		Array<KeyValuePair<TKey, TValue>> _dictionary;
 	public:
+		size_t GetSize() const override;
+
+		bool IsEmpty() const override;
+
 		Dictionary();
 
 		~Dictionary();

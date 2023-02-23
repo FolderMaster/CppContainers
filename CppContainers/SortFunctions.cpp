@@ -2,6 +2,8 @@
 
 #include "SortFunctions.h"
 
+#include "AdditionalFunctions.h"
+
 namespace Containers
 {
 	template<class T>
@@ -29,9 +31,7 @@ namespace Containers
 				TItem& secondItem = sortContainer.TakeItem(k + 1);
 				if (sortFunction(secondItem, firstItem))
 				{
-					TItem value = firstItem;
-					firstItem = secondItem;
-					secondItem = value;
+					Swap(firstItem, secondItem);
 				}
 			}
 		}

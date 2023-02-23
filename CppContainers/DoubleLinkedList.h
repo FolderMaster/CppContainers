@@ -1,7 +1,8 @@
 #pragma once
 
 #include "IFullContainer.h"
-#include "DoubleLinkedListSegment.cpp"
+
+#include "DoubleLinkedListSegment.h"
 
 namespace Containers
 {
@@ -14,6 +15,8 @@ namespace Containers
 		DoubleSegment<T>* _tail;
 
 		DoubleSegment<T>* GetPointerOfIndex(int index) const;
+
+		void CreateByDoubleLinkedList(const DoubleLinkedList<T>& other);
 	public:
 		size_t GetSize() const override;
 
@@ -23,7 +26,11 @@ namespace Containers
 
 		DoubleLinkedList();
 
+		DoubleLinkedList(const DoubleLinkedList<T>& other);
+
 		~DoubleLinkedList();
+
+		DoubleLinkedList<T>& operator=(const DoubleLinkedList<T>& other);
 
 		void Add(T value, int index) override;
 
