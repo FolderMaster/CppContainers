@@ -5,25 +5,13 @@
 using namespace std;
 using namespace Containers;
 
-//int value = 10;
-//
-//const int& GetValue()
-//{
-//	return value;
-//}
-
 int main()
 {
-	//For remembering! Do it for const container method TakeConstItem! Future me need this!
-	/*const int& item = GetValue();
-	cout << ++value << endl;
-	cout << item << endl;*/
-
 	Array<double> array = Array<double>();
 	for (int n = 0; n < 10; ++n)
 	{
 		array.AddEnd(n);
-		ForwardIterator<double> begin = array.CreateForwardBegin();
+		FullIterator<double> begin = array.CreateFullBegin();
 		while (begin.IsForward())
 		{
 			cout << begin.TakeItem()++ << "\t";
@@ -34,7 +22,7 @@ int main()
 	for (int n = 0; n < 10; ++n)
 	{
 		array.RemoveEnd();
-		ConstForwardIterator<double> begin = array.CreateConstForwardBegin();
+		ConstFullIterator<double> begin = array.CreateConstFullBegin();
 		while (begin.IsForward())
 		{
 			cout << begin.TakeValue() << "\t";
@@ -48,7 +36,7 @@ int main()
 	for (int n = 0; n < 10; ++n)
 	{
 		doubleList.AddEnd(n);
-		BackIterator<double> begin = doubleList.CreateBackBegin();
+		FullIterator<double> begin = doubleList.CreateBackFullBegin();
 		while (begin.IsBack())
 		{
 			cout << begin.TakeItem()-- << "\t";
@@ -59,7 +47,7 @@ int main()
 	for (int n = 0; n < 10; ++n)
 	{
 		doubleList.RemoveEnd();
-		ConstBackIterator<double> begin = doubleList.CreateConstBackBegin();
+		ConstFullIterator<double> begin = doubleList.CreateConstBackFullBegin();
 		while (begin.IsBack())
 		{
 			cout << begin.TakeValue() << "\t";
@@ -133,23 +121,32 @@ int main()
 	pairArray.AddEnd(KeyValuePair<string, string>("c", "3"));
 	pairArray.AddEnd(KeyValuePair<string, string>("u", "4"));
 	pairArray.AddEnd(KeyValuePair<string, string>("e", "5"));
-	pairArray.AddEnd(KeyValuePair<string, string>("q", "6"));
+	pairArray.AddEnd(KeyValuePair<string, string>("a", "6"));
 	pairArray.AddEnd(KeyValuePair<string, string>("w", "7"));
-	pairArray.AddEnd(KeyValuePair<string, string>("i", "8"));
-	pairArray.AddEnd(KeyValuePair<string, string>("o", "9"));
+	pairArray.AddEnd(KeyValuePair<string, string>("a", "8"));
+	pairArray.AddEnd(KeyValuePair<string, string>("b", "9"));
 	pairArray.AddEnd(KeyValuePair<string, string>("p", "10"));
 	pairArray.AddEnd(KeyValuePair<string, string>("c", "11"));
 	pairArray.AddEnd(KeyValuePair<string, string>("c", "12"));
-	Dictionary<string, string> dictionary = Dictionary<string, string>();
-	for (int n = 0; n < 10; ++n)  
+	MultiDictionary<string, string> dictionary = MultiDictionary<string, string>();
+	for (int n = 0; n < 12; ++n)  
 	{
 		KeyValuePair<string, string> pair = pairArray.TakeItem(n);
 		dictionary.Add(pair.Value, pair.Key);
-		ConstForwardIterator<KeyValuePair<string, string>> begin =
+		ConstForwardIterator<KeyValuePair<string, SingleList<string>>> begin =
 			dictionary.CreateConstForwardBegin();
 		while (begin.IsForward())
 		{
-			cout << begin.TakeValue().Key << "\t" << begin.TakeValue().Value << endl;
+			cout << begin.TakeConstItem().Key << "\t" << endl;
+			ConstForwardIterator<string> listBegin =
+				begin.TakeConstItem().Value.CreateConstForwardBegin();
+			cout << "\t";
+			while (listBegin.IsForward())
+			{
+				cout << listBegin.TakeConstItem() << "\t";
+				listBegin.Forward();
+			}
+			cout << endl;
 			begin.Forward();
 		}
 		cout << endl;
@@ -173,15 +170,21 @@ int main()
 	}
 	cout << endl;
 
-	HashTable<string, string> hashTable = HashTable<string, string>(PearsonHash);
-	for (int n = 0; n < 10; ++n)
+	MultiHashTable<string, string> hashTable = MultiHashTable<string, string>(PearsonHash);
+	for (int n = 0; n < 12; ++n)
 	{
 		KeyValuePair<string, string> pair = pairArray.TakeValue(n);
 		hashTable.Add(pair.Value, pair.Key);
 		for (int k = 0; k < n + 1; ++k)
 		{
-			string value = hashTable.TakeItem(pairArray.TakeValue(k).Key);
-			cout << value << "\t";
+			SingleList<string>& value = hashTable.TakeItem(pairArray.TakeValue(k).Key);
+			ConstForwardIterator<string> begin = value.CreateConstForwardBegin();
+			while (begin.IsForward())
+			{
+				cout << begin.TakeConstItem() << "\t";
+				begin.Forward();
+			}
+			cout << endl;
 		}
 		cout << endl;
 	}

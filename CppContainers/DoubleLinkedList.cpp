@@ -3,8 +3,10 @@
 #include "DoubleLinkedList.h"
 
 #include "ConstForwardIterator.h"
+#include "ConstFullIterator.h"
 #include "ConstBackIterator.h"
 #include "ForwardIterator.h"
+#include "FullIterator.h"
 #include "BackIterator.h"
 
 namespace Containers
@@ -226,6 +228,12 @@ namespace Containers
 	}
 
 	template<class T>
+	const T& DoubleLinkedList<T>::TakeConstItem(int index) const
+	{
+		return GetPointerOfIndex(index)->Item;
+	}
+
+	template<class T>
 	void* DoubleLinkedList<T>::Forward(void* pointer) const
 	{
 		return ((DoubleSegment<T>*)pointer)->Next;
@@ -262,6 +270,12 @@ namespace Containers
 	}
 
 	template<class T>
+	const T& DoubleLinkedList<T>::TakeConstItem(void* pointer) const
+	{
+		return ((DoubleSegment<T>*)pointer)->Item;
+	}
+
+	template<class T>
 	ConstForwardIterator<T> DoubleLinkedList<T>::CreateConstForwardBegin() const
 	{
 		return ConstForwardIterator<T>(_head, *this);
@@ -286,6 +300,30 @@ namespace Containers
 	}
 
 	template<class T>
+	ConstFullIterator<T> DoubleLinkedList<T>::CreateConstFullBegin() const
+	{
+		return ConstFullIterator<T>(_head, *this);
+	}
+
+	template<class T>
+	ConstFullIterator<T> DoubleLinkedList<T>::CreateConstFullEnd() const
+	{
+		return ConstFullIterator<T>(nullptr, *this);
+	}
+
+	template<class T>
+	ConstFullIterator<T> DoubleLinkedList<T>::CreateConstBackFullBegin() const
+	{
+		return ConstFullIterator<T>(_tail, *this);
+	}
+
+	template<class T>
+	ConstFullIterator<T> DoubleLinkedList<T>::CreateConstBackFullEnd() const
+	{
+		return ConstFullIterator<T>(nullptr, *this);
+	}
+
+	template<class T>
 	ForwardIterator<T> DoubleLinkedList<T>::CreateForwardBegin()
 	{
 		return ForwardIterator<T>(_head, *this);
@@ -307,5 +345,29 @@ namespace Containers
 	BackIterator<T> DoubleLinkedList<T>::CreateBackEnd()
 	{
 		return BackIterator<T>(nullptr, *this);
+	}
+
+	template<class T>
+	FullIterator<T> DoubleLinkedList<T>::CreateFullBegin()
+	{
+		return FullIterator<T>(_head, *this);
+	}
+
+	template<class T>
+	FullIterator<T> DoubleLinkedList<T>::CreateFullEnd()
+	{
+		return FullIterator<T>(nullptr, *this);
+	}
+
+	template<class T>
+	FullIterator<T> DoubleLinkedList<T>::CreateBackFullBegin()
+	{
+		return FullIterator<T>(_tail, *this);
+	}
+
+	template<class T>
+	FullIterator<T> DoubleLinkedList<T>::CreateBackFullEnd()
+	{
+		return FullIterator<T>(nullptr, *this);
 	}
 }

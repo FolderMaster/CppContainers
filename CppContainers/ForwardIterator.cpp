@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ForwardIterator.h"
+
 #include "IForwardIterable.h"
 
 namespace Containers
@@ -37,5 +38,11 @@ namespace Containers
 	T& ForwardIterator<T>::TakeItem()
 	{
 		return _iterable.TakeItem(_pointer);
+	}
+
+	template<class T>
+	const T& ForwardIterator<T>::TakeConstItem() const
+	{
+		return _iterable.TakeConstItem(_pointer);
 	}
 }

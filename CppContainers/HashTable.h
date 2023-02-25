@@ -43,5 +43,7 @@ namespace Containers
 		TValue TakeValue(TKey key) const override;
 
 		TValue& TakeItem(TKey key) override;
+
+		const TValue& TakeConstItem(TKey key) const override;
 	};
 }

@@ -2,13 +2,13 @@
 
 #include "SearchFunctions.h"
 
-#include "DoubleLinkedList.h"
+#include "SingleLinkedList.h"
 #include "Exceptions.h"
 
 namespace Containers
 {
 	template<class TValue>
-	int LinearFindIndex(IConstForwardIterable<TValue>& iterable, TValue value)
+	int LinearFindIndex(const IConstForwardIterable<TValue>& iterable, TValue value)
 	{
 		int index = 0;
 		ConstForwardIterator<TValue> begin = iterable.CreateConstForwardBegin();
@@ -29,7 +29,7 @@ namespace Containers
 		TValue value)
 	{
 		int index = 0;
-		DoubleList<int>* list = new DoubleList<int>();
+		SingleList<int>* list = new SingleList<int>();
 		ConstForwardIterator<TValue> begin = iterable.CreateConstForwardBegin();
 		while (begin.IsForward())
 		{
@@ -62,7 +62,7 @@ namespace Containers
 	IForwardIterable<TValue>& LinearFindValues(const IConstForwardIterable<TValue>& iterable,
 		TValue value)
 	{
-		DoubleList<TValue>* list = new DoubleList<TValue>();
+		SingleList<TValue>* list = new SingleList<TValue>();
 		ConstForwardIterator<TValue> begin = iterable.CreateConstForwardBegin();
 		while (begin.IsForward())
 		{
@@ -93,7 +93,7 @@ namespace Containers
 	template<class TItem>
 	IForwardIterable<TItem&>& LinearFindItems(IForwardIterable<TItem>& iterable, TItem& item)
 	{
-		DoubleList<TItem&>* list = new DoubleList<TItem&>();
+		SingleList<TItem&>* list = new SingleList<TItem&>();
 		ForwardIterator<TItem> begin = iterable.CreateForwardBegin();
 		while (begin.IsForward())
 		{
@@ -106,8 +106,39 @@ namespace Containers
 		return *list;
 	}
 
+	template<class TItem>
+	const TItem& LinearFindConstItem(const IConstForwardIterable<TItem>& iterable, const TItem& item)
+	{
+		ConstForwardIterator<TItem> begin = iterable.CreateConstForwardBegin();
+		while (begin.IsForward())
+		{
+			if (begin.TakeConstItem() == item)
+			{
+				return begin.TakeConstItem();
+			}
+			begin.Forward();
+		}
+		throw ConstItemNotFoundException;
+	}
+
+	template<class TItem>
+	IForwardIterable<const TItem&>& LinearFindConstItems(const IConstForwardIterable<TItem> iterable, const TItem& item)
+	{
+		SingleList<const TItem&>* list = new SingleList<const TItem&>();
+		ConstForwardIterator<TItem> begin = iterable.CreateConstForwardBegin();
+		while (begin.IsForward())
+		{
+			if (begin.TakeConstItem() == item)
+			{
+				list->AddEnd(begin.TakeConstItem());
+			}
+			begin.Forward();
+		}
+		return *list;
+	}
+
 	template<class TValue, class TEnumerable>
-	TEnumerable BinaryFindIndex(IValueSearchContainer<TValue, TEnumerable>& searchContainer,
+	TEnumerable BinaryFindIndex(ISearchContainer<TValue, TEnumerable>& searchContainer,
 		TValue value, bool (*sortFunction)(TValue, TValue))
 	{
 		size_t size = searchContainer.GetSize();
@@ -135,7 +166,7 @@ namespace Containers
 	}
 
 	template<class TValue, class TEnumerable>
-	TValue BinaryFindValue(const IValueSearchContainer<TValue, TEnumerable>& searchContainer,
+	TValue BinaryFindValue(const ISearchContainer<TValue, TEnumerable>& searchContainer,
 		TValue value, bool(*sortFunction)(TValue, TValue))
 	{
 		size_t size = searchContainer.GetSize();
@@ -163,14 +194,14 @@ namespace Containers
 	}
 
 	template<class TItem, class TEnumerable>
-	TItem& BinaryFindItem(IItemSearchContainer<TItem, TEnumerable>& searchContainer,
+	TItem& BinaryFindItem(ISearchContainer<TItem, TEnumerable>& searchContainer,
 		TItem& item, bool(*sortFunction)(TItem, TItem))
 	{
 		size_t size = searchContainer.GetSize();
 		for (int left = 0, right = size - 1, mid = size / 2; left <= right; mid = (left +
 			right) / 2)
 		{
-			TItem takedItem = searchContainer.TakeItem(mid);
+			TItem& takedItem = searchContainer.TakeItem(mid);
 			if (takedItem == item)
 			{
 				return takedItem;
@@ -188,5 +219,33 @@ namespace Containers
 			}
 		}
 		throw ItemNotFoundException;
+	}
+
+	template<class TItem, class TEnumerable>
+	const TItem& BinaryFindConstItem(const ISearchContainer<TItem, TEnumerable>& searchContainer,
+		const TItem& item, bool(*sortFunction)(TItem, TItem))
+	{
+		size_t size = searchContainer.GetSize();
+		for (int left = 0, right = size - 1, mid = size / 2; left <= right; mid = (left +
+			right) / 2)
+		{
+			const TItem& takedItem = searchContainer.TakeConstItem(mid);
+			if (takedItem == item)
+			{
+				return takedItem;
+			}
+			else
+			{
+				if (sortFunction(takedItem, item))
+				{
+					left = mid + 1;
+				}
+				else
+				{
+					right = mid - 1;
+				}
+			}
+		}
+		throw ConstItemNotFoundException;
 	}
 }

@@ -3,13 +3,16 @@
 #include "IForwardIterableMoveable.h"
 #include "IValueIterableTakeable.h"
 #include "IItemIterableTakeable.h"
+#include "IConstItemIterableTakeable.h"
+
 #include "ForwardIterator.h"
 
 namespace Containers
 {
 	template <class T>
 	class IForwardIterable : public IForwardIterableMoveable,
-		public IValueIterableTakeable<T>, public IItemIterableTakeable<T>
+		public IValueIterableTakeable<T>, public IItemIterableTakeable<T>,
+		public IConstItemIterableTakeable<T>
 	{
 	public:
 		virtual ForwardIterator<T> CreateForwardBegin() = 0;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Dictionary.h"
+
 #include "SearchFunctions.h"
 #include "SortFunctions.h"
 #include "Exceptions.h"
@@ -12,16 +13,33 @@ namespace Containers
 	{
 		return _dictionary.GetSize();
 	}
+
 	template<class TKey, class TValue>
 	bool Dictionary<TKey, TValue>::IsEmpty() const
 	{
 		return _dictionary.IsEmpty();
 	}
+
 	template<class TKey, class TValue>
 	Dictionary<TKey, TValue>::Dictionary() : _dictionary(Array<KeyValuePair<TKey, TValue>>()) {}
 
 	template<class TKey, class TValue>
+	Dictionary<TKey, TValue>::Dictionary(const Dictionary<TKey, TValue>& other) :
+		_dictionary(other._dictionary), _sortFunction(other._sortFunction) {}
+
+	template<class TKey, class TValue>
 	Dictionary<TKey, TValue>::~Dictionary() {}
+
+	template<class TKey, class TValue>
+	Dictionary<TKey, TValue>& Dictionary<TKey, TValue>::operator=(const Dictionary<TKey, TValue>& other)
+	{
+		if (this != &other)
+		{
+			_dictionary = other._dictionary;
+			_sortFunction = other._sortFunction;
+		}
+		return *this;
+	}
 
 	template<class TKey, class TValue>
 	void Dictionary<TKey, TValue>::Add(TValue value, TKey key)
@@ -69,6 +87,13 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
+	const TValue& Dictionary<TKey, TValue>::TakeConstItem(TKey key) const
+	{
+		KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
+		return BinaryFindConstItem(_dictionary, pair, _sortFunction).Value;
+	}
+
+	template<class TKey, class TValue>
 	void* Dictionary<TKey, TValue>::Forward(void* pointer) const
 	{
 		return _dictionary.Forward(pointer);
@@ -96,6 +121,12 @@ namespace Containers
 	KeyValuePair<TKey, TValue> Dictionary<TKey, TValue>::TakeValue(void* pointer) const
 	{
 		return _dictionary.TakeValue(pointer);
+	}
+
+	template<class TKey, class TValue>
+	const KeyValuePair<TKey, TValue>& Dictionary<TKey, TValue>::TakeConstItem(void* pointer) const
+	{
+		return _dictionary.TakeConstItem(pointer);
 	}
 
 	template<class TKey, class TValue>

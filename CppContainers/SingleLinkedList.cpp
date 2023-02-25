@@ -266,6 +266,12 @@ namespace Containers
 	}
 
 	template<class T>
+	const T& SingleLinkedList<T>::TakeConstItem(int index) const
+	{
+		return GetPointerOfIndex(index)->Item;
+	}
+
+	template<class T>
 	void* SingleLinkedList<T>::Forward(void* pointer) const
 	{
 		return ((SingleSegment<T>*)pointer)->Next;
@@ -285,6 +291,12 @@ namespace Containers
 
 	template<class T>
 	T& SingleLinkedList<T>::TakeItem(void* pointer)
+	{
+		return ((SingleSegment<T>*)pointer)->Item;
+	}
+
+	template<class T>
+	const T& SingleLinkedList<T>::TakeConstItem(void* pointer) const
 	{
 		return ((SingleSegment<T>*)pointer)->Item;
 	}

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IBackIterator.h"
+#include "IForwardIterator.h"
 
 namespace Containers
 {
@@ -8,7 +8,7 @@ namespace Containers
 	class IBackIterable;
 
 	template <class T>
-	class BackIterator : public IBackIterator<T, T>
+	class BackIterator : public IForwardIterator<T, T>
 	{
 	private:
 		void* _pointer;
@@ -19,12 +19,14 @@ namespace Containers
 
 		bool operator!=(BackIterator<T> it);
 
-		void Back() override;
+		void Forward() override;
 
-		bool IsBack() const override;
+		bool IsForward() const override;
 
 		T TakeValue() const override;
 
 		T& TakeItem() override;
+
+		const T& TakeConstItem() const override;
 	};
 }

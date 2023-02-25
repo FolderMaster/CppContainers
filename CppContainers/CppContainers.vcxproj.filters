@@ -7,7 +7,8 @@
     </Filter>
     <Filter Include="Containers">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+      <Extensions>
+      </Extensions>
     </Filter>
     <Filter Include="Containers\Iterfaces">
       <UniqueIdentifier>{43ab277f-5d4c-4428-8a4b-d1fab3af1fd0}</UniqueIdentifier>
@@ -143,7 +144,38 @@
     </Filter>
     <Filter Include="Test">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+      <Extensions>
+      </Extensions>
+    </Filter>
+    <Filter Include="Containers\Iterfaces\Containers\Takeable\ConstItem">
+      <UniqueIdentifier>{491465cf-4621-491f-96c7-e0545a06e8f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Iterfaces\Containers\Takeable\Item">
+      <UniqueIdentifier>{8d512f29-f081-4462-96a5-295e1a26170f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Iterators\FullIterator">
+      <UniqueIdentifier>{1861b436-e4ce-4bca-93b9-14accbfcda37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Iterators\ConstFullIterator">
+      <UniqueIdentifier>{b63c89d2-de3d-4762-a361-229a9a213b3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Iterfaces\Iterables\Moveables">
+      <UniqueIdentifier>{b7132d6b-49f6-4f3b-a019-babfc0f31fe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Iterfaces\Iterables\Takeables">
+      <UniqueIdentifier>{56ac9d1e-b238-43cc-930a-b7b5303ef3d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Iterfaces\Iterators\Moveables">
+      <UniqueIdentifier>{c8201d75-2932-4229-bbd8-6931c935495d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Iterfaces\Iterators\Takeables">
+      <UniqueIdentifier>{c0c72f90-8d99-4420-b8d4-02ed17bdbdfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\Dictonaries\MultiDictionary">
+      <UniqueIdentifier>{a359a37b-a23e-4962-b282-bbe011facf11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\HashTables\MultiHashTable">
+      <UniqueIdentifier>{0f5aa206-b60e-4264-a5e0-5df26215ca22}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -210,22 +242,25 @@
     <ClCompile Include="HashTable.cpp">
       <Filter>Containers\Classes\Container\HashTables\HashTable</Filter>
     </ClCompile>
+    <ClCompile Include="FullIterator.cpp">
+      <Filter>Containers\Classes\Iterators\FullIterator</Filter>
+    </ClCompile>
+    <ClCompile Include="IFullIterable.h">
+      <Filter>Containers\Iterfaces\Iterables\Current</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstFullIterator.cpp">
+      <Filter>Containers\Classes\Iterators\ConstFullIterator</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiDictionary.cpp">
+      <Filter>Containers\Classes\Container\Dictonaries\MultiDictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiHashTable.cpp">
+      <Filter>Containers\Classes\Container\HashTables\MultiHashTable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Containers.h">
       <Filter>Containers</Filter>
-    </ClInclude>
-    <ClInclude Include="IValueIteratorTakeable.h">
-      <Filter>Containers\Iterfaces\Iterators</Filter>
-    </ClInclude>
-    <ClInclude Include="IItemIteratorTakeable.h">
-      <Filter>Containers\Iterfaces\Iterators</Filter>
-    </ClInclude>
-    <ClInclude Include="IForwardIteratorMoveable.h">
-      <Filter>Containers\Iterfaces\Iterators</Filter>
-    </ClInclude>
-    <ClInclude Include="IBackIteratorMoveable.h">
-      <Filter>Containers\Iterfaces\Iterators</Filter>
     </ClInclude>
     <ClInclude Include="ISizeContainerGetable.h">
       <Filter>Containers\Iterfaces\Containers</Filter>
@@ -242,29 +277,11 @@
     <ClInclude Include="IFullIterator.h">
       <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
-    <ClInclude Include="IValueIterableTakeable.h">
-      <Filter>Containers\Iterfaces\Iterables</Filter>
-    </ClInclude>
-    <ClInclude Include="IItemIterableTakeable.h">
-      <Filter>Containers\Iterfaces\Iterables</Filter>
-    </ClInclude>
     <ClInclude Include="IConstForwardIterable.h">
       <Filter>Containers\Iterfaces\Iterables\Current</Filter>
     </ClInclude>
-    <ClInclude Include="IForwardIterableMoveable.h">
-      <Filter>Containers\Iterfaces\Iterables</Filter>
-    </ClInclude>
-    <ClInclude Include="IBackIterableMoveable.h">
-      <Filter>Containers\Iterfaces\Iterables</Filter>
-    </ClInclude>
     <ClInclude Include="IConstBackIterable.h">
       <Filter>Containers\Iterfaces\Iterables\Current</Filter>
-    </ClInclude>
-    <ClInclude Include="IConstBackIterator.h">
-      <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
-    </ClInclude>
-    <ClInclude Include="IBackIterator.h">
-      <Filter>Containers\Iterfaces\Iterators\Currents</Filter>
     </ClInclude>
     <ClInclude Include="IContainerAddable.h">
       <Filter>Containers\Iterfaces\Containers\Addable</Filter>
@@ -289,9 +306,6 @@
     </ClInclude>
     <ClInclude Include="IValueContainerTakeable.h">
       <Filter>Containers\Iterfaces\Containers\Takeable\Value</Filter>
-    </ClInclude>
-    <ClInclude Include="IItemContainerTakeable.h">
-      <Filter>Containers\Iterfaces\Containers\Takeable</Filter>
     </ClInclude>
     <ClInclude Include="IStackContainer.h">
       <Filter>Containers\Iterfaces\Containers\Currents</Filter>
@@ -380,10 +394,7 @@
     <ClInclude Include="Exceptions.h">
       <Filter>Containers</Filter>
     </ClInclude>
-    <ClInclude Include="IValueSearchContainer.h">
-      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
-    </ClInclude>
-    <ClInclude Include="IItemSearchContainer.h">
+    <ClInclude Include="ISearchContainer.h">
       <Filter>Containers\Iterfaces\Containers\Currents</Filter>
     </ClInclude>
     <ClInclude Include="ISortContainer.h">
@@ -403,6 +414,63 @@
     </ClInclude>
     <ClInclude Include="IHashTable.h">
       <Filter>Containers\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="IItemContainerTakeable.h">
+      <Filter>Containers\Iterfaces\Containers\Takeable\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IConstItemContainerTakeable.h">
+      <Filter>Containers\Iterfaces\Containers\Takeable\ConstItem</Filter>
+    </ClInclude>
+    <ClInclude Include="FullIterator.h">
+      <Filter>Containers\Classes\Iterators\FullIterator</Filter>
+    </ClInclude>
+    <ClInclude Include="IConstFullIterable.h">
+      <Filter>Containers\Iterfaces\Iterables\Current</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstFullIterator.h">
+      <Filter>Containers\Classes\Iterators\ConstFullIterator</Filter>
+    </ClInclude>
+    <ClInclude Include="IForwardIterableMoveable.h">
+      <Filter>Containers\Iterfaces\Iterables\Moveables</Filter>
+    </ClInclude>
+    <ClInclude Include="IBackIterableMoveable.h">
+      <Filter>Containers\Iterfaces\Iterables\Moveables</Filter>
+    </ClInclude>
+    <ClInclude Include="IItemIterableTakeable.h">
+      <Filter>Containers\Iterfaces\Iterables\Takeables</Filter>
+    </ClInclude>
+    <ClInclude Include="IValueIterableTakeable.h">
+      <Filter>Containers\Iterfaces\Iterables\Takeables</Filter>
+    </ClInclude>
+    <ClInclude Include="IBackIteratorMoveable.h">
+      <Filter>Containers\Iterfaces\Iterators\Moveables</Filter>
+    </ClInclude>
+    <ClInclude Include="IForwardIteratorMoveable.h">
+      <Filter>Containers\Iterfaces\Iterators\Moveables</Filter>
+    </ClInclude>
+    <ClInclude Include="IItemIteratorTakeable.h">
+      <Filter>Containers\Iterfaces\Iterators\Takeables</Filter>
+    </ClInclude>
+    <ClInclude Include="IValueIteratorTakeable.h">
+      <Filter>Containers\Iterfaces\Iterators\Takeables</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultiDictonary.h">
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultiHashTable.h">
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiDictionary.h">
+      <Filter>Containers\Classes\Container\Dictonaries\MultiDictionary</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiHashTable.h">
+      <Filter>Containers\Classes\Container\HashTables\MultiHashTable</Filter>
+    </ClInclude>
+    <ClInclude Include="IConstItemIterableTakeable.h">
+      <Filter>Containers\Iterfaces\Iterables\Takeables</Filter>
+    </ClInclude>
+    <ClInclude Include="IConstItemIteratorTakeable.h">
+      <Filter>Containers\Iterfaces\Iterators\Takeables</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -53,6 +53,8 @@ namespace Containers
 
 		T& TakeItem(int index) override;
 
+		const T& TakeConstItem(int index) const override;
+
 		void* Forward(void* pointer) const override;
 
 		bool IsForward(void* pointer) const override;
@@ -60,6 +62,8 @@ namespace Containers
 		T TakeValue(void* pointer) const override;
 
 		T& TakeItem(void* pointer) override;
+
+		const T& TakeConstItem(void* pointer) const override;
 
 		ConstForwardIterator<T> CreateConstForwardBegin() const override;
 

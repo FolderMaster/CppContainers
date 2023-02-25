@@ -5,6 +5,7 @@
 #include "IContainerRemoveable.h"
 #include "ISpecificContainerRemoveable.h"
 #include "IContainerClearable.h"
+#include "IConstItemContainerTakeable.h"
 #include "IItemContainerTakeable.h"
 #include "ISpecificValueContainerTakeable.h"
 #include "IValueContainerTakeable.h"
@@ -13,8 +14,7 @@
 #include "IForwardIterable.h"
 #include "IStackContainer.h"
 #include "IQueueContainer.h"
-#include "IValueSearchContainer.h"
-#include "IItemSearchContainer.h"
+#include "ISearchContainer.h"
 #include "ISortContainer.h"
 
 namespace Containers
@@ -25,7 +25,7 @@ namespace Containers
 		public ISpecificContainerRemoveable, public IContainerClearable,
 		public ISizeContainerGetable, public IValueContainerTakeable<T, TEnumerable>,
 		public ISpecificValueContainerTakeable<T>, public IItemContainerTakeable<T, int>,
-		public IConstForwardIterable<T>, public IForwardIterable<T>, public IStackContainer<T>,
-		public IQueueContainer<T>, public IValueSearchContainer<T, TEnumerable>,
-		public IItemSearchContainer<T, TEnumerable>, public ISortContainer<T, TEnumerable> {};
+		public IConstItemContainerTakeable<T, TEnumerable>, public IConstForwardIterable<T>,
+		public IForwardIterable<T>, public IStackContainer<T>, public IQueueContainer<T>,
+		public ISearchContainer<T, TEnumerable>, public ISortContainer<T, TEnumerable> {};
 }

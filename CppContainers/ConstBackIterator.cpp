@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ConstBackIterator.h"
+
 #include "IConstBackIterable.h"
 
 namespace Containers
@@ -16,13 +17,13 @@ namespace Containers
 	}
 
 	template<class T>
-	void ConstBackIterator<T>::Back()
+	void ConstBackIterator<T>::Forward()
 	{
 		_pointer = _iterable.Back(_pointer);
 	}
 
 	template<class T>
-	bool ConstBackIterator<T>::IsBack() const
+	bool ConstBackIterator<T>::IsForward() const
 	{
 		return _iterable.IsBack(_pointer);
 	}
@@ -31,5 +32,11 @@ namespace Containers
 	T ConstBackIterator<T>::TakeValue() const
 	{
 		return _iterable.TakeValue(_pointer);
+	}
+
+	template<class T>
+	const T& ConstBackIterator<T>::TakeConstItem() const
+	{
+		return _iterable.TakeConstItem(_pointer);
 	}
 }

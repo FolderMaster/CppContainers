@@ -26,5 +26,7 @@ namespace Containers
 		T TakeValue() const override;
 
 		T& TakeItem() override;
+
+		const T& TakeConstItem() const override;
 	};
 }

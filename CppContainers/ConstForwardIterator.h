@@ -24,5 +24,7 @@ namespace Containers
 		bool IsForward() const override;
 
 		T TakeValue() const override;
+
+		const T& TakeConstItem() const override;
 	};
 }

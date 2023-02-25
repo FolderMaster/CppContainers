@@ -56,6 +56,8 @@ namespace Containers
 
 		T& TakeItem(size_t index) override;
 
+		const T& TakeConstItem(size_t index) const override;
+
 		void* Forward(void* pointer) const override;
 
 		bool IsForward(void* pointer) const override;
@@ -68,6 +70,8 @@ namespace Containers
 
 		T& TakeItem(void* pointer) override;
 
+		const T& TakeConstItem(void* pointer) const override;
+
 		ConstForwardIterator<T> CreateConstForwardBegin() const override;
 
 		ConstForwardIterator<T> CreateConstForwardEnd() const override;
@@ -76,6 +80,14 @@ namespace Containers
 
 		ConstBackIterator<T> CreateConstBackEnd() const override;
 
+		ConstFullIterator<T> CreateConstFullBegin() const override;
+
+		ConstFullIterator<T> CreateConstFullEnd() const override;
+
+		ConstFullIterator<T> CreateConstBackFullBegin() const override;
+
+		ConstFullIterator<T> CreateConstBackFullEnd() const override;
+
 		ForwardIterator<T> CreateForwardBegin() override;
 
 		ForwardIterator<T> CreateForwardEnd() override;
@@ -83,6 +95,14 @@ namespace Containers
 		BackIterator<T> CreateBackBegin() override;
 
 		BackIterator<T> CreateBackEnd() override;
+
+		FullIterator<T> CreateFullBegin() override;
+
+		FullIterator<T> CreateFullEnd() override;
+
+		FullIterator<T> CreateBackFullBegin() override;
+
+		FullIterator<T> CreateBackFullEnd() override;
 	};
 
 	template<class T>

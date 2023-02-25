@@ -1,6 +1,6 @@
 #pragma once
 
-#include "HashTable.h"
+#include "MultiHashTable.h"
 
 #include "SearchFunctions.h"
 #include "Exceptions.h"
@@ -8,10 +8,11 @@
 namespace Containers
 {
 	template<class TKey, class TValue>
-	void HashTable<TKey, TValue>::Rehash()
+	void MultiHashTable<TKey, TValue>::Rehash()
 	{
 		int size = _hashTable.GetSize();
-		SingleList<KeyValuePair<TKey, TValue>> pairList = SingleList<KeyValuePair<TKey, TValue>>();
+		SingleList<KeyValuePair<TKey, SingleList<TValue>>> pairList =
+			SingleList<KeyValuePair<TKey, SingleList<TValue>>>();
 		for (int n = 0; n < size; ++n)
 		{
 			for (int h = 0; h < _hashTable[n].GetSize(); ++h)
@@ -24,7 +25,7 @@ namespace Containers
 		int newSize = round(size * _growFactor);
 		for (int n = size; n < newSize; ++n)
 		{
-			_hashTable.AddEnd(SingleList<KeyValuePair<TKey, TValue>>());
+			_hashTable.AddEnd(SingleList<KeyValuePair<TKey, SingleList<TValue>>>());
 		}
 
 		for (int n = 0; n < pairList.GetSize(); ++n)
@@ -35,7 +36,7 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	bool HashTable<TKey, TValue>::IsNeedRehash()
+	bool MultiHashTable<TKey, TValue>::IsNeedRehash()
 	{
 		int arraySize = _hashTable.GetSize();
 		int listSize = 0;
@@ -47,7 +48,7 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	size_t HashTable<TKey, TValue>::GetSize() const
+	size_t MultiHashTable<TKey, TValue>::GetSize() const
 	{
 		size_t size = 0;
 		for (size_t n = 0; n < _hashTable.GetSize(); ++n)
@@ -58,7 +59,7 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	bool HashTable<TKey, TValue>::IsEmpty() const
+	bool MultiHashTable<TKey, TValue>::IsEmpty() const
 	{
 		for (size_t n = 0; n < _hashTable.GetSize(); ++n)
 		{
@@ -71,19 +72,23 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	HashTable<TKey, TValue>::HashTable(int (*hashFucntion)(TKey, size_t)) :
-		_hashFunction(hashFucntion), _hashTable(Array<SingleList<KeyValuePair<TKey, TValue>>>()) {}
+	MultiHashTable<TKey, TValue>::MultiHashTable(int(*hashFucntion)(TKey, size_t)) :
+		_hashFunction(hashFucntion),
+		_hashTable(Array<SingleList<KeyValuePair<TKey, SingleList<TValue>>>>()) {}
 
 	template<class TKey, class TValue>
-	HashTable<TKey, TValue>::HashTable(const HashTable<TKey, TValue>& other) :
-		_hashTable(other._hashTable), _hashFunction(other._hashFunction) {}
+	MultiHashTable<TKey, TValue>::MultiHashTable(const MultiHashTable<TKey, TValue>& other)
+	{
+		_hashFunction = other._hashFunction;
+		_hashTable = other._hashTable;
+	}
 
 	template<class TKey, class TValue>
-	HashTable<TKey, TValue>::~HashTable() {}
+	MultiHashTable<TKey, TValue>::~MultiHashTable() {}
 
 	template<class TKey, class TValue>
-	HashTable<TKey, TValue>& HashTable<TKey, TValue>::operator=(const HashTable<TKey, TValue>&
-		other)
+	MultiHashTable<TKey, TValue>& MultiHashTable<TKey, TValue>::operator=(const
+		MultiHashTable<TKey, TValue>& other)
 	{
 		if (this != &other)
 		{
@@ -94,28 +99,36 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	void HashTable<TKey, TValue>::Add(TValue value, TKey key)
+	void MultiHashTable<TKey, TValue>::Add(TValue value, TKey key)
 	{
 		if (_hashTable.GetSize() == 0)
 		{
-			SingleList<KeyValuePair<TKey, TValue>> list = SingleList<KeyValuePair<TKey, TValue>>();
-			list.AddBegin(KeyValuePair<TKey, TValue>(key, value));
+			SingleList<KeyValuePair<TKey, SingleList<TValue>>> list =
+				SingleList<KeyValuePair<TKey, SingleList<TValue>>>();
+			KeyValuePair<TKey, SingleList<TValue>> item = KeyValuePair<TKey, SingleList<TValue>>
+				(key, SingleList<TValue>());
+			item.Value.AddBegin(value);
+			list.AddBegin(item);
 			_hashTable.AddBegin(list);
 			Rehash();
 		}
 		else
 		{
 			int arrayIndex = _hashFunction(key, _hashTable.GetSize());
-			KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
-			SingleList<KeyValuePair<TKey, TValue>>& list = _hashTable[arrayIndex];
+			KeyValuePair<TKey, SingleList<TValue>> pair =
+				KeyValuePair<TKey, SingleList<TValue>>(key);
+			SingleList<KeyValuePair<TKey, SingleList<TValue>>>& list = _hashTable[arrayIndex];
 			int listIndex = LinearFindIndex(list, pair);
 			if (listIndex != -1)
 			{
-				throw OccupiedKeyException;
+				list[listIndex].Value.AddEnd(value);
 			}
 			else
 			{
-				list.AddEnd(KeyValuePair<TKey, TValue>(key, value));
+				KeyValuePair<TKey, SingleList<TValue>> item = KeyValuePair<TKey,
+					SingleList<TValue>>(key, SingleList<TValue>());
+				item.Value.AddBegin(value);
+				list.AddEnd(item);
 				if (IsNeedRehash())
 				{
 					Rehash();
@@ -125,7 +138,7 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	void HashTable<TKey, TValue>::Remove(TKey key)
+	void MultiHashTable<TKey, TValue>::Remove(TKey key)
 	{
 		if (_hashTable.GetSize() == 0)
 		{
@@ -134,8 +147,9 @@ namespace Containers
 		else
 		{
 			int arrayIndex = _hashFunction(key, _hashTable.GetSize());
-			KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
-			SingleList<KeyValuePair<TKey, TValue>>& list = _hashTable[arrayIndex];
+			KeyValuePair<TKey, SingleList<TValue>> pair =
+				KeyValuePair<TKey, SingleList<TValue>>(key);
+			SingleList<KeyValuePair<TKey, SingleList<TValue>>>& list = _hashTable[arrayIndex];
 			int listIndex = LinearFindIndex(list, pair);
 			if (listIndex == -1)
 			{
@@ -153,7 +167,7 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	TValue HashTable<TKey, TValue>::TakeValue(TKey key) const
+	SingleList<TValue> MultiHashTable<TKey, TValue>::TakeValue(TKey key) const
 	{
 		if (_hashTable.GetSize() == 0)
 		{
@@ -161,9 +175,10 @@ namespace Containers
 		}
 		else
 		{
-			KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
 			int arrayIndex = _hashFunction(key, _hashTable.GetSize());
-			const SingleList<KeyValuePair<TKey, TValue>>& list =
+			KeyValuePair<TKey, SingleList<TValue>> pair =
+				KeyValuePair<TKey, SingleList<TValue>>(key);
+			const SingleList<KeyValuePair<TKey, SingleList<TValue>>>& list =
 				_hashTable.TakeConstItem(arrayIndex);
 			int listIndex = LinearFindIndex(list, pair);
 			if (listIndex == -1)
@@ -178,7 +193,7 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	TValue& HashTable<TKey, TValue>::TakeItem(TKey key)
+	SingleList<TValue>& MultiHashTable<TKey, TValue>::TakeItem(TKey key)
 	{
 		if (_hashTable.GetSize() == 0)
 		{
@@ -186,9 +201,10 @@ namespace Containers
 		}
 		else
 		{
-			KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
 			int arrayIndex = _hashFunction(key, _hashTable.GetSize());
-			SingleList<KeyValuePair<TKey, TValue>>& list = _hashTable[arrayIndex];
+			KeyValuePair<TKey, SingleList<TValue>> pair =
+				KeyValuePair<TKey, SingleList<TValue>>(key);
+			SingleList<KeyValuePair<TKey, SingleList<TValue>>>& list = _hashTable[arrayIndex];
 			int listIndex = LinearFindIndex(list, pair);
 			if (listIndex == -1)
 			{
@@ -202,7 +218,7 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	const TValue& HashTable<TKey, TValue>::TakeConstItem(TKey key) const
+	const SingleList<TValue>& MultiHashTable<TKey, TValue>::TakeConstItem(TKey key) const
 	{
 		if (_hashTable.GetSize() == 0)
 		{
@@ -210,9 +226,10 @@ namespace Containers
 		}
 		else
 		{
-			KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key);
 			int arrayIndex = _hashFunction(key, _hashTable.GetSize());
-			const SingleList<KeyValuePair<TKey, TValue>>& list =
+			KeyValuePair<TKey, SingleList<TValue>> pair =
+				KeyValuePair<TKey, SingleList<TValue>>(key);
+			const SingleList<KeyValuePair<TKey, SingleList<TValue>>>& list =
 				_hashTable.TakeConstItem(arrayIndex);
 			int listIndex = LinearFindIndex(list, pair);
 			if (listIndex == -1)

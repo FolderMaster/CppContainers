@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IConstBackIterator.h"
+#include "IConstForwardIterator.h"
 
 namespace Containers
 {
@@ -8,7 +8,7 @@ namespace Containers
 	class IConstBackIterable;
 
 	template <class T>
-	class ConstBackIterator : public IConstBackIterator<T>
+	class ConstBackIterator : public IConstForwardIterator<T>
 	{
 	private:
 		void* _pointer;
@@ -19,10 +19,12 @@ namespace Containers
 
 		bool operator!=(ConstBackIterator<T> it);
 
-		void Back() override;
+		void Forward() override;
 
-		bool IsBack() const override;
+		bool IsForward() const override;
 
 		T TakeValue() const override;
+
+		const T& TakeConstItem() const override;
 	};
 }

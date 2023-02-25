@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IDictonary.h"
+
 #include "SortFunctions.h"
 #include "DynamicArray.h"
 #include "KeyValuePair.h"
@@ -22,7 +23,11 @@ namespace Containers
 
 		Dictionary();
 
+		Dictionary(const Dictionary<TKey, TValue>& other);
+
 		~Dictionary();
+
+		Dictionary<TKey, TValue>& operator=(const Dictionary<TKey, TValue>& other);
 
 		void Add(TValue value, TKey key) override;
 
@@ -31,6 +36,8 @@ namespace Containers
 		TValue TakeValue(TKey key) const override;
 
 		TValue& TakeItem(TKey key) override;
+
+		const TValue& TakeConstItem(TKey key) const override;
 
 		void* Forward(void* pointer) const override;
 
@@ -41,6 +48,8 @@ namespace Containers
 		bool IsBack(void* pointer) const override;
 
 		KeyValuePair<TKey, TValue> TakeValue(void* pointer) const override;
+
+		const KeyValuePair<TKey, TValue>& TakeConstItem(void* pointer) const override;
 
 		ConstForwardIterator<KeyValuePair<TKey, TValue>> CreateConstForwardBegin() const override;
 

@@ -4,8 +4,10 @@
 
 #include "ConstForwardIterator.h"
 #include "ConstBackIterator.h"
+#include "ConstFullIterator.h"
 #include "ForwardIterator.h"
 #include "BackIterator.h"
+#include "FullIterator.h"
 
 namespace Containers
 {
@@ -205,6 +207,12 @@ namespace Containers
 	}
 
 	template<class T>
+	const T& DynamicArray<T>::TakeConstItem(size_t index) const
+	{
+		return _array[index];
+	}
+
+	template<class T>
 	void* DynamicArray<T>::Forward(void* pointer) const
 	{
 		return (T*)pointer + 1;
@@ -243,6 +251,12 @@ namespace Containers
 	}
 
 	template<class T>
+	const T& DynamicArray<T>::TakeConstItem(void* pointer) const
+	{
+		return *((T*)pointer);
+	}
+
+	template<class T>
 	ConstForwardIterator<T> DynamicArray<T>::CreateConstForwardBegin() const
 	{
 		return ConstForwardIterator<T>(_array, *this);
@@ -267,6 +281,30 @@ namespace Containers
 	}
 
 	template<class T>
+	ConstFullIterator<T> DynamicArray<T>::CreateConstFullBegin() const
+	{
+		return ConstFullIterator<T>(_array, *this);
+	}
+
+	template<class T>
+	ConstFullIterator<T> DynamicArray<T>::CreateConstFullEnd() const
+	{
+		return ConstFullIterator<T>(_array + _size, *this);
+	}
+
+	template<class T>
+	ConstFullIterator<T> DynamicArray<T>::CreateConstBackFullBegin() const
+	{
+		return ConstFullIterator<T>(_array + _size - 1, *this);
+	}
+
+	template<class T>
+	ConstFullIterator<T> DynamicArray<T>::CreateConstBackFullEnd() const
+	{
+		return ConstFullIterator<T>(_array - 1, *this);
+	}
+
+	template<class T>
 	ForwardIterator<T> DynamicArray<T>::CreateForwardBegin()
 	{
 		return ForwardIterator<T>(_array, *this);
@@ -288,5 +326,29 @@ namespace Containers
 	BackIterator<T> DynamicArray<T>::CreateBackEnd()
 	{
 		return BackIterator<T>(_array - 1, *this);
+	}
+
+	template<class T>
+	FullIterator<T> DynamicArray<T>::CreateFullBegin()
+	{
+		return FullIterator<T>(_array, *this);
+	}
+
+	template<class T>
+	FullIterator<T> DynamicArray<T>::CreateFullEnd()
+	{
+		return FullIterator<T>(_array + _size, *this);
+	}
+
+	template<class T>
+	FullIterator<T> DynamicArray<T>::CreateBackFullBegin()
+	{
+		return FullIterator<T>(_array + _size - 1, *this);
+	}
+
+	template<class T>
+	FullIterator<T> DynamicArray<T>::CreateBackFullEnd()
+	{
+		return FullIterator<T>(_array - 1, *this);
 	}
 }
