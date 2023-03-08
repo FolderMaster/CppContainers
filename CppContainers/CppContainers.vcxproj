@@ -130,6 +130,8 @@
   <ItemGroup>
     <ClCompile Include="AdditionalFunctions.cpp" />
     <ClCompile Include="BackIterator.cpp" />
+    <ClCompile Include="BinarySearchTree.cpp" />
+    <ClCompile Include="BinaryTreeSegment.cpp" />
     <ClCompile Include="ConstFullIterator.cpp" />
     <ClCompile Include="ForwardIterator.cpp" />
     <ClCompile Include="FullIterator.cpp" />
@@ -138,6 +140,7 @@
     <ClCompile Include="IFullIterable.h" />
     <ClCompile Include="MultiDictionary.cpp" />
     <ClCompile Include="MultiHashTable.cpp" />
+    <ClCompile Include="RingBuffer.cpp" />
     <ClCompile Include="SearchFunctions.cpp" />
     <ClCompile Include="ConstBackIterator.cpp" />
     <ClCompile Include="ConstForwardIterator.cpp" />
@@ -158,6 +161,8 @@
   <ItemGroup>
     <ClInclude Include="AdditionalFunctions.h" />
     <ClInclude Include="BackIterator.h" />
+    <ClInclude Include="BinarySearchTree.h" />
+    <ClInclude Include="BinaryTreeSegment.h" />
     <ClInclude Include="CapacityContainerGetable.h" />
     <ClInclude Include="ConstBackIterator.h" />
     <ClInclude Include="ConstForwardIterator.h" />
@@ -172,11 +177,19 @@
     <ClInclude Include="FullIterator.h" />
     <ClInclude Include="HashFunctions.h" />
     <ClInclude Include="HashTable.h" />
+    <ClInclude Include="IBinaryTree.h" />
     <ClInclude Include="IConstFullIterable.h" />
     <ClInclude Include="IConstItemContainerTakeable.h" />
     <ClInclude Include="IConstItemIterableTakeable.h" />
     <ClInclude Include="IConstItemIteratorTakeable.h" />
-    <ClInclude Include="IContainerAddable.h" />
+    <ClInclude Include="IItemContainerAddable.h" />
+    <ClInclude Include="IItemSimpleContainerAddable.h" />
+    <ClInclude Include="IItemSpecificContainerAddable.h" />
+    <ClInclude Include="ISimpleConstItemContainerTakeable.h" />
+    <ClInclude Include="ISimpleItemContainerTakeable.h" />
+    <ClInclude Include="ISpecificConstItemContainerTakeable.h" />
+    <ClInclude Include="ISpecificItemContainerTakeable.h" />
+    <ClInclude Include="IValueContainerAddable.h" />
     <ClInclude Include="IBackIterable.h" />
     <ClInclude Include="IContainerClearable.h" />
     <ClInclude Include="IConstForwardIterable.h" />
@@ -203,12 +216,12 @@
     <ClInclude Include="IContainerRemoveable.h" />
     <ClInclude Include="IConstBackIterable.h" />
     <ClInclude Include="ISortContainer.h" />
-    <ClInclude Include="ISimpleContainerAddable.h" />
+    <ClInclude Include="IValueSimpleContainerAddable.h" />
     <ClInclude Include="ISimpleContainerRemoveable.h" />
     <ClInclude Include="ISimpleValueContainerTakeable.h" />
     <ClInclude Include="ISingleLinkedList.h" />
     <ClInclude Include="ISizeContainerGetable.h" />
-    <ClInclude Include="ISpecificContainerAddable.h" />
+    <ClInclude Include="IValueSpecificContainerAddable.h" />
     <ClInclude Include="ISpecificContainerRemoveable.h" />
     <ClInclude Include="ISpecificValueContainerTakeable.h" />
     <ClInclude Include="IStack.h" />
@@ -221,6 +234,7 @@
     <ClInclude Include="MultiDictionary.h" />
     <ClInclude Include="MultiHashTable.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="RingBuffer.h" />
     <ClInclude Include="SearchFunctions.h" />
     <ClInclude Include="SingleLinkedList.h" />
     <ClInclude Include="SingleLinkedListSegment.h" />

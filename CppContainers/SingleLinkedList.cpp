@@ -120,18 +120,36 @@ namespace Containers
 	}
 
 	template<class T>
-	void SingleLinkedList<T>::Add(T value, int index)
+	void SingleLinkedList<T>::AddValue(T value, int index)
+	{
+		AddItem(value, index);
+	}
+
+	template<class T>
+	void SingleLinkedList<T>::AddValueBegin(T value)
+	{
+		AddItem(value, 0);
+	}
+
+	template<class T>
+	void SingleLinkedList<T>::AddValueEnd(T value)
+	{
+		AddItem(value, -1);
+	}
+
+	template<class T>
+	void SingleLinkedList<T>::AddItem(T& item, int index)
 	{
 		if (index == 0)
 		{
 			if (_head == nullptr)
 			{
-				_head = new SingleSegment<T>(value);
+				_head = new SingleSegment<T>(item);
 				_tail = _head;
 			}
 			else
 			{
-				_head = new SingleSegment<T>(value, _head);
+				_head = new SingleSegment<T>(item, _head);
 			}
 		}
 		else
@@ -141,32 +159,32 @@ namespace Containers
 			{
 				if (_tail == nullptr)
 				{
-					_head = new SingleSegment<T>(value);
+					_head = new SingleSegment<T>(item);
 					_tail = _head;
 				}
 				else
 				{
-					_tail->Next = new SingleSegment<T>(value);
+					_tail->Next = new SingleSegment<T>(item);
 					_tail = _tail->Next;
 				}
 			}
 			else
 			{
-				pointer->Next = new SingleSegment<T>(value, pointer->Next);
+				pointer->Next = new SingleSegment<T>(item, pointer->Next);
 			}
 		}
 	}
 
 	template<class T>
-	void SingleLinkedList<T>::AddBegin(T value)
+	void SingleLinkedList<T>::AddItemBegin(T& item)
 	{
-		Add(value, 0);
+		AddItem(item, 0);
 	}
 
 	template<class T>
-	void SingleLinkedList<T>::AddEnd(T value)
+	void SingleLinkedList<T>::AddItemEnd(T& item)
 	{
-		Add(value, -1);
+		AddItem(item, -1);
 	}
 
 	template<class T>
@@ -244,7 +262,7 @@ namespace Containers
 	template<class T>
 	T SingleLinkedList<T>::TakeValue(int index) const
 	{
-		return GetPointerOfIndex(index)->Item;
+		return TakeConstItem(index);
 	}
 
 	template<class T>
@@ -266,9 +284,33 @@ namespace Containers
 	}
 
 	template<class T>
+	T& SingleLinkedList<T>::TakeItemBegin()
+	{
+		return TakeItem(0);
+	}
+
+	template<class T>
+	T& SingleLinkedList<T>::TakeItemEnd()
+	{
+		return TakeItem(-2);
+	}
+
+	template<class T>
 	const T& SingleLinkedList<T>::TakeConstItem(int index) const
 	{
 		return GetPointerOfIndex(index)->Item;
+	}
+
+	template<class T>
+	const T& SingleLinkedList<T>::TakeConstItemBegin() const
+	{
+		return TakeConstItem(0);
+	}
+
+	template<class T>
+	const T& SingleLinkedList<T>::TakeConstItemEnd() const
+	{
+		return TakeConstItem(-2);
 	}
 
 	template<class T>
@@ -304,24 +346,24 @@ namespace Containers
 	template<class T>
 	ConstForwardIterator<T> SingleLinkedList<T>::CreateConstForwardBegin() const
 	{
-		return ConstForwardIterator<T>(_head, *this);
+		return ConstForwardIterator<T>(_head, this);
 	}
 
 	template<class T>
 	ConstForwardIterator<T> SingleLinkedList<T>::CreateConstForwardEnd() const
 	{
-		return ConstForwardIterator<T>(nullptr, *this);
+		return ConstForwardIterator<T>(nullptr, this);
 	}
 
 	template<class T>
 	ForwardIterator<T> SingleLinkedList<T>::CreateForwardBegin()
 	{
-		return ForwardIterator<T>(_head, *this);
+		return ForwardIterator<T>(_head, this);
 	}
 
 	template<class T>
 	ForwardIterator<T> SingleLinkedList<T>::CreateForwardEnd()
 	{
-		return ForwardIterator<T>(nullptr, *this);
+		return ForwardIterator<T>(nullptr, this);
 	}
 }

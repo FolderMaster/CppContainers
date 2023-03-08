@@ -13,9 +13,13 @@ namespace Containers
 	private:
 		void* _pointer;
 
-		const IConstForwardIterable<T>& _iterable;
+		const IConstForwardIterable<T>* _iterable;
 	public:
-		ConstForwardIterator(void* pointer, const IConstForwardIterable<T>& iterable);
+		ConstForwardIterator(void* pointer, const IConstForwardIterable<T>* iterable);
+
+		ConstForwardIterator(const ConstForwardIterator<T>& other);
+
+		ConstForwardIterator<T>& operator=(const ConstForwardIterator<T>& other);
 
 		bool operator!=(ConstForwardIterator<T> it);
 

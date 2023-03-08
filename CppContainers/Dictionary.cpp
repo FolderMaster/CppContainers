@@ -28,7 +28,10 @@ namespace Containers
 		_dictionary(other._dictionary), _sortFunction(other._sortFunction) {}
 
 	template<class TKey, class TValue>
-	Dictionary<TKey, TValue>::~Dictionary() {}
+	Dictionary<TKey, TValue>::~Dictionary()
+	{
+		Clear();
+	}
 
 	template<class TKey, class TValue>
 	Dictionary<TKey, TValue>& Dictionary<TKey, TValue>::operator=(const Dictionary<TKey, TValue>& other)
@@ -42,13 +45,19 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	void Dictionary<TKey, TValue>::Add(TValue value, TKey key)
+	void Dictionary<TKey, TValue>::AddValue(TValue value, TKey key)
 	{
-		KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key, value);
+		AddItem(value, key);
+	}
+
+	template<class TKey, class TValue>
+	void Dictionary<TKey, TValue>::AddItem(TValue& item, TKey key)
+	{
+		KeyValuePair<TKey, TValue> pair = KeyValuePair<TKey, TValue>(key, item);
 		int index = BinaryFindIndex(_dictionary, pair, _sortFunction);
 		if (index == -1)
 		{
-			_dictionary.AddEnd(pair);
+			_dictionary.AddItemEnd(pair);
 			BubbleSort(_dictionary, _sortFunction);
 		}
 		else
@@ -70,6 +79,12 @@ namespace Containers
 		{
 			throw KeyNotFoundException;
 		}
+	}
+
+	template<class TKey, class TValue>
+	void Dictionary<TKey, TValue>::Clear()
+	{
+		_dictionary.Clear();
 	}
 
 	template<class TKey, class TValue>

@@ -13,9 +13,13 @@ namespace Containers
 	private:
 		void* _pointer;
 
-		IFullIterable<T>& _iterable;
+		IFullIterable<T>* _iterable;
 	public:
-		FullIterator(void* pointer, IFullIterable<T>& iterable);
+		FullIterator(void* pointer, IFullIterable<T>* iterable);
+
+		FullIterator(const FullIterator<T>& other);
+
+		FullIterator<T>& operator=(const FullIterator<T>& other);
 
 		bool operator!=(FullIterator<T> it);
 

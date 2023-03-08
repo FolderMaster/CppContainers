@@ -10,10 +10,11 @@ namespace Containers
 		Key(other.Key), Value(other.Value) {}
 
 	template<class TKey, class TValue>
-	KeyValuePair<TKey, TValue>::KeyValuePair(TKey key) : Key(key) {}
+	KeyValuePair<TKey, TValue>::KeyValuePair(const TKey& key) : Key(key) {}
 
 	template<class TKey, class TValue>
-	KeyValuePair<TKey, TValue>::KeyValuePair(TKey key, TValue value) : Key(key), Value(value) {}
+	KeyValuePair<TKey, TValue>::KeyValuePair(const TKey& key, const TValue& value) : Key(key),
+		Value(value) {}
 
 	template<class TKey, class TValue>
 	KeyValuePair<TKey, TValue>& KeyValuePair<TKey, TValue>::operator=(const KeyValuePair<TKey,

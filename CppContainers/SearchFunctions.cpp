@@ -35,7 +35,7 @@ namespace Containers
 		{
 			if (begin.TakeValue() == value)
 			{
-				list->AddEnd(index);
+				list->AddItemEnd(index);
 			}
 			++index;
 			begin.Forward();
@@ -99,7 +99,7 @@ namespace Containers
 		{
 			if (begin.TakeValue() == item)
 			{
-				list->AddEnd(begin.TakeItem());
+				list->AddItemEnd(begin.TakeItem());
 			}
 			begin.Forward();
 		}

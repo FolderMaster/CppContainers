@@ -29,9 +29,13 @@ namespace Containers
 
 		Dictionary<TKey, TValue>& operator=(const Dictionary<TKey, TValue>& other);
 
-		void Add(TValue value, TKey key) override;
+		void AddValue(TValue value, TKey key) override;
+
+		void AddItem(TValue& item, TKey key) override;
 
 		void Remove(TKey key) override;
+
+		void Clear() override;
 
 		TValue TakeValue(TKey key) const override;
 

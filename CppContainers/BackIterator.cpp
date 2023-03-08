@@ -7,8 +7,23 @@
 namespace Containers
 {
 	template<class T>
-	BackIterator<T>::BackIterator(void* pointer, IBackIterable<T>& iterable) :
+	BackIterator<T>::BackIterator(void* pointer, IBackIterable<T>* iterable) :
 		_pointer(pointer), _iterable(iterable) {}
+
+	template<class T>
+	BackIterator<T>::BackIterator(const BackIterator<T>& other) : _pointer(other._pointer),
+		_iterable(other._iterable) {}
+
+	template<class T>
+	BackIterator<T>& BackIterator<T>::operator=(const BackIterator<T>& other)
+	{
+		if (this != &other)
+		{
+			_pointer = other._pointer;
+			_iterable = other._iterable;
+		}
+		return *this;
+	}
 
 	template<class T>
 	bool BackIterator<T>::operator!=(BackIterator<T> it)
@@ -19,30 +34,30 @@ namespace Containers
 	template<class T>
 	void BackIterator<T>::Forward()
 	{
-		_pointer = _iterable.Back(_pointer);
+		_pointer = _iterable->Back(_pointer);
 	}
 
 	template<class T>
 	bool BackIterator<T>::IsForward() const
 	{
-		return _iterable.IsBack(_pointer);
+		return _iterable->IsBack(_pointer);
 	}
 
 	template<class T>
 	T BackIterator<T>::TakeValue() const
 	{
-		return _iterable.TakeValue(_pointer);
+		return _iterable->TakeValue(_pointer);
 	}
 
 	template<class T>
 	T& BackIterator<T>::TakeItem()
 	{
-		return _iterable.TakeItem(_pointer);
+		return _iterable->TakeItem(_pointer);
 	}
 
 	template<class T>
 	const T& BackIterator<T>::TakeConstItem() const
 	{
-		return _iterable.TakeConstItem(_pointer);
+		return _iterable->TakeConstItem(_pointer);
 	}
 }

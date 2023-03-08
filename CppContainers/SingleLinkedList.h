@@ -31,11 +31,17 @@ namespace Containers
 
 		SingleLinkedList<T>& operator=(const SingleLinkedList<T>& other);
 
-		void Add(T value, int index) override;
+		void AddValue(T value, int index) override;
 
-		void AddBegin(T value) override;
+		void AddValueBegin(T value) override;
 
-		void AddEnd(T value) override;
+		void AddValueEnd(T value) override;
+
+		void AddItem(T& item, int index) override;
+
+		void AddItemBegin(T& item) override;
+
+		void AddItemEnd(T& item) override;
 
 		void Remove(int index) override;
 
@@ -53,7 +59,15 @@ namespace Containers
 
 		T& TakeItem(int index) override;
 
+		T& TakeItemBegin() override;
+
+		T& TakeItemEnd() override;
+
 		const T& TakeConstItem(int index) const override;
+
+		const T& TakeConstItemBegin() const override;
+
+		const T& TakeConstItemEnd() const override;
 
 		void* Forward(void* pointer) const override;
 

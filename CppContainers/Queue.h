@@ -10,12 +10,20 @@ namespace Containers
 	{
 	private:
 		IQueueContainer<T>& _container;
+
+		void CreateByQueue(const Queue<T>& other);
 	public:
 		Queue(IQueueContainer<T>& container);
 
+		Queue(const Queue<T>& other);
+
 		~Queue();
 
-		virtual void Enqueue(T value) override;
+		Queue<T>& operator=(const Queue<T>& other);
+
+		void EnqueueValue(T value) override;
+
+		void EnqueueItem(T& item) override;
 
 		virtual T Dequeue() override;
 	};

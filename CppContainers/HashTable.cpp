@@ -79,7 +79,10 @@ namespace Containers
 		_hashTable(other._hashTable), _hashFunction(other._hashFunction) {}
 
 	template<class TKey, class TValue>
-	HashTable<TKey, TValue>::~HashTable() {}
+	HashTable<TKey, TValue>::~HashTable()
+	{
+		Clear();
+	}
 
 	template<class TKey, class TValue>
 	HashTable<TKey, TValue>& HashTable<TKey, TValue>::operator=(const HashTable<TKey, TValue>&
@@ -94,13 +97,19 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	void HashTable<TKey, TValue>::Add(TValue value, TKey key)
+	void HashTable<TKey, TValue>::AddValue(TValue value, TKey key)
+	{
+		AddItem(value, key);
+	}
+
+	template<class TKey, class TValue>
+	void HashTable<TKey, TValue>::AddItem(TValue& item, TKey key)
 	{
 		if (_hashTable.GetSize() == 0)
 		{
 			SingleList<KeyValuePair<TKey, TValue>> list = SingleList<KeyValuePair<TKey, TValue>>();
-			list.AddBegin(KeyValuePair<TKey, TValue>(key, value));
-			_hashTable.AddBegin(list);
+			list.AddValueBegin(KeyValuePair<TKey, TValue>(key, item));
+			_hashTable.AddItemBegin(list);
 			Rehash();
 		}
 		else
@@ -115,7 +124,7 @@ namespace Containers
 			}
 			else
 			{
-				list.AddEnd(KeyValuePair<TKey, TValue>(key, value));
+				list.AddValueEnd(KeyValuePair<TKey, TValue>(key, item));
 				if (IsNeedRehash())
 				{
 					Rehash();
@@ -199,6 +208,12 @@ namespace Containers
 				return list[listIndex].Value;
 			}
 		}
+	}
+
+	template<class TKey, class TValue>
+	void HashTable<TKey, TValue>::Clear()
+	{
+		_hashFunction.Clear();
 	}
 
 	template<class TKey, class TValue>

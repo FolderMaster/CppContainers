@@ -14,9 +14,9 @@ namespace Containers
 
 		KeyValuePair(const KeyValuePair<TKey, TValue>& other);
 
-		KeyValuePair(TKey key);
+		KeyValuePair(const TKey& key);
 
-		KeyValuePair(TKey key, TValue value);
+		KeyValuePair(const TKey& key, const TValue& value);
 
 		KeyValuePair<TKey, TValue>& operator=(const KeyValuePair<TKey, TValue>& other);
 

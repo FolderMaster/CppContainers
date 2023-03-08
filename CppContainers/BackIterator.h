@@ -13,9 +13,13 @@ namespace Containers
 	private:
 		void* _pointer;
 
-		IBackIterable<T>& _iterable;
+		IBackIterable<T>* _iterable;
 	public:
-		BackIterator(void* pointer, IBackIterable<T>& iterable);
+		BackIterator(void* pointer, IBackIterable<T>* iterable);
+
+		BackIterator(const BackIterator<T>& other);
+
+		BackIterator<T>& operator=(const BackIterator<T>& other);
 
 		bool operator!=(BackIterator<T> it);
 

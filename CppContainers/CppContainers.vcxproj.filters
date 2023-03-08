@@ -91,15 +91,6 @@
     <Filter Include="Containers\Classes\Container\HashTables\HashTable">
       <UniqueIdentifier>{964ef259-7439-4af3-8bab-e245b0606486}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Containers\Classes\Container\Trees">
-      <UniqueIdentifier>{2ba56134-2f7d-41ff-ae32-a45f3763b103}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Containers\Classes\Container\Trees\BinaryTrees">
-      <UniqueIdentifier>{cf885a18-1e9f-42d5-9d6b-1bfd1bb026d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Containers\Classes\Container\Trees\BinaryHeaps">
-      <UniqueIdentifier>{a9b74a03-1d73-4a71-a927-a86273267f6e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Containers\Classes\Iterators">
       <UniqueIdentifier>{07a93418-8354-4c72-8ba6-d36c68d342d8}</UniqueIdentifier>
     </Filter>
@@ -176,6 +167,30 @@
     </Filter>
     <Filter Include="Containers\Classes\Container\HashTables\MultiHashTable">
       <UniqueIdentifier>{0f5aa206-b60e-4264-a5e0-5df26215ca22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\RingBuffer">
+      <UniqueIdentifier>{a3f7f8ab-1084-43c3-a898-8e4488cbba8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\BinaryTrees">
+      <UniqueIdentifier>{2ba56134-2f7d-41ff-ae32-a45f3763b103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\BinaryTrees\BinaryHeaps">
+      <UniqueIdentifier>{a9b74a03-1d73-4a71-a927-a86273267f6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\BinaryTrees\BinarySearchTrees">
+      <UniqueIdentifier>{cf885a18-1e9f-42d5-9d6b-1bfd1bb026d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Structures\BinaryTreeSegment">
+      <UniqueIdentifier>{5dbc0864-54d9-46bd-b537-489afc1dc458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Classes\Container\BinaryTrees\BinarySearchTrees\BinarySearchTree">
+      <UniqueIdentifier>{6d7fd3c2-38da-4a4b-8bde-da582509f199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Iterfaces\Containers\Addable\Item">
+      <UniqueIdentifier>{f5a498b0-64b1-4527-a68e-7b6d265cbf22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers\Iterfaces\Containers\Addable\Value">
+      <UniqueIdentifier>{fe4817b6-9272-428a-a781-bd77a161672c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -257,6 +272,15 @@
     <ClCompile Include="MultiHashTable.cpp">
       <Filter>Containers\Classes\Container\HashTables\MultiHashTable</Filter>
     </ClCompile>
+    <ClCompile Include="BinaryTreeSegment.cpp">
+      <Filter>Containers\Structures\BinaryTreeSegment</Filter>
+    </ClCompile>
+    <ClCompile Include="BinarySearchTree.cpp">
+      <Filter>Containers\Classes\Container\BinaryTrees\BinarySearchTrees\BinarySearchTree</Filter>
+    </ClCompile>
+    <ClCompile Include="RingBuffer.cpp">
+      <Filter>Containers\Classes\Container\RingBuffer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Containers.h">
@@ -282,15 +306,6 @@
     </ClInclude>
     <ClInclude Include="IConstBackIterable.h">
       <Filter>Containers\Iterfaces\Iterables\Current</Filter>
-    </ClInclude>
-    <ClInclude Include="IContainerAddable.h">
-      <Filter>Containers\Iterfaces\Containers\Addable</Filter>
-    </ClInclude>
-    <ClInclude Include="ISimpleContainerAddable.h">
-      <Filter>Containers\Iterfaces\Containers\Addable</Filter>
-    </ClInclude>
-    <ClInclude Include="ISpecificContainerAddable.h">
-      <Filter>Containers\Iterfaces\Containers\Addable</Filter>
     </ClInclude>
     <ClInclude Include="ISpecificContainerRemoveable.h">
       <Filter>Containers\Iterfaces\Containers\Removeable</Filter>
@@ -471,6 +486,48 @@
     </ClInclude>
     <ClInclude Include="IConstItemIteratorTakeable.h">
       <Filter>Containers\Iterfaces\Iterators\Takeables</Filter>
+    </ClInclude>
+    <ClInclude Include="IBinaryTree.h">
+      <Filter>Containers\Iterfaces\Containers\Currents</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTreeSegment.h">
+      <Filter>Containers\Structures\BinaryTreeSegment</Filter>
+    </ClInclude>
+    <ClInclude Include="BinarySearchTree.h">
+      <Filter>Containers\Classes\Container\BinaryTrees\BinarySearchTrees\BinarySearchTree</Filter>
+    </ClInclude>
+    <ClInclude Include="RingBuffer.h">
+      <Filter>Containers\Classes\Container\RingBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="IValueContainerAddable.h">
+      <Filter>Containers\Iterfaces\Containers\Addable\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="IValueSimpleContainerAddable.h">
+      <Filter>Containers\Iterfaces\Containers\Addable\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="IValueSpecificContainerAddable.h">
+      <Filter>Containers\Iterfaces\Containers\Addable\Value</Filter>
+    </ClInclude>
+    <ClInclude Include="IItemContainerAddable.h">
+      <Filter>Containers\Iterfaces\Containers\Addable\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IItemSimpleContainerAddable.h">
+      <Filter>Containers\Iterfaces\Containers\Addable\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IItemSpecificContainerAddable.h">
+      <Filter>Containers\Iterfaces\Containers\Addable\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ISimpleItemContainerTakeable.h">
+      <Filter>Containers\Iterfaces\Containers\Takeable\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ISpecificItemContainerTakeable.h">
+      <Filter>Containers\Iterfaces\Containers\Takeable\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="ISimpleConstItemContainerTakeable.h">
+      <Filter>Containers\Iterfaces\Containers\Takeable\ConstItem</Filter>
+    </ClInclude>
+    <ClInclude Include="ISpecificConstItemContainerTakeable.h">
+      <Filter>Containers\Iterfaces\Containers\Takeable\ConstItem</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

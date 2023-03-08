@@ -5,13 +5,15 @@
 namespace Containers
 {
 	template<class T>
-	DoubleLinkedListSegment<T>::DoubleLinkedListSegment(T item) : Item(item) {}
+	DoubleLinkedListSegment<T>::DoubleLinkedListSegment(const T& item) : Item(item), Back(nullptr),
+		Next(nullptr) {}
 
 	template<class T>
-	DoubleLinkedListSegment<T>::DoubleLinkedListSegment(T item, DoubleLinkedListSegment<T>* back) :
-		Item(item), Back(back) {};
+	DoubleLinkedListSegment<T>::DoubleLinkedListSegment(const T& item,
+		DoubleLinkedListSegment<T>* back) : Item(item), Back(back), Next(nullptr) {};
 
 	template<class T>
-	DoubleLinkedListSegment<T>::DoubleLinkedListSegment(T item, DoubleLinkedListSegment<T>* back,
-		DoubleLinkedListSegment<T>* next) : Item(item), Back(back), Next(next) {}
+	DoubleLinkedListSegment<T>::DoubleLinkedListSegment(const T& item,
+		DoubleLinkedListSegment<T>* back, DoubleLinkedListSegment<T>* next) : Item(item),
+		Back(back), Next(next) {}
 }

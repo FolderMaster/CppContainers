@@ -34,11 +34,17 @@ namespace Containers
 
 		DynamicArray<T>& operator=(const DynamicArray<T>& other);
 
-		void Add(T value, size_t index) override;
+		void AddValue(T value, size_t index) override;
 
-		void AddBegin(T value) override;
+		void AddValueBegin(T value) override;
 
-		void AddEnd(T value) override;
+		void AddValueEnd(T value) override;
+
+		void AddItem(T& item, size_t index) override;
+
+		void AddItemBegin(T& item) override;
+
+		void AddItemEnd(T& item) override;
 
 		void Remove(size_t index) override;
 
@@ -56,7 +62,15 @@ namespace Containers
 
 		T& TakeItem(size_t index) override;
 
+		T& TakeItemBegin() override;
+
+		T& TakeItemEnd() override;
+
 		const T& TakeConstItem(size_t index) const override;
+
+		const T& TakeConstItemBegin() const override;
+
+		const T& TakeConstItemEnd() const override;
 
 		void* Forward(void* pointer) const override;
 

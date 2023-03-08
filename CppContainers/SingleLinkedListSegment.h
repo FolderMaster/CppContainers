@@ -8,11 +8,11 @@ namespace Containers
 	public:
 		T Item;
 
-		SingleLinkedListSegment<T>* Next = nullptr;
+		SingleLinkedListSegment<T>* Next;
 
-		SingleLinkedListSegment(T item);
+		SingleLinkedListSegment(const T& item);
 
-		SingleLinkedListSegment(T item, SingleLinkedListSegment<T>* next);
+		SingleLinkedListSegment(const T& item, SingleLinkedListSegment<T>* next);
 	};
 
 	template<class T>

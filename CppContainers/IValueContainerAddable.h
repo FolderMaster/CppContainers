@@ -3,9 +3,9 @@
 namespace Containers
 {
 	template <class TValue, class TEnumerable>
-	class IContainerAddable
+	class IValueContainerAddable
 	{
 	public:
-		virtual void Add(TValue value, TEnumerable enumarable) = 0;
+		virtual void AddValue(TValue value, TEnumerable enumarable) = 0;
 	};
 }

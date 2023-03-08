@@ -17,7 +17,7 @@ namespace Containers
 		{
 			for (int h = 0; h < _hashTable[n].GetSize(); ++h)
 			{
-				pairList.AddEnd(_hashTable[n][h]);
+				pairList.AddItemEnd(_hashTable[n][h]);
 			}
 			_hashTable[n].Clear();
 		}
@@ -25,13 +25,13 @@ namespace Containers
 		int newSize = round(size * _growFactor);
 		for (int n = size; n < newSize; ++n)
 		{
-			_hashTable.AddEnd(SingleList<KeyValuePair<TKey, SingleList<TValue>>>());
+			_hashTable.AddValueEnd(SingleList<KeyValuePair<TKey, SingleList<TValue>>>());
 		}
 
 		for (int n = 0; n < pairList.GetSize(); ++n)
 		{
 			int arrayIndex = _hashFunction(pairList[n].Key, newSize);
-			_hashTable[arrayIndex].AddEnd(pairList[n]);
+			_hashTable[arrayIndex].AddItemEnd(pairList[n]);
 		}
 	}
 
@@ -84,7 +84,10 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	MultiHashTable<TKey, TValue>::~MultiHashTable() {}
+	MultiHashTable<TKey, TValue>::~MultiHashTable()
+	{
+		Clear();
+	}
 
 	template<class TKey, class TValue>
 	MultiHashTable<TKey, TValue>& MultiHashTable<TKey, TValue>::operator=(const
@@ -99,17 +102,23 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	void MultiHashTable<TKey, TValue>::Add(TValue value, TKey key)
+	void MultiHashTable<TKey, TValue>::AddValue(TValue value, TKey key)
+	{
+		AddItem(value, key);
+	}
+
+	template<class TKey, class TValue>
+	void MultiHashTable<TKey, TValue>::AddItem(TValue& item, TKey key)
 	{
 		if (_hashTable.GetSize() == 0)
 		{
 			SingleList<KeyValuePair<TKey, SingleList<TValue>>> list =
 				SingleList<KeyValuePair<TKey, SingleList<TValue>>>();
-			KeyValuePair<TKey, SingleList<TValue>> item = KeyValuePair<TKey, SingleList<TValue>>
-				(key, SingleList<TValue>());
-			item.Value.AddBegin(value);
-			list.AddBegin(item);
-			_hashTable.AddBegin(list);
+			KeyValuePair<TKey, SingleList<TValue>> listItem = KeyValuePair<TKey,
+				SingleList<TValue>>(key, SingleList<TValue>());
+			listItem.Value.AddItemBegin(item);
+			list.AddItemBegin(listItem);
+			_hashTable.AddItemBegin(list);
 			Rehash();
 		}
 		else
@@ -121,14 +130,14 @@ namespace Containers
 			int listIndex = LinearFindIndex(list, pair);
 			if (listIndex != -1)
 			{
-				list[listIndex].Value.AddEnd(value);
+				list[listIndex].Value.AddItemEnd(item);
 			}
 			else
 			{
-				KeyValuePair<TKey, SingleList<TValue>> item = KeyValuePair<TKey,
+				KeyValuePair<TKey, SingleList<TValue>> itemList = KeyValuePair<TKey,
 					SingleList<TValue>>(key, SingleList<TValue>());
-				item.Value.AddBegin(value);
-				list.AddEnd(item);
+				itemList.Value.AddItemBegin(item);
+				list.AddItemEnd(itemList);
 				if (IsNeedRehash())
 				{
 					Rehash();
@@ -164,6 +173,12 @@ namespace Containers
 				}
 			}
 		}
+	}
+
+	template<class TKey, class TValue>
+	void MultiHashTable<TKey, TValue>::Clear()
+	{
+		_hashTable.Clear();
 	}
 
 	template<class TKey, class TValue>

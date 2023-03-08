@@ -8,16 +8,16 @@ namespace Containers
 	public:
 		T Item;
 
-		DoubleLinkedListSegment<T>* Back = nullptr;
+		DoubleLinkedListSegment<T>* Back;
 
-		DoubleLinkedListSegment<T>* Next = nullptr;
+		DoubleLinkedListSegment<T>* Next;
 
-		DoubleLinkedListSegment(T item);
+		DoubleLinkedListSegment(const T& item);
 
-		DoubleLinkedListSegment(T item, DoubleLinkedListSegment<T>* back);
+		DoubleLinkedListSegment(const T& item, DoubleLinkedListSegment<T>* back);
 
-		DoubleLinkedListSegment(T item, DoubleLinkedListSegment<T>* back, DoubleLinkedListSegment<T>*
-			next);
+		DoubleLinkedListSegment(const T& item, DoubleLinkedListSegment<T>* back,
+			DoubleLinkedListSegment<T>* next);
 	};
 
 	template<class T>

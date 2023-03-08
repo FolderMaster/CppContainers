@@ -29,7 +29,10 @@ namespace Containers
 		_dictionary(other._dictionary), _sortFunction(other._sortFunction) {}
 
 	template<class TKey, class TValue>
-	MultiDictionary<TKey, TValue>::~MultiDictionary() {}
+	MultiDictionary<TKey, TValue>::~MultiDictionary()
+	{
+		Clear();
+	}
 
 	template<class TKey, class TValue>
 	MultiDictionary<TKey, TValue>& MultiDictionary<TKey, TValue>::operator=(const
@@ -44,20 +47,26 @@ namespace Containers
 	}
 
 	template<class TKey, class TValue>
-	void MultiDictionary<TKey, TValue>::Add(TValue value, TKey key)
+	void MultiDictionary<TKey, TValue>::AddValue(TValue value, TKey key)
+	{
+		AddItem(value, key);
+	}
+
+	template<class TKey, class TValue>
+	void MultiDictionary<TKey, TValue>::AddItem(TValue& item, TKey key)
 	{
 		KeyValuePair<TKey, SingleList<TValue>> pair = KeyValuePair<TKey, SingleList<TValue>>(key);
 		int index = BinaryFindIndex(_dictionary, pair, _sortFunction);
 		if (index == -1)
 		{
 			pair.Value = SingleList<TValue>();
-			pair.Value.AddBegin(value);
-			_dictionary.AddEnd(pair);
+			pair.Value.AddItemBegin(item);
+			_dictionary.AddItemEnd(pair);
 			BubbleSort(_dictionary, _sortFunction);
 		}
 		else
 		{
-			_dictionary[index].Value.AddEnd(value);
+			_dictionary[index].Value.AddItemEnd(item);
 		}
 	}
 
@@ -74,6 +83,12 @@ namespace Containers
 		{
 			throw KeyNotFoundException;
 		}
+	}
+
+	template<class TKey, class TValue>
+	void MultiDictionary<TKey, TValue>::Clear()
+	{
+		_dictionary.Clear();
 	}
 
 	template<class TKey, class TValue>

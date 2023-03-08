@@ -32,9 +32,13 @@ namespace Containers
 
 		MultiDictionary<TKey, TValue>& operator=(const MultiDictionary<TKey, TValue>& other);
 
-		void Add(TValue value, TKey key) override;
+		void AddValue(TValue value, TKey key) override;
+
+		void AddItem(TValue& item, TKey key) override;
 
 		void Remove(TKey key) override;
+
+		void Clear() override;
 
 		SingleList<TValue> TakeValue(TKey key) const override;
 
